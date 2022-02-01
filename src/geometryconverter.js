@@ -3,6 +3,9 @@ geometryConverter[
     "TEST"
 ] = require("./geometryconverter/test.js");
 geometryConverter[
+    "LOW LEVEL TRANSIT ROUTE"
+] = require("./geometryconverter/low-level-transit-route.js");
+geometryConverter[
     "AIR CORRIDOR"
 ] = require("./geometryconverter/air-corridor.js");
 geometryConverter[
