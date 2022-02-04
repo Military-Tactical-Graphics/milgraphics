@@ -3,6 +3,12 @@ geometryConverter[
     "TEST"
 ] = require("./geometryconverter/test.js");
 geometryConverter[
+    "RECTANGULAR TARGET"
+] = require("./geometryconverter/rectangular-target.js");
+geometryConverter[
+    "CIRCULAR TARGET"
+] = require("./geometryconverter/circular-target.js");
+geometryConverter[
     "LOW LEVEL TRANSIT ROUTE"
 ] = require("./geometryconverter/low-level-transit-route.js");
 geometryConverter[

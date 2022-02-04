@@ -3,8 +3,7 @@
     "features": [{
         "type": "Feature",
         "properties": {
-            "sidc": "G-G-GLF-------X",
-            "bearingWidth": 400
+            "sidc": "G-G-GLF-------X"
         },
         "geometry": {
             "type": "LineString",
@@ -14,8 +13,8 @@
                     52.40
                 ],
                 [
-                    4.87,
-                    52.39
+                    4.92,
+                    52.40 
                 ]
             ]
         }

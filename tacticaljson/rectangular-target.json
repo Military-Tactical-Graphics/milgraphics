@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+    "type": "Feature",
+    "properties": {
+      "sidc": "G-F-AT--------X",
+      "distance": 500,
+      "name": "AB0176"
+    },
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+        [
+          0.6,
+          47.3
+        ],
+        [
+          0.61,
+          47.3
+        ]
+      ]
+    }
+  }]
+}

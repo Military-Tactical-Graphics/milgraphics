@@ -24,8 +24,7 @@ module.exports = function(feature) {
         case "Polygon":
             geometry = { type: feature.geometry.type };
             geometry.coordinates = feature.geometry.coordinates;
-            // add annotation geometry
-
+         
             break;
         default:
             console.warn("Invalid feature type in SIDC: " + feature.properties.sidc);

@@ -1,0 +1,20 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "sidc": "G-F-AC--------X",
+                "distance": 5000,
+                "name": "JA1101"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.7532501220703125,
+                    47.3895174805737
+                ]
+            }
+        }
+    ]
+}

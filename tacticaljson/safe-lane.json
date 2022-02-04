@@ -4,7 +4,7 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-G-ALL-------X",
-                "name": "LLTR",
+                "name": "SL",
                 "distance": 500
             },
             "geometry": {

@@ -215,11 +215,11 @@ module.exports = function tacticalPoints(sidc, std2525) {
     sidc['G-F-LCR---'] = ms.geometryConverter["RESTRICTIVE FIRE LINE"]; //TACGRP.FSUPP.LNE.C2LNE.RFL
     sidc['G-F-LCM---'] = ms.geometryConverter["MUNITION FLIGHT PATH"];//TACGRP.FSUPP.LNE.C2LNE.MFP
     //sidc['G-F-A-----'] = [];//TACGRP.FSUPP.ARS
-    //sidc['G-F-AT----'] = [];//TACGRP.FSUPP.ARS.ARATGT
+    sidc['G-F-AT----'] = ms.geometryConverter["RECTANGULAR TARGET"];//TACGRP.FSUPP.ARS.ARATGT
     //sidc['G-F-ATG---'] = [];//TACGRP.FSUPP.ARS.ARATGT.SGTGT
     //sidc['G-F-ATS---'] = [];//TACGRP.FSUPP.ARS.ARATGT.SMK
     //sidc['G-F-ATB---'] = [];//TACGRP.FSUPP.ARS.ARATGT.BMARA
-    //sidc['G-F-AC----'] = [];//TACGRP.FSUPP.ARS.C2ARS
+    sidc['G-F-AC----'] = ms.geometryConverter["CIRCULAR TARGET"];//TACGRP.FSUPP.ARS.C2ARS
     //TACGRP.FSUPP.ARS.C2ARS.FSA
     sidc["G-F-ACSI--"] = ms.geometryConverter["FIRE SUPPORT AREA"]; //TACGRP.FSUPP.ARS.C2ARS.FSA.IRR
     sidc["G-F-ACSR--"] = ms.geometryConverter["FIRE SUPPORT AREA"]; //TACGRP.FSUPP.ARS.C2ARS.FSA.RTG

@@ -3,12 +3,11 @@ var ms = require("milsymbol");
 function flot(feature, relative = false) {
     var points = feature.geometry.coordinates;
     var geometry = { type: "MultiLineString", coordinates: [] };
-
+    
     // Geometry 1 - bearing line of n points
     var bearingGeos = [];
-
+ 
     var bearingWidth = (feature.properties.bearingWidth) ? feature.properties.bearingWidth : 400;
-
 
 
     // loop to repeat for every segment of the polygon that was input
