@@ -4,8 +4,13 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-G-ALL-------X",
-                "name": "SL",
-                "distance": 500
+                "name": "SL KNIGHT",
+                "distance": 500,
+                "uniqueDesignation": "53ID (M)",
+                "altitudeDepth": "500 FT AGL",
+                "altitudeDepth1": "300 FT AGL",
+                "dtg": "281400ZAPR",
+                "dtg1": "281530ZAPR"
             },
             "geometry": {
                 "type": "Polygon",
