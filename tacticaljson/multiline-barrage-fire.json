@@ -6,7 +6,7 @@
             "sidc": "T-S-T---------X",
             "name": "AC",
             "distance": 500,
-            "administrator": "OAK",
+            "administrator": "VLK",
             "type": "1BTY"
         },
         "geometry": {
@@ -19,6 +19,10 @@
                 [
                     4.90,
                     52.40
+                ],
+                [
+                    4.95,
+                    52.42
                 ]
             ]
         }
