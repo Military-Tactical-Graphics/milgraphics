@@ -12,8 +12,6 @@ module.exports = function(feature) {
         properties: { text: annotationText }
     };
 
-    
-
     if (feature.geometry.type == "Point") {
         centerPoint = points;
 
@@ -25,10 +23,11 @@ module.exports = function(feature) {
     } else if (feature.geometry.type = "Polygon") {
 
         //Variables for northernmost, southernmost coordinates for annotations in polygon
-        var maxLongitudes = Math.max.apply(null, getLatLong(points).longitudes);
-        var minLongitudes = Math.min.apply(null, getLatLong(points).longitudes);
         var northernmost;
         var southernmost;
+        var maxLongitudes = Math.max.apply(null, getLatLong(points).longitudes);
+        var minLongitudes = Math.min.apply(null, getLatLong(points).longitudes);
+ 
 
         for (var a = 0; a < points[0].length; a++) {
             if (points[0][a][1] == minLongitudes) {
@@ -38,11 +37,7 @@ module.exports = function(feature) {
             }
         }
         centerPoint = ms.geometry.pointBetween(southernmost, northernmost, 0.5);
-
-        //console.log(maxLongitudes, minLongitudes);
     }
-
-
 
     var shape = ms.geometry.circleCorridorPolygon(feature);
 

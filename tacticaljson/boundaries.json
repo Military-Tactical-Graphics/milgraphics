@@ -7,7 +7,7 @@
           "sidc": "G-G-GLB-------X"
         },
         "geometry": {
-          "type": "LineString",
+          "type": "MultiLineString",
           "coordinates": [
             [
               8.705182647705078,

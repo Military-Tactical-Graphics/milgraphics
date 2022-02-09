@@ -9,7 +9,6 @@ function flot(feature, relative = false) {
  
     var bearingWidth = (feature.properties.bearingWidth) ? feature.properties.bearingWidth : 400;
 
-
     // loop to repeat for every segment of the polygon that was input
     for (var i = 1; i < points.length; i += 1) {
         if (relative === false) {

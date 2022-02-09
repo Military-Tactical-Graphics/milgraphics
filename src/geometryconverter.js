@@ -3,6 +3,12 @@ geometryConverter[
     "TEST"
 ] = require("./geometryconverter/test.js");
 geometryConverter[
+    "WEAPONS FREE ZONE"
+] = require("./geometryconverter/weapons-free-zone.js");
+geometryConverter[
+    "RESTRICTED OPERATIONS ZONE"
+] = require("./geometryconverter/restricted-operations-zone.js");
+geometryConverter[
     "RECTANGULAR TARGET"
 ] = require("./geometryconverter/rectangular-target.js");
 geometryConverter[
