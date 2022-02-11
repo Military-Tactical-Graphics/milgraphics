@@ -1,41 +1,46 @@
 var ms = require("milsymbol");
+const toDistanceBearing = require("../geometry/todistancebearing");
 
 module.exports = function(feature) {
     var annotations = [];
+    var geometry = {
+        type: "MultiLineString",
+        coordinates: []
+    };
     var points = feature.geometry.coordinates;
-    var annotationText = feature.properties.name;
+    var bearing = ms.geometry.bearingBetween(points[0], points[1]);
+    var scale = ms.geometry.distanceBetween(points[0], points[1]);
+    var centerPoint;
 
-    var polygon = ms.geometry.circleCorridorPolygon(feature);
-    if (polygon.annotation.hasOwnProperty("geometry")) {
-        annotations.geometry = polygon.annotation.geometry;
+    var geom = [
+        points[0],
+        ms.geometry.toDistanceBearing(points[0], length, bearing + 90),
+        ms.geometry.toDistanceBearing(points[1], length, bearing + 90),
+        points[1]
+    ];
+    geometry.coordinates.push(geom);
+    geom = [
+        ms.geometry.toDistanceBearing(points[0], scale * 0.1, bearing + 90),
+        ms.geometry.toDistanceBearing(points[0], 0, bearing - 90)
+
+    ];
+    geometry.coordinates.push(geom);
+    geom = [
+        ms.geometry.toDistanceBearing(points.slice(-1)[0], scale * 0.1, bearing + 90),
+        ms.geometry.toDistanceBearing(points.slice(-1)[0], 0, bearing - 90),
+        centerPoint = ms.geometry.pointBetween(ms.geometry.toDistanceBearing(points.slice(-1)[0], scale * 0.1, bearing + 90), ms.geometry.toDistanceBearing(points.slice(-1)[0], 0, bearing - 90), 0.5)
+    ];
+    geometry.coordinates.push(geom);
+    console.log(centerPoint);
+    if (feature.properties.firNum) {
+        var annotationPoint = ms.geometry.toDistanceBearing(centerPoint, scale * 0.05, bearing + 45);
+        annotations.push(ms.geometry.addAnotation(annotationPoint, feature.properties.firNum));
     }
-    console.log(points);
 
-    var maxLongitudes = Math.max.apply(null, getLatLong(points).longitudes);
-
-
-    for (var a = 0; a < points[0].length; a++) {
-        if (points[0][a][1] == maxLongitudes) {
-            annotations.push(ms.geometry.addAnotation(points[0][a], "FORD"));
-        }
-
-    }
 
     return {
-        geometry: polygon.geometry,
+        geometry: geometry,
         annotations: annotations
     };
 
-}
-
-function getLatLong(array) {
-    var latitudes = [];
-    var longitudes = [];
-
-    for (var i = 0; i < array[0].length; i++) {
-        latitudes.push(array[0][i][0]);
-        longitudes.push(array[0][i][1]);
-    }
-
-    return { latitudes, longitudes };
 };

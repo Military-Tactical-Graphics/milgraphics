@@ -3,6 +3,9 @@ geometryConverter[
     "TEST"
 ] = require("./geometryconverter/test.js");
 geometryConverter[
+    "GROUP OF TARGETS"
+] = require("./geometryconverter/group-of-targets.js");
+geometryConverter[
     "WEAPONS FREE ZONE"
 ] = require("./geometryconverter/weapons-free-zone.js");
 geometryConverter[
