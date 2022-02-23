@@ -23,10 +23,10 @@ module.exports = function (feature) {
     if (feature.properties.altitudeDepth1)
       annotations.properties.text +=
       "\nMAX ALT: " + feature.properties.altitudeDepth1;
-    if (feature.properties.timeFrom)
-      annotations.properties.text += "\nTime from: " + feature.properties.timeFrom;
-    if (feature.properties.timeTo)
-      annotations.properties.text += "\nTime to:" + feature.properties.timeTo;
+    if (feature.properties.dtg)
+      annotations.properties.text += "\nTime from: " + feature.properties.dtg;
+    if (feature.properties.dtg1)
+      annotations.properties.text += "\nTime to:" + feature.properties.dtg1;
 
     var polygon = ms.geometry.circleCorridorPolygon(feature);
 

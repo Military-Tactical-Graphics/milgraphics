@@ -7,7 +7,7 @@
             "name": "AC",
             "distance": 500,
             "administrator": "VLK",
-            "type": "1BTY"
+            "weaponSystemType": "1BTY"
         },
         "geometry": {
             "type": "MultilineString",

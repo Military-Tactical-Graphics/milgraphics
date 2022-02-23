@@ -1,48 +1,73 @@
 var ms = require("milsymbol");
 const toDistanceBearing = require("../geometry/todistancebearing");
 
-module.exports = function(feature) {
-    var annotations = [];
-    var geometry = {
-        type: "MultiLineString",
-        coordinates: []
-    };
-    var points = feature.geometry.coordinates;
-    var bearing = ms.geometry.bearingBetween(points[0], points[1]);
-    var scale = ms.geometry.distanceBetween(points[0], points[1]);
-    var centerPoint = ms.geometry.pointBetween(points[0], points[1], 0.5);
-    var annotTopPos = ms.geometry.toDistanceBearing(centerPoint, scale * 0.05, bearing - 90); //annotation above the line
-    var annotUndPos = ms.geometry.toDistanceBearing(centerPoint, scale * 0.05, bearing + 90); //annotation below the line
+module.exports = function (feature) {
+  var annotations = [];
+  var geometry = {
+    type: "MultiLineString",
+    coordinates: []
+  };
+  var points = feature.geometry.coordinates;
+  var bearing = ms.geometry.bearingBetween(points[0], points[1]);;
+  var size = 500;
+  var distance = 750; //distance between lines
+  var annotTopPos;  
 
-    var geom = [
-        points[0],
-        ms.geometry.toDistanceBearing(points[0], length, bearing + 90),
-        ms.geometry.toDistanceBearing(points[1], length, bearing + 90),
-        points[1]
-    ];
-    geometry.coordinates.push(geom);
-    geom = [
-        ms.geometry.toDistanceBearing(points[0], scale * 0.1, bearing + 90), // Right end
-        ms.geometry.toDistanceBearing(points[0], scale * 0.1, bearing - 90) // Left end
-
-    ];
-    geometry.coordinates.push(geom);
-    geom = [
-        ms.geometry.toDistanceBearing(points.slice(-1)[0], scale * 0.1, bearing + 90), // Right end
-        ms.geometry.toDistanceBearing(points.slice(-1)[0], scale * 0.1, bearing - 90) // Left end
-    ];
-    geometry.coordinates.push(geom);
-    if (feature.properties.administrator) {
-        annotations.push(ms.geometry.addAnotation(annotTopPos, feature.properties.administrator));
+      // if odd number of vertices, put on central vertex
+      if (points.length % 2 !== 0) {
+        annotTopPos = ms.geometry.toDistanceBearing(points[parseInt(points.length / 2)], distance * 1.5 ,  bearing - 90);
+    } else {
+      annotTopPos = ms.geometry.toDistanceBearing(ms.geometry.pointBetween(
+            points[parseInt(points.length / 2) - 1],
+            points[parseInt(points.length / 2)],
+            0.5
+        ), distance * 1.5 ,  bearing - 90);
     }
-    if (feature.properties.type) {
-        annotations.push(ms.geometry.addAnotation(annotUndPos, feature.properties.type));
-    }
+   
+
+  var geom = [];
+  var geomBot = []; //geometry for bottom line
+
+  for (let a = 1; a < points.length; a++) {
+
+    geom = [
+      ms.geometry.toDistanceBearing(points[a - 1], distance, bearing - 90),
+      ms.geometry.toDistanceBearing(points[a], distance, bearing - 90)
+    ];
+    geomBot = [
+      ms.geometry.toDistanceBearing(points[a - 1], distance, bearing + 90),
+      ms.geometry.toDistanceBearing(points[a], distance, bearing + 90)
+    ];
+    geometry.coordinates.push(geom, geomBot);
+  }
+
+  geom = [
+    ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points[0], size, bearing + 90), distance, bearing - 90),
+    ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points[0], size, bearing - 90), distance, bearing - 90)
+  ];
+  geomBot = [
+    ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points[0], size, bearing + 90), distance, bearing + 90),
+    ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points[0], size, bearing - 90), distance, bearing + 90)
+  ];
+  geometry.coordinates.push(geom, geomBot);
+  
+  geom = [
+    ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points.slice(-1)[0], size, bearing + 90), distance, bearing - 90),
+    ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points.slice(-1)[0], size, bearing - 90), distance, bearing - 90)
+  ];
+  geomBot = [
+    ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points.slice(-1)[0], size, bearing + 90), distance, bearing + 90),
+    ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points.slice(-1)[0], size, bearing - 90), distance, bearing + 90)
+  ];
+  geometry.coordinates.push(geom, geomBot);
+  if (feature.properties.administrator) {
+    annotations.push(ms.geometry.addAnotation(annotTopPos, feature.properties.administrator));
+  }
 
 
-    return {
-        geometry: geometry,
-        annotations: annotations
-    };
+  return {
+    geometry: geometry,
+    annotations: annotations
+  };
 
 };

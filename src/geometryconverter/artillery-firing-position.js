@@ -31,10 +31,10 @@ module.exports = function(feature) {
         centerPoint = ms.geometry.pointBetween(ms.geometry.toDistanceBearing(points.slice(-1)[0], scale * 0.1, bearing + 90), ms.geometry.toDistanceBearing(points.slice(-1)[0], 0, bearing - 90), 0.5)
     ];
     geometry.coordinates.push(geom);
-    console.log(centerPoint);
-    if (feature.properties.firNum) {
+
+    if (feature.properties.firingPosition) {
         var annotationPoint = ms.geometry.toDistanceBearing(centerPoint, scale * 0.05, bearing + 45);
-        annotations.push(ms.geometry.addAnotation(annotationPoint, feature.properties.firNum));
+        annotations.push(ms.geometry.addAnotation(annotationPoint, feature.properties.firingPosition));
     }
 
 

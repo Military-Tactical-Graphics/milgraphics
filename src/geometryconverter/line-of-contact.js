@@ -9,14 +9,14 @@ function lineOfContact(feature, relative = false) {
     var bearingGeos = [];
     var bearingWidth = (feature.properties.bearingWidth) ? feature.properties.bearingWidth : 400;
     var bearingSpacing = (feature.properties.bearingSpacing) ? feature.properties.bearingSpacing : 5;
-    var locWidth = (feature.properties.locWidth) ? feature.properties.locWidth : 10;
+    var spaceBetween = (feature.properties.spaceBetween) ? feature.properties.spaceBetween : 10;
 
     console.log(feature.properties);
     // loop to repeat for every segment of the polygon that was input
     for (var i = 1; i < points.length; i += 1) {
         if (relative === false) {
             // visualize that many bearings with absolute width
-            bearingGeos = lineOfContactAbsolute(bearingGeos, points[i - 1], points[i], bearingWidth, bearingSpacing, locWidth)
+            bearingGeos = lineOfContactAbsolute(bearingGeos, points[i - 1], points[i], bearingWidth, bearingSpacing, spaceBetween)
         } else {
             // Alternative - old implementation based on relative sizes of bearings
             // Making each segment into a bearing line with 2^5 = 32 bearings
@@ -55,7 +55,7 @@ function lineOfContact(feature, relative = false) {
 // example: degree = 5, then number of bearings is 2^4 = 16 in each segment
 // if degree is zero, it draws a straight line
 //  gaps or spacing is implemented in this version
-function lineOfContactRelative(geo, pointa, pointb, degree = 0, bearingSpacing = 4, locWidth = 3) {
+function lineOfContactRelative(geo, pointa, pointb, degree = 0, bearingSpacing = 4, spaceBetween = 3) {
 
     if (degree <= 0) {
         geo.push(pointa, pointb)
@@ -72,7 +72,7 @@ function lineOfContactRelative(geo, pointa, pointb, degree = 0, bearingSpacing =
         for (var i = 0; i <= 180; i += 10) {
             bearingGeo1.push(
                 ms.geometry.toDistanceBearing(
-                    ms.geometry.toDistanceBearing(midpoint, (width + locWidth) / 2, curveBearing + 90),
+                    ms.geometry.toDistanceBearing(midpoint, (width + spaceBetween) / 2, curveBearing + 90),
                     width / 2 - bearingSpacing / 2,
                     curveBearing + i + 180
                 )
@@ -83,7 +83,7 @@ function lineOfContactRelative(geo, pointa, pointb, degree = 0, bearingSpacing =
             bearingGeo2.push(
                 ms.geometry.toDistanceBearing(
                     // shift all bearings towards center of line
-                    ms.geometry.toDistanceBearing(midpoint, (width + locWidth) / 2, curveBearing - 90),
+                    ms.geometry.toDistanceBearing(midpoint, (width + spaceBetween) / 2, curveBearing - 90),
                     width / 2 - bearingSpacing / 2,
                     curveBearing + j + 180
                 )
@@ -98,7 +98,7 @@ function lineOfContactRelative(geo, pointa, pointb, degree = 0, bearingSpacing =
     return geo;
 }
 
-function lineOfContactAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing, locWidth) {
+function lineOfContactAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing, spaceBetween) {
 
     // measure distance between each two points
     let distance = ms.geometry.distanceBetween(pointa, pointb);
@@ -145,7 +145,7 @@ function lineOfContactAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing
             bearingGeo1.push(
                 ms.geometry.toDistanceBearing(
                     // shift all bearings towards center of line and add width of LOC
-                    ms.geometry.toDistanceBearing(midpoint, (bearingWidth + locWidth) / 2, curveBearing + 90),
+                    ms.geometry.toDistanceBearing(midpoint, (bearingWidth + spaceBetween) / 2, curveBearing + 90),
                     bearingWidth / 2,
                     curveBearing + j + 180
                 )
@@ -156,7 +156,7 @@ function lineOfContactAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing
             bearingGeo2.push(
                 ms.geometry.toDistanceBearing(
                     // shift all bearings towards center of line and add width of LOC
-                    ms.geometry.toDistanceBearing(midpoint, (bearingWidth + locWidth) / 2, curveBearing - 90),
+                    ms.geometry.toDistanceBearing(midpoint, (bearingWidth + spaceBetween) / 2, curveBearing - 90),
                     bearingWidth / 2,
                     curveBearing + j + 180
                 )

@@ -3,9 +3,9 @@
     "features": [{
         "type": "Feature",
         "properties": {
-            "sidc": "T-S-T---------X",
+            "sidc": "ART-FIRING",
             "name": "ARTILLERY FIRING POSITION",
-            "firNum": "11"
+            "firingPosition": "11"
         },
         "geometry": {
             "type": "LineString",

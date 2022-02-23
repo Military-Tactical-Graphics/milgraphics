@@ -8,12 +8,13 @@ function flot(feature, relative = false) {
     var bearingGeos = [];
  
     var bearingWidth = (feature.properties.bearingWidth) ? feature.properties.bearingWidth : 400;
+    var bearingSpacing = (feature.properties.bearingSpacing) ? feature.properties.bearingSpacing : 5;
 
     // loop to repeat for every segment of the polygon that was input
     for (var i = 1; i < points.length; i += 1) {
         if (relative === false) {
             // visualize that many bearings with absolute width
-            bearingGeos = flotifyAbsolute(bearingGeos, points[i - 1], points[i], bearingWidth)
+            bearingGeos = flotifyAbsolute(bearingGeos, points[i - 1], points[i], bearingWidth, bearingSpacing)
         } else {
             // Alternative - old implementation based on relative sizes of bearings
             // Making each segment into a bearing line with 2^5 = 32 bearings
@@ -82,7 +83,7 @@ function flotifyRelative(geo, pointa, pointb, degree = 0, bearingSpacing = 4) {
 }
 
 
-function flotifyAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing = 4) {
+function flotifyAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing) {
     // measure distance between each two points
     let distance = ms.geometry.distanceBetween(pointa, pointb);
     // calculate how many bearings can fit

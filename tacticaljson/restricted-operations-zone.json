@@ -8,8 +8,8 @@
                 "name": "(unit ID)",
                 "altitudeDepth": "2000 FT AGL",
                 "altitudeDepth1": "3000 FT AGL",
-                "timeFrom": "180500Z",
-                "timeTo": "180615Z"
+                "dtg": "180500Z",
+                "dtg1": "180615Z"
             },
             "geometry": {
                 "type": "Polygon",

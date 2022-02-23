@@ -6,7 +6,7 @@
             "sidc": "G-F-LCC-------X",
             "name": "CFL",
             "administrator": "4RDB",
-            "nationality": "CZE"
+            "uniqueDesignation": "CZE"
         },
         "geometry": {
             "type": "LineString",

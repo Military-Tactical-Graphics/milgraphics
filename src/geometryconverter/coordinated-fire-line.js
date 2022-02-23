@@ -32,8 +32,8 @@ module.exports = function(feature) {
     if (feature.properties.administrator)
         annotations.properties.text +=
         " " + feature.properties.administrator;
-    if (feature.properties.nationality)
-        annotations.properties.text += " (" + feature.properties.nationality + ") ";
+    if (feature.properties.uniqueDesignation)
+        annotations.properties.text += " (" + feature.properties.uniqueDesignation + ") ";
 
 
     geometry.coordinates = convertToDashes(geometry1, 1 / 50);

@@ -5,9 +5,8 @@
         "properties": {
             "sidc": "T-S-T---------X",
             "name": "AC",
-            "distance": 500,
             "administrator": "OAK",
-            "type": "1BTY"
+            "weaponSystemType": "1BTY"
         },
         "geometry": {
             "type": "MultilineString",
@@ -19,6 +18,14 @@
                 [
                     4.90,
                     52.40
+                ],
+                [
+                    4.95,
+                    52.39
+                ],
+                [
+                    5.0,
+                    52.39
                 ]
             ]
         }

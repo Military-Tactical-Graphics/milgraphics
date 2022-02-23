@@ -15,9 +15,9 @@ module.exports = function(feature) {
   if (feature.properties.altitudeDepth1)
     annotations.properties.text +=
       "\nMAX ALT: " + feature.properties.altitudeDepth1;
-  if (feature.properties.additionalInformation1)
+  if (feature.properties.additionalInformation)
     annotations.properties.text +=
-      "\nGrids " + feature.properties.additionalInformation1;
+      "\nGrids " + feature.properties.additionalInformation;
   if (feature.properties.dtg)
     annotations.properties.text += "\nEFF: " + feature.properties.dtg;
   if (feature.properties.dtg1)
