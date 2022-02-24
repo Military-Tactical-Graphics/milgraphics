@@ -1,5 +1,6 @@
 var ms = require("milsymbol");
-
+import asOpenLayers from "./graphicslayer/asopenlayers.js";
+import asCesium from "./graphicslayer/ascesium.js";
 function GraphicsLayer(data) {
   this.data = data;
   for (var i = 0; i < this.data.features.length; i++) {
@@ -19,8 +20,8 @@ function GraphicsLayer(data) {
   }
 }
 
-GraphicsLayer.prototype.asCesium = require("./graphicslayer/ascesium.js");
+GraphicsLayer.prototype.asCesium = asCesium;
 
-GraphicsLayer.prototype.asOpenLayers = require("./graphicslayer/asopenlayers.js");
+GraphicsLayer.prototype.asOpenLayers = asOpenLayers;
 
-module.exports = GraphicsLayer;
+export default GraphicsLayer;
