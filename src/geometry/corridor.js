@@ -1,7 +1,7 @@
 var ms = require("milsymbol");
 
 // Draws a corridor with a widht in meters
-module.exports = function(feature) {
+function corridor(feature) {
     var points = feature.geometry.coordinates;
     var width = feature.properties.distance;
     var geometry = {
@@ -71,3 +71,5 @@ module.exports = function(feature) {
     ); //Close line
     return { geometry: geometry };
 };
+
+export default corridor;

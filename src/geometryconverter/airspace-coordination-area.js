@@ -1,7 +1,7 @@
 var ms = require("milsymbol");
 
 // Draws a NAI
-module.exports = function(feature) {
+function airspaceCoordinationArea(feature) {
   var annotations = {
     geometry: { type: "Point" },
     properties: { text: "ACA" }
@@ -32,3 +32,5 @@ module.exports = function(feature) {
     geometry: polygon.geometry,
     annotations: [annotations]};
 };
+
+module.exports = airspaceCoordinationArea;

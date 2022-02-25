@@ -4,7 +4,7 @@ var ms = require("milsymbol");
  * Takes a ring and return true or false whether or not the ring is clockwise or counter-clockwise.
  *
  * @name booleanClockwise
- * @param {float[]} points to be evaluated
+ * @param {number[]} points to be evaluated
  * @returns {boolean} true/false
  * @summary Checks curve orientation via the sign of the determinant
  **/
@@ -23,4 +23,4 @@ function isClockwise(...points) {
     return sum > 0;
 }
 
-module.exports = isClockwise;
+export default isClockwise;

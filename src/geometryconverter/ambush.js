@@ -1,6 +1,6 @@
 var ms = require("milsymbol");
 
-function block(feature) {
+function ambush(feature) {
   var geom;
   var points = feature.geometry.coordinates;
   var geometry = { type: "MultiLineString", coordinates: [] };
@@ -77,4 +77,4 @@ function block(feature) {
   return { geometry: geometry };
 }
 
-module.exports = block;
+module.exports = ambush;

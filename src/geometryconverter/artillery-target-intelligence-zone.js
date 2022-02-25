@@ -1,6 +1,6 @@
 var ms = require("milsymbol");
 
-module.exports = function(feature) {
+function artilleryTargetIntelligenceZone(feature) {
   var annotations = {};
 
   annotations.geometry = { type: "Point" };
@@ -20,3 +20,5 @@ module.exports = function(feature) {
 
   return { geometry: polygon.geometry, annotations: [annotations] };
 };
+
+module.exports = artilleryTargetIntelligenceZone;

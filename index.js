@@ -1,17 +1,22 @@
 /* ***************************************************************************************
 Creating the base of milgraphics by importing milsymbol
 *************************************************************************************** */
-var ms = require("milsymbol");
+import * as ms from 'milsymbol';
+import Graphic from './src/graphic';
+import GraphicsLayer from './src/graphicslayer';
+import geometryConverter from './src/geometryconverter';
+import addSIDCgraphics from './src/ms/addsidcgraphics';
+import format from './src/format';
+import geometry from './src/geometry';
 
-ms.addSIDCgraphics = require("./src/ms/addsidcgraphics.js");
+ms.addSIDCgraphics = addSIDCgraphics;
+ms.format = format;
+ms.geometry = geometry;
+ms.geometryConverter = geometryConverter;
 
-ms.format = require("./src/format.js");
-ms.geometry = require("./src/geometry.js");
-ms.geometryConverter = require("./src/geometryconverter.js");
+ms.Graphic = Graphic;
 
-ms.Graphic = require("./src/graphic.js");
-
-ms.GraphicsLayer = require("./src/graphicslayer.js");
+ms.GraphicsLayer = GraphicsLayer;
 
 /* ***************************************************************************************
 Letter based SIDC

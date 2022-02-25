@@ -19,4 +19,4 @@ function toDistanceBearing(point, dist, bearing) {
   return [lng2, lat2];
 }
 
-module.exports = toDistanceBearing;
+export default toDistanceBearing;

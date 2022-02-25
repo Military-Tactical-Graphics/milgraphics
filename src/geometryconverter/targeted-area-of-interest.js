@@ -1,7 +1,7 @@
 var ms = require("milsymbol");
 
 // Draws a NAI
-module.exports = function(feature) {
+function targetedAreaOfInterest(feature) {
   var annotations = {
     geometry: { type: "Point" },
     properties: { text: "TAI" }
@@ -17,3 +17,5 @@ module.exports = function(feature) {
 
   return { geometry: polygon.geometry, annotations: [annotations] };
 };
+
+module.exports = targetedAreaOfInterest 

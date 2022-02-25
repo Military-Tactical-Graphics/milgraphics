@@ -1,6 +1,6 @@
 var ms = require("milsymbol");
 
-module.exports = function() {
+function getproperties() {
   var properties = {
     //    "activity"			: false,	//Is it an Activity
     affiliation: "", //Affiliation it is shown as (Friend/Hostile...)
@@ -81,3 +81,5 @@ module.exports = function() {
 
   return properties;
 };
+
+export default getproperties;

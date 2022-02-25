@@ -11,4 +11,4 @@ function bearingBetween(p1, p2) {
   return Math.atan2(y, x) / (Math.PI / 180);
 }
 
-module.exports = bearingBetween;
+export default bearingBetween;

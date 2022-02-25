@@ -39,4 +39,4 @@ function pointBetween(p1, p2, f) {
   return [lng3, lat3];
 }
 
-module.exports = pointBetween;
+export default pointBetween;

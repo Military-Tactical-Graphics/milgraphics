@@ -1,3 +1,5 @@
+import getproperties from "./graphic/getproperties";
+
 var ms = require("milsymbol");
 
 function graphic(feature) {
@@ -52,9 +54,9 @@ function graphic(feature) {
   }
 }
 
-graphic.prototype.getProperties = require("./graphic/getproperties.js");
+graphic.prototype.getProperties = getproperties;
 graphic.prototype.isConverted = function() {
   return this.converted;
 };
 
-module.exports = graphic;
+export default graphic;

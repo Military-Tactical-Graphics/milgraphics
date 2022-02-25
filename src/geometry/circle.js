@@ -1,7 +1,7 @@
 var ms = require("milsymbol");
 
 // Draws a circle withe a radius in meters
-module.exports = function(feature) {
+function circleWithRadius(feature) {
   var p = feature.geometry.coordinates;
   var r = feature.properties.distance;
   var geometry = { type: "Polygon", coordinates: [[]] };
@@ -12,3 +12,5 @@ module.exports = function(feature) {
   }
   return { geometry: geometry };
 };
+
+export default circleWithRadius;

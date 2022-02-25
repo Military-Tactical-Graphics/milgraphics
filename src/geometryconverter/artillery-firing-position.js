@@ -1,7 +1,6 @@
 var ms = require("milsymbol");
-const toDistanceBearing = require("../geometry/todistancebearing");
 
-module.exports = function(feature) {
+function artilleryFiringPosition(feature) {
     var annotations = [];
     var geometry = {
         type: "MultiLineString",
@@ -37,10 +36,10 @@ module.exports = function(feature) {
         annotations.push(ms.geometry.addAnotation(annotationPoint, feature.properties.firingPosition));
     }
 
-
     return {
         geometry: geometry,
         annotations: annotations
     };
-
 };
+
+module.exports = artilleryFiringPosition;

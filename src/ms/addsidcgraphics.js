@@ -1,4 +1,4 @@
-var addSIDCgraphics = function(parts, type) {
+function addSIDCgraphics(parts, type) {
   if (typeof parts === "function") {
     if (typeof this["_" + type + "SIDCgraphics"] === "undefined") {
       this["_" + type + "SIDCgraphics"] = [];
@@ -10,4 +10,4 @@ var addSIDCgraphics = function(parts, type) {
   return this;
 };
 
-module.exports = addSIDCgraphics;
+export default addSIDCgraphics;

@@ -1,4 +1,4 @@
-var format = {};
+const format = {};
 
 format.ArmyXML = require("./format/armyxml.js");
 format.GeoJSON = require("./format/geojson.js");

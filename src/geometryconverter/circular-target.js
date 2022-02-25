@@ -1,6 +1,6 @@
 var ms = require("milsymbol");
 
-module.exports = function(feature) {
+function circularTarget(feature) {
   var annotations = {
     geometry: { type: "Point" },
     properties: { text: feature.properties.name }
@@ -11,3 +11,5 @@ module.exports = function(feature) {
 
   return { geometry: circle.geometry, annotations: [annotations] };
 };
+
+module.exports = circularTarget;

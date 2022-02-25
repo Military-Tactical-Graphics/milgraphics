@@ -1,6 +1,6 @@
 var ms = require("milsymbol");
 
-module.exports = function(feature) {
+function circlecorridorpolygon(feature) {
     var annotation = {};
     var geometry;
 
@@ -32,3 +32,5 @@ module.exports = function(feature) {
 
     return { annotation: annotation, geometry: geometry };
 };
+
+export default circlecorridorpolygon;
