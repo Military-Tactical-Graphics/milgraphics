@@ -3,8 +3,8 @@
     "features": [{
             "type": "Feature",
             "properties": {
-                "sidc": "G-F-ATG-------X"
-
+                "sidc": "G-F-ATG-------X",
+                "name": "FORD"
             },
             "geometry": {
                 "type": "Polygon",

@@ -3,7 +3,7 @@
     "features": [{
         "type": "Feature",
         "properties": {
-            "sidc": "T-S-T---------X",
+            "sidc": "BARRA-FIRE",
             "name": "AC",
             "administrator": "OAK",
             "weaponSystemType": "1BTY"

@@ -23,7 +23,7 @@ module.exports = function(feature) {
     annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(points[0], -30, -45), annotationUnder));
     annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(points.slice(-1)[0], -30, 45), annotationUnder));
 
-    annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(points[0], 40, -90), "PL "+feature.properties.name1));
+    annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(points[0], 40, -90), "PL "+feature.properties.name));
     annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(points.slice(-1)[0], 40, 90), "PL "+feature.properties.name1));
 
     return { geometry: geometry, annotations: annotations };

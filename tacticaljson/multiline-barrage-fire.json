@@ -3,7 +3,7 @@
     "features": [{
         "type": "Feature",
         "properties": {
-            "sidc": "T-S-T---------X",
+            "sidc": "M-BAR-FIRE----X",
             "name": "AC",
             "distance": 500,
             "administrator": "VLK",

@@ -16,7 +16,7 @@ module.exports = function(feature) {
 
     for (var a = 0; a < points[0].length; a++) {
         if (points[0][a][1] == maxLongitudes) {
-            annotations.push(ms.geometry.addAnotation(points[0][a], "FORD"));
+            annotations.push(ms.geometry.addAnotation(points[0][a], annotationText));
         }
 
     }

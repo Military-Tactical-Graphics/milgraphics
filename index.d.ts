@@ -4,9 +4,9 @@ import geometryConverterObject from "./src/geometryconverter";
 import getproperties from "./src/graphic/getproperties";
 
 type GeometryType = {
-    LineString: String;
-    MultiLineString: String;
-    Polygon: String;
+    LineString: string;
+    MultiLineString: string;
+    Polygon: string;
     Point: string;
 };
 
@@ -27,6 +27,8 @@ type GeometryOptions = {
     spaceBetween?:number;
     uniqueDesignation?: string;
     weaponSystemType?: string;
+    w?: string;
+    w1?: string;
 }
 
 type FeatureColection = {

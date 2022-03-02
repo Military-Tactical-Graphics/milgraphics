@@ -4,9 +4,8 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCR-------X",
-            "name": "RFL",
             "administrator": "XCORPS",
-            "t1":"DELTA",
+            "name":"DELTA",
             "w": "NO WP SMOKE",
             "w1": ""
         },
