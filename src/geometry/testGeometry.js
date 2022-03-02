@@ -39,5 +39,5 @@ function testGeometry(p1, p2, f) {
   return [lng3, lat3];
 }
 
-export default testGeometry;
+module.exports = testGeometry;
   

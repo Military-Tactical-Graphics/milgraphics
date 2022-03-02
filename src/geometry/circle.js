@@ -13,4 +13,4 @@ function circleWithRadius(feature) {
   return { geometry: geometry };
 };
 
-export default circleWithRadius;
+module.exports = circleWithRadius;

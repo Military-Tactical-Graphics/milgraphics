@@ -6,4 +6,4 @@ function rectangle(feature) {
   return ms.geometry.corridor(feature);
 };
 
-export default rectangle;
+module.exports = rectangle;

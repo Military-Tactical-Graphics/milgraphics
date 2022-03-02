@@ -23,4 +23,4 @@ function isClockwise(...points) {
     return sum > 0;
 }
 
-export default isClockwise;
+module.exports = isClockwise;

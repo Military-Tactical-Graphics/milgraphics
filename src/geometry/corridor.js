@@ -72,4 +72,4 @@ function corridor(feature) {
     return { geometry: geometry };
 };
 
-export default corridor;
+module.exports = corridor;

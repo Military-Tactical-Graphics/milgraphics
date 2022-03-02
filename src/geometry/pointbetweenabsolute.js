@@ -12,4 +12,4 @@ function pointBetweenAbsolute(p1, p2, l) {
   return p3
 }
 
-export default pointBetweenAbsolute;
+module.exports = pointBetweenAbsolute;

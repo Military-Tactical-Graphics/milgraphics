@@ -33,4 +33,4 @@ function circlecorridorpolygon(feature) {
     return { annotation: annotation, geometry: geometry };
 };
 
-export default circlecorridorpolygon;
+module.exports = circlecorridorpolygon;

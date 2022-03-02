@@ -1,5 +1,4 @@
 var ms = require("milsymbol");
-const toDistanceBearing = require("../geometry/todistancebearing");
 
 module.exports = function(feature) {
     var annotations = [];

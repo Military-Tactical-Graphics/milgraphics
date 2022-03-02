@@ -20,4 +20,4 @@ function distanceBetween(p1, p2) {
   return (6371e3 * c).toFixed(1); // we don't expect more precision than this...
 }
 
-export default distanceBetween;
+module.exports = distanceBetween;

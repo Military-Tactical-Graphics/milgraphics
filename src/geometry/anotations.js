@@ -12,4 +12,4 @@ function addAnotation(annotationPoint, annotationText) {
     });
 }
 
-export default addAnotation;
+module.exports = addAnotation;
