@@ -8,6 +8,7 @@ import geometryConverter from './src/geometryconverter';
 import addSIDCgraphics from './src/ms/addsidcgraphics';
 import format from './src/format';
 import geometry from './src/geometry';
+import editor from './src/editor/entityDescription';
 
 ms.addSIDCgraphics = addSIDCgraphics;
 ms.format = format;
@@ -17,6 +18,8 @@ ms.geometryConverter = geometryConverter;
 ms.Graphic = Graphic;
 
 ms.GraphicsLayer = GraphicsLayer;
+
+ms.editor = editor;
 
 /* ***************************************************************************************
 Letter based SIDC
