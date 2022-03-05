@@ -1,21 +1,42 @@
 const entityDescription = {};
 
 entityDescription["POSITION AREA FOR ARTILLERY"] = {
-  geometry: {
-    type: ["Point", "LineString", "Polygon"],
-    //points: 3, at least 3 points
+  geometryTypes: [{
+      geometry: {
+        type: "Point",
+      },
+      properties: {
+        sidc: "G-F-ACPC--",
+        distance: 300,
+        name: "PAA",
+      }
+    },
+    {
+      geometry: {
+        type: "LineString",
+      },
+      properties: {
+        sidc: "G-F-ACPR--",
+        distance: 300,
+        name: "PAA",
+      }
+    },
+    {
+      geometry: {
+        type: "Polygon",
+      },
+      properties: {
+        sidc: "G-F-ACP---",
+        distance: 300,
+        name: "PAA",
+      }
+    }
+  ]
 
-  },
-  properties: {
-    sidc: ["G-F-ACPC--", "G-F-ACPR--", "G-F-ACP---"],
-    distance: 300,
-    name: "PAA",
-  }
 };
 entityDescription["ARTILLERY FIRING POSITION"] = {
   geometry: {
     type: "LineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "ART-FIRING",
@@ -24,28 +45,71 @@ entityDescription["ARTILLERY FIRING POSITION"] = {
   }
 };
 entityDescription["ARTILLERY MANOEUVRE AREA"] = {
-  geometry: {
-    type: ["Point", "LineString", "Polygon"],
-    //points: 3, at least 3 points
-
-  },
-  properties: {
-    //sidc: ["G-F-ACPC--", "G-F-ACPR--", "G-F-ACP---"], UNKNOWN
-    distance: 300,
-    name: "AMA",
-  }
+  geometryTypes: [{
+      geometry: {
+        type: "Point",
+      },
+      properties: {
+        //sidc: "G-F-ACPC--", UNKNOWN
+        distance: 300,
+        name: "AMA",
+      }
+    },
+    {
+      geometry: {
+        type: "LineString",
+      },
+      properties: {
+        //sidc: "G-F-ACPR--", UNKNOWN
+        distance: 300,
+        name: "AMA",
+      }
+    },
+    {
+      geometry: {
+        type: "Polygon",
+      },
+      properties: {
+        //sidc: "G-F-ACP---", UNKNOWN
+        distance: 300,
+        name: "AMA",
+      }
+    }
+  ]
 };
 entityDescription["ARTILLERY RESTRICTED AREA"] = {
-  geometry: {
-    type: ["Point", "LineString", "Polygon"],
-    //points: 3, at least 3 points
-
-  },
-  properties: {
-    //sidc: ["G-F-ACPC--", "G-F-ACPR--", "G-F-ACP---"], UNKNOWN
-    distance: 300,
-    name: "ARA",
-  }
+  geometryTypes: [{
+      geometry: {
+        type: "Point",
+      },
+      properties: {
+        //sidc: "G-F-ACPC--", UNKNOWN
+        distance: 300,
+        name: "ARA",
+      }
+    },
+    {
+      geometry: {
+        type: "LineString",
+        //maxPoints: 20, 
+      },
+      properties: {
+        //sidc: "G-F-ACPR--", UNKNOWN
+        distance: 300,
+        name: "ARA",
+      }
+    },
+    {
+      geometry: {
+        type: "Polygon",
+      },
+      properties: {
+        //sidc: "G-F-ACP---", UNKNOWN
+        distance: 300,
+        name: "ARA",
+      }
+    }
+  ]
 };
 entityDescription["RECTANGULAR TARGET"] = {
   geometry: {
@@ -61,18 +125,16 @@ entityDescription["RECTANGULAR TARGET"] = {
 entityDescription["CIRCULAR TARGET"] = {
   geometry: {
     type: "Point",
-    points: 1,
-    distance: 5000,
   },
   properties: {
     sidc: "G-F-AC----",
     name: "JA1101",
+    distance: 5000,
   }
 };
 entityDescription["GROUP OF TARGETS"] = {
   geometry: {
     type: "Polygon",
-    //points: 3, at least 3 points
   },
   properties: {
     sidc: "G-F-ATG---",
@@ -82,7 +144,6 @@ entityDescription["GROUP OF TARGETS"] = {
 entityDescription["BARRAGE FIRE"] = {
   geometry: {
     type: "MultiLineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "BARRA-FIRE",
@@ -94,8 +155,6 @@ entityDescription["BARRAGE FIRE"] = {
 entityDescription["MULTILINE BARRAGE FIRE"] = {
   geometry: {
     type: "MultiLineString",
-    //points: 2, at least 2 points
-
   },
   properties: {
     sidc: "M-BAR-FIRE",
@@ -106,37 +165,87 @@ entityDescription["MULTILINE BARRAGE FIRE"] = {
   }
 };
 entityDescription["FREE FIRE AREA"] = {
-  geometry: {
-    type: ["Point", "LineString", "Polygon"],
-    //points: 3, at least 3 points
+  geometryTypes: [{
+      geometry: {
+        type: "Point",
+      },
+      properties: {
+        sidc: "G-F-ACFC--",
+        uniqueDesignation: "I",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92",
+        distance: 5000,
+      }
+    },
+    {
+      geometry: {
+        type: "LineString",
+        //maxPoints: 20, 
+      },
+      properties: {
+        sidc: "G-F-ACFR--",
+        uniqueDesignation: "I",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92",
 
-  },
-  properties: {
-    sidc: ["G-F-ACFC--", "G-F-ACFR--", "G-F-ACFI--"],
-    uniqueDesignation: "I",
-    dtg: "10095900ZJAN92",
-    dtg1: "11095900ZJAN92",
-    distance: 5000,
-  }
+      }
+    },
+    {
+      geometry: {
+        type: "Polygon",
+      },
+      properties: {
+        sidc: "G-F-ACFI--",
+        uniqueDesignation: "I",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92",
+
+      }
+    }
+  ]
 };
 entityDescription["RESTRICTED FIRE AREA"] = {
-  geometry: {
-    type: ["Point", "LineString", "Polygon"],
-    //points: 3, at least 3 points
-
-  },
-  properties: {
-    sidc: ["G-F-ACRC--", "G-F-ACRR--", "G-F-ACRI--"],
-    dtg: "10095900ZJAN92",
-    dtg1: "11095900ZJAN92",
-    administrator: "X CORPS",
-    distance: 5000,
-  }
+  geometryTypes: [{
+      geometry: {
+        type: "Point",
+      },
+      properties: {
+        sidc: "G-F-ACRC--",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92",
+        administrator: "X CORPS",
+        distance: 5000,
+      }
+    },
+    {
+      geometry: {
+        type: "LineString",
+        points: 2,
+      },
+      properties: {
+        sidc: "G-F-ACRR--",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92",
+        administrator: "X CORPS",
+        distance: 5000,
+      }
+    },
+    {
+      geometry: {
+        type: "Polygon",
+      },
+      properties: {
+        sidc: "G-F-ACRI--",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92",
+        administrator: "X CORPS",
+      }
+    }
+  ]
 };
 entityDescription["NO FIRE LINE"] = {
   geometry: {
     type: "LineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "G-F-LCN---",
@@ -148,7 +257,6 @@ entityDescription["NO FIRE LINE"] = {
 entityDescription["RESTRICTIVE FIRE LINE"] = {
   geometry: {
     type: "LineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "G-F-LCR---",
@@ -161,7 +269,6 @@ entityDescription["RESTRICTIVE FIRE LINE"] = {
 entityDescription["FIRE SUPPORT COORDINATION LINE"] = {
   geometry: {
     type: "LineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "G-F-LCF---",
@@ -174,7 +281,6 @@ entityDescription["FIRE SUPPORT COORDINATION LINE"] = {
 entityDescription["MUNITION FLIGHT PATH"] = {
   geometry: {
     type: "LineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "G-F-LCM---",
@@ -186,7 +292,6 @@ entityDescription["MUNITION FLIGHT PATH"] = {
 entityDescription["AIR CORRIDOR"] = {
   geometry: {
     type: "MultiLineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "G-G-ALC---",
@@ -202,7 +307,6 @@ entityDescription["AIR CORRIDOR"] = {
 entityDescription["LOW LEVEL TRANSIT ROUTE"] = {
   geometry: {
     type: "MultiLineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "G-G-ALL---",
@@ -218,7 +322,6 @@ entityDescription["LOW LEVEL TRANSIT ROUTE"] = {
 entityDescription["SAFE LINE"] = {
   geometry: {
     type: "MultiLineString",
-    //points: 2, at least 2 points
   },
   properties: {
     sidc: "G-G-ALL---",
@@ -234,7 +337,6 @@ entityDescription["SAFE LINE"] = {
 entityDescription["RESTRICTED OPERATING ZONE"] = {
   geometry: {
     type: "Polygon",
-    //points: 3, at least 3 points
   },
   properties: {
     sidc: "G-G-AA----",
@@ -248,7 +350,6 @@ entityDescription["RESTRICTED OPERATING ZONE"] = {
 entityDescription["WEAPONS FREE ZONE"] = {
   geometry: {
     type: "Polygon",
-    //points: 3, at least 3 points
   },
   properties: {
     sidc: "G-G-AAW-------X",
