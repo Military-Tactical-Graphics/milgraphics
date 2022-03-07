@@ -1,39 +1,36 @@
 const entityDescription = {};
 
-entityDescription["POSITION AREA FOR ARTILLERY"] = {
-  geometryTypes: [{
-      geometry: {
-        type: "Point",
-      },
-      properties: {
-        sidc: "G-F-ACPC--",
-        distance: 300,
-        name: "PAA",
-      }
+entityDescription["POSITION AREA FOR ARTILLERY"] = [{
+    geometry: {
+      type: "Point",
     },
-    {
-      geometry: {
-        type: "LineString",
-      },
-      properties: {
-        sidc: "G-F-ACPR--",
-        distance: 300,
-        name: "PAA",
-      }
-    },
-    {
-      geometry: {
-        type: "Polygon",
-      },
-      properties: {
-        sidc: "G-F-ACP---",
-        distance: 300,
-        name: "PAA",
-      }
+    properties: {
+      sidc: "G-F-ACPC--",
+      distance: 300,
+      name: "PAA",
     }
-  ]
-
-};
+  },
+  {
+    geometry: {
+      type: "LineString",
+    },
+    properties: {
+      sidc: "G-F-ACPR--",
+      distance: 300,
+      name: "PAA",
+    }
+  },
+  {
+    geometry: {
+      type: "Polygon",
+    },
+    properties: {
+      sidc: "G-F-ACP---",
+      distance: 300,
+      name: "PAA",
+    }
+  }
+];
 entityDescription["ARTILLERY FIRING POSITION"] = {
   geometry: {
     type: "LineString",
@@ -44,73 +41,69 @@ entityDescription["ARTILLERY FIRING POSITION"] = {
     firingPosition: "11",
   }
 };
-entityDescription["ARTILLERY MANOEUVRE AREA"] = {
-  geometryTypes: [{
-      geometry: {
-        type: "Point",
-      },
-      properties: {
-        //sidc: "G-F-ACPC--", UNKNOWN
-        distance: 300,
-        name: "AMA",
-      }
+entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
+    geometry: {
+      type: "Point",
     },
-    {
-      geometry: {
-        type: "LineString",
-      },
-      properties: {
-        //sidc: "G-F-ACPR--", UNKNOWN
-        distance: 300,
-        name: "AMA",
-      }
-    },
-    {
-      geometry: {
-        type: "Polygon",
-      },
-      properties: {
-        //sidc: "G-F-ACP---", UNKNOWN
-        distance: 300,
-        name: "AMA",
-      }
+    properties: {
+      //sidc: "G-F-ACPC--", UNKNOWN
+      distance: 300,
+      name: "AMA",
     }
-  ]
-};
-entityDescription["ARTILLERY RESTRICTED AREA"] = {
-  geometryTypes: [{
-      geometry: {
-        type: "Point",
-      },
-      properties: {
-        //sidc: "G-F-ACPC--", UNKNOWN
-        distance: 300,
-        name: "ARA",
-      }
+  },
+  {
+    geometry: {
+      type: "LineString",
     },
-    {
-      geometry: {
-        type: "LineString",
-        //maxPoints: 20, 
-      },
-      properties: {
-        //sidc: "G-F-ACPR--", UNKNOWN
-        distance: 300,
-        name: "ARA",
-      }
-    },
-    {
-      geometry: {
-        type: "Polygon",
-      },
-      properties: {
-        //sidc: "G-F-ACP---", UNKNOWN
-        distance: 300,
-        name: "ARA",
-      }
+    properties: {
+      //sidc: "G-F-ACPR--", UNKNOWN
+      distance: 300,
+      name: "AMA",
     }
-  ]
-};
+  },
+  {
+    geometry: {
+      type: "Polygon",
+    },
+    properties: {
+      //sidc: "G-F-ACP---", UNKNOWN
+      distance: 300,
+      name: "AMA",
+    }
+  }
+];
+entityDescription["ARTILLERY RESTRICTED AREA"] = [{
+    geometry: {
+      type: "Point",
+    },
+    properties: {
+      //sidc: "G-F-ACPC--", UNKNOWN
+      distance: 300,
+      name: "ARA",
+    }
+  },
+  {
+    geometry: {
+      type: "LineString",
+      //maxPoints: 20, 
+    },
+    properties: {
+      //sidc: "G-F-ACPR--", UNKNOWN
+      distance: 300,
+      name: "ARA",
+    }
+  },
+  {
+    geometry: {
+      type: "Polygon",
+    },
+    properties: {
+      //sidc: "G-F-ACP---", UNKNOWN
+      distance: 300,
+      name: "ARA",
+    }
+  }
+];
 entityDescription["RECTANGULAR TARGET"] = {
   geometry: {
     type: "LineString",
@@ -164,85 +157,81 @@ entityDescription["MULTILINE BARRAGE FIRE"] = {
     distance: 500,
   }
 };
-entityDescription["FREE FIRE AREA"] = {
-  geometryTypes: [{
-      geometry: {
-        type: "Point",
-      },
-      properties: {
-        sidc: "G-F-ACFC--",
-        uniqueDesignation: "I",
-        dtg: "10095900ZJAN92",
-        dtg1: "11095900ZJAN92",
-        distance: 5000,
-      }
+entityDescription["FREE FIRE AREA"] = [{
+    geometry: {
+      type: "Point",
     },
-    {
-      geometry: {
-        type: "LineString",
-        //maxPoints: 20, 
-      },
-      properties: {
-        sidc: "G-F-ACFR--",
-        uniqueDesignation: "I",
-        dtg: "10095900ZJAN92",
-        dtg1: "11095900ZJAN92",
-
-      }
-    },
-    {
-      geometry: {
-        type: "Polygon",
-      },
-      properties: {
-        sidc: "G-F-ACFI--",
-        uniqueDesignation: "I",
-        dtg: "10095900ZJAN92",
-        dtg1: "11095900ZJAN92",
-
-      }
+    properties: {
+      sidc: "G-F-ACFC--",
+      uniqueDesignation: "I",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+      distance: 5000,
     }
-  ]
-};
-entityDescription["RESTRICTED FIRE AREA"] = {
-  geometryTypes: [{
-      geometry: {
-        type: "Point",
-      },
-      properties: {
-        sidc: "G-F-ACRC--",
-        dtg: "10095900ZJAN92",
-        dtg1: "11095900ZJAN92",
-        administrator: "X CORPS",
-        distance: 5000,
-      }
+  },
+  {
+    geometry: {
+      type: "LineString",
+      //maxPoints: 20, 
     },
-    {
-      geometry: {
-        type: "LineString",
-        points: 2,
-      },
-      properties: {
-        sidc: "G-F-ACRR--",
-        dtg: "10095900ZJAN92",
-        dtg1: "11095900ZJAN92",
-        administrator: "X CORPS",
-        distance: 5000,
-      }
-    },
-    {
-      geometry: {
-        type: "Polygon",
-      },
-      properties: {
-        sidc: "G-F-ACRI--",
-        dtg: "10095900ZJAN92",
-        dtg1: "11095900ZJAN92",
-        administrator: "X CORPS",
-      }
+    properties: {
+      sidc: "G-F-ACFR--",
+      uniqueDesignation: "I",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+
     }
-  ]
-};
+  },
+  {
+    geometry: {
+      type: "Polygon",
+    },
+    properties: {
+      sidc: "G-F-ACFI--",
+      uniqueDesignation: "I",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+
+    }
+  }
+];
+entityDescription["RESTRICTED FIRE AREA"] = [{
+    geometry: {
+      type: "Point",
+    },
+    properties: {
+      sidc: "G-F-ACRC--",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+      administrator: "X CORPS",
+      distance: 5000,
+    }
+  },
+  {
+    geometry: {
+      type: "LineString",
+      points: 2,
+    },
+    properties: {
+      sidc: "G-F-ACRR--",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+      administrator: "X CORPS",
+      distance: 5000,
+    }
+  },
+  {
+    geometry: {
+      type: "Polygon",
+    },
+    properties: {
+      sidc: "G-F-ACRI--",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+      administrator: "X CORPS",
+    }
+  }
+];
 entityDescription["NO FIRE LINE"] = {
   geometry: {
     type: "LineString",
