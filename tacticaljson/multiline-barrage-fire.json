@@ -10,19 +10,21 @@
             "weaponSystemType": "1BTY"
         },
         "geometry": {
-            "type": "MultilineString",
+            "type": "MultiLineString",
             "coordinates": [
                 [
-                    4.85,
-                    52.40
-                ],
-                [
-                    4.90,
-                    52.40
-                ],
-                [
-                    4.95,
-                    52.42
+                    [
+                        4.85,
+                        52.40
+                    ],
+                    [
+                        4.90,
+                        52.40
+                    ],
+                    [
+                        4.95,
+                        52.42
+                    ]
                 ]
             ]
         }

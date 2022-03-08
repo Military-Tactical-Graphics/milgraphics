@@ -7,7 +7,7 @@ import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import View from 'ol/View';
-import ms from '../index';
+import ms from '../dist/milgraphics';
 
 var vectorSource = new VectorSource();
 var vectorLayer = new VectorLayer({
