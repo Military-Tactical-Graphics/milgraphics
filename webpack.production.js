@@ -3,7 +3,7 @@ var CustomVarLibraryNamePlugin = require("webpack-custom-var-library-name-append
 
 module.exports = {
   mode: 'production',
-  entry: "./src/index.js",
+  entry: "./index.js",
   output: {
     filename: "milgraphics.js",
     path: path.resolve(path.resolve(), "dist"),
