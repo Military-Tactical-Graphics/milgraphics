@@ -11,7 +11,8 @@ entityDescription["POSITION AREA FOR ARTILLERY"] = [{
     }
   },
   {
-    geometry: {
+    geometry: { // TODO - Pokud jsou body definovány mimo horizontální/vertikální smer, tak jsou popisky mimo,
+                //        tzn nerotuje s čtvercem, který muze byt obdelnik - asi bych počítal distance
       type: "LineString",
     },
     properties: {
@@ -104,7 +105,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
     }
   }
 ];
-entityDescription["RECTANGULAR TARGET"] = {
+entityDescription["RECTANGULAR TARGET"] = { // TODO - popisky uvnitř jen v zoomu, kde se vejdou do geometrie, jinak ne
   geometry: {
     type: "LineString",
     points: 2,
@@ -115,7 +116,7 @@ entityDescription["RECTANGULAR TARGET"] = {
     distance: 500,
   }
 };
-entityDescription["CIRCULAR TARGET"] = {
+entityDescription["CIRCULAR TARGET"] = { // TODO - popisky uvnitř jen v zoomu, kde se vejdou do geometrie, jinak ne
   geometry: {
     type: "Point",
   },
@@ -179,7 +180,7 @@ entityDescription["FREE FIRE AREA"] = [{
       uniqueDesignation: "I",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-
+      // distance TODO - chybějící distance 
     }
   },
   {
@@ -240,7 +241,8 @@ entityDescription["NO FIRE LINE"] = {
     sidc: "G-F-LCN---",
     name: "NFL",
     administrator: "4RDB",
-    dth: "10095900ZJAN92",
+    dtg: "10095900ZJAN92",
+    // dtg1: ""   TODO - v no-fire-line.js je parameter dtg1, ale tady ani v example ne
   }
 };
 entityDescription["RESTRICTIVE FIRE LINE"] = {
@@ -252,10 +254,10 @@ entityDescription["RESTRICTIVE FIRE LINE"] = {
     administrator: "XCORPS",
     name: "DELTA",
     w: "NO WP SMOKE",
-    w1: "",
+    w1: "",  // TODO - v geometryconverter v restrictive-fire-line.js jsou 3 anotace, ale 1 je undefined (asi ta t a t1 když se definuje w a w1)
   }
 };
-entityDescription["FIRE SUPPORT COORDINATION LINE"] = {
+entityDescription["FIRE SUPPORT COORDINATION LINE"] = { // TODO - popisky jsou přes sebe, čitelné až v určitém zoomu
   geometry: {
     type: "LineString",
   },
