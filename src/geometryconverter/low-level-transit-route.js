@@ -3,7 +3,7 @@ const toDistanceBearing = require("../geometry/todistancebearing");
 
 module.exports = function(feature) {
     var annotations = [];
-    var annotationText = [];
+    var annotationText = '';
     var points = feature.geometry.coordinates;
     var width = feature.properties.distance;
     var centerPoint = ms.geometry.pointBetween(points[0], points[1], 0.5);
@@ -18,14 +18,15 @@ module.exports = function(feature) {
     };
 
     for (let a = 1; a < points.length; a++) {
-        var midpoint = ms.geometry.pointBetween(points[a - 1], points[a], 0.5);
-        annotations.push(ms.geometry.addAnotation(midpoint, feature.properties.name));
+        if (feature.properties.name) {
+            var midpoint = ms.geometry.pointBetween(points[a - 1], points[a], 0.5);
+            annotations.push(ms.geometry.addAnotation(midpoint, feature.properties.name));
+        }
     }
 
     if (feature.properties.name)
         annotationText +=
         "\nName:" + feature.properties.name;
-    if (feature.properties.name)
         annotationText +=
         "\nWidth:" + feature.properties.distance + "m";
     if (feature.properties.altitudeDepth)
@@ -39,7 +40,9 @@ module.exports = function(feature) {
     if (feature.properties.dtg1)
         annotationText += "\nDTG End:" + feature.properties.dtg1;
 
-    annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(centerPoint, width * 2, 0), annotationText));
+    if (annotationText != '') {
+        annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(centerPoint, width * 2, 0), annotationText));
+    }
 
     var direction = (ms.geometry.bearingBetween(points[0], points[1]) + 360) % 360;
     above.push(

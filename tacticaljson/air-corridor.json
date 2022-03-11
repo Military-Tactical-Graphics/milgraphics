@@ -13,7 +13,7 @@
                 "dtg1": "281530ZAPR"
             },
             "geometry": {
-                "type": "MultiLineString",
+                "type": "LineString",
                 "coordinates": [
                     [
                         4.87,
