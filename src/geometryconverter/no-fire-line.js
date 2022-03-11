@@ -15,8 +15,7 @@ module.exports = function(feature) {
         " " + feature.properties.administrator;
     if (feature.properties.dtg)
         annotationText += "\n\n" + feature.properties.dtg;
-    if (feature.properties.dtg1)
-        annotationText += "\n\n" + feature.properties.dtg1;
+
 
     geometry.coordinates = [points];
     annotations.push(ms.geometry.addAnotation(points[0], annotationText));

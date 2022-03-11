@@ -10,7 +10,7 @@
             "weaponSystemType": "1BTY"
         },
         "geometry": {
-            "type": "MultiLineString",
+            "type": "LineString",
             "coordinates": [
                 [
                     [

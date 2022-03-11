@@ -5,7 +5,7 @@ entityDescription["POSITION AREA FOR ARTILLERY"] = [{
       type: "Point",
     },
     properties: {
-      sidc: "G-F-ACPC--",
+      sidc: "G-F-ACPC-----X",
       distance: 300,
       name: "PAA",
     }
@@ -16,7 +16,7 @@ entityDescription["POSITION AREA FOR ARTILLERY"] = [{
       type: "LineString",
     },
     properties: {
-      sidc: "G-F-ACPR--",
+      sidc: "G-F-ACPR-----X",
       distance: 300,
       name: "PAA",
     }
@@ -26,7 +26,7 @@ entityDescription["POSITION AREA FOR ARTILLERY"] = [{
       type: "Polygon",
     },
     properties: {
-      sidc: "G-F-ACP---",
+      sidc: "G-F-ACP------X",
       distance: 300,
       name: "PAA",
     }
@@ -37,7 +37,7 @@ entityDescription["ARTILLERY FIRING POSITION"] = {
     type: "LineString",
   },
   properties: {
-    sidc: "ART-FIRING",
+    sidc: "ART-FIRING---X",
     name: "ARTILLERY FIRING POSITION",
     firingPosition: "11",
   }
@@ -47,7 +47,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
       type: "Point",
     },
     properties: {
-      //sidc: "G-F-ACPC--", UNKNOWN
+      sidc: "ART-MANO-A---X",
       distance: 300,
       name: "AMA",
     }
@@ -57,7 +57,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
       type: "LineString",
     },
     properties: {
-      //sidc: "G-F-ACPR--", UNKNOWN
+      sidc: "ART-MANO-A---X", 
       distance: 300,
       name: "AMA",
     }
@@ -67,7 +67,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
       type: "Polygon",
     },
     properties: {
-      //sidc: "G-F-ACP---", UNKNOWN
+      sidc: "ART-MANO-A---X", 
       distance: 300,
       name: "AMA",
     }
@@ -78,7 +78,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
       type: "Point",
     },
     properties: {
-      //sidc: "G-F-ACPC--", UNKNOWN
+      sidc: "ART-REST-A---X",
       distance: 300,
       name: "ARA",
     }
@@ -86,10 +86,9 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
   {
     geometry: {
       type: "LineString",
-      //maxPoints: 20, 
     },
     properties: {
-      //sidc: "G-F-ACPR--", UNKNOWN
+      sidc: "ART-REST-A---X",
       distance: 300,
       name: "ARA",
     }
@@ -99,7 +98,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
       type: "Polygon",
     },
     properties: {
-      //sidc: "G-F-ACP---", UNKNOWN
+      sidc: "ART-REST-A---X",
       distance: 300,
       name: "ARA",
     }
@@ -111,7 +110,7 @@ entityDescription["RECTANGULAR TARGET"] = { // TODO - popisky uvnitř jen v zoom
     points: 2,
   },
   properties: {
-    sidc: "G-F-AT----",
+    sidc: "G-F-AT-------X",
     name: "AB0176",
     distance: 500,
   }
@@ -121,7 +120,7 @@ entityDescription["CIRCULAR TARGET"] = { // TODO - popisky uvnitř jen v zoomu, 
     type: "Point",
   },
   properties: {
-    sidc: "G-F-AC----",
+    sidc: "G-F-AC-------X",
     name: "JA1101",
     distance: 5000,
   }
@@ -131,16 +130,16 @@ entityDescription["GROUP OF TARGETS"] = {
     type: "Polygon",
   },
   properties: {
-    sidc: "G-F-ATG---",
+    sidc: "G-F-ATG------X",
     name: "FORD",
   }
 };
 entityDescription["BARRAGE FIRE"] = {
   geometry: {
-    type: "MultiLineString",
+    type: "LineString",
   },
   properties: {
-    sidc: "BARRA-FIRE",
+    sidc: "BARRA-FIRE---X",
     name: "AC",
     administrator: "OAK",
     weaponSystemType: "1BTY",
@@ -148,10 +147,10 @@ entityDescription["BARRAGE FIRE"] = {
 };
 entityDescription["MULTILINE BARRAGE FIRE"] = {
   geometry: {
-    type: "MultiLineString",
+    type: "LineString",
   },
   properties: {
-    sidc: "M-BAR-FIRE",
+    sidc: "M-BAR-FIRE---X",
     name: "AC",
     administrator: "VLK",
     weaponSystemType: "1BTY",
@@ -163,7 +162,7 @@ entityDescription["FREE FIRE AREA"] = [{
       type: "Point",
     },
     properties: {
-      sidc: "G-F-ACFC--",
+      sidc: "G-F-ACFC-----X",
       uniqueDesignation: "I",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
@@ -173,14 +172,13 @@ entityDescription["FREE FIRE AREA"] = [{
   {
     geometry: {
       type: "LineString",
-      //maxPoints: 20, 
     },
     properties: {
-      sidc: "G-F-ACFR--",
+      sidc: "G-F-ACFR-----X",
       uniqueDesignation: "I",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      // distance TODO - chybějící distance 
+      distance: 5000,
     }
   },
   {
@@ -188,7 +186,7 @@ entityDescription["FREE FIRE AREA"] = [{
       type: "Polygon",
     },
     properties: {
-      sidc: "G-F-ACFI--",
+      sidc: "G-F-ACFI-----X",
       uniqueDesignation: "I",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
@@ -201,7 +199,7 @@ entityDescription["RESTRICTED FIRE AREA"] = [{
       type: "Point",
     },
     properties: {
-      sidc: "G-F-ACRC--",
+      sidc: "G-F-ACRC-----X",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
       administrator: "X CORPS",
@@ -214,7 +212,7 @@ entityDescription["RESTRICTED FIRE AREA"] = [{
       points: 2,
     },
     properties: {
-      sidc: "G-F-ACRR--",
+      sidc: "G-F-ACRR-----X",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
       administrator: "X CORPS",
@@ -226,7 +224,7 @@ entityDescription["RESTRICTED FIRE AREA"] = [{
       type: "Polygon",
     },
     properties: {
-      sidc: "G-F-ACRI--",
+      sidc: "G-F-ACRI-----X",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
       administrator: "X CORPS",
@@ -238,11 +236,10 @@ entityDescription["NO FIRE LINE"] = {
     type: "LineString",
   },
   properties: {
-    sidc: "G-F-LCN---",
+    sidc: "G-F-LCN------X",
     name: "NFL",
     administrator: "4RDB",
     dtg: "10095900ZJAN92",
-    // dtg1: ""   TODO - v no-fire-line.js je parameter dtg1, ale tady ani v example ne
   }
 };
 entityDescription["RESTRICTIVE FIRE LINE"] = {
@@ -250,11 +247,12 @@ entityDescription["RESTRICTIVE FIRE LINE"] = {
     type: "LineString",
   },
   properties: {
-    sidc: "G-F-LCR---",
-    administrator: "XCORPS",
-    name: "DELTA",
-    w: "NO WP SMOKE",
-    w1: "",  // TODO - v geometryconverter v restrictive-fire-line.js jsou 3 anotace, ale 1 je undefined (asi ta t a t1 když se definuje w a w1)
+    sidc: "G-F-LCR-------X",
+    name: "RFL",
+    t: "XCORPS",
+    t1:"DELTA",
+    w: "202100Z",
+    w1: "270800Z SEP",
   }
 };
 entityDescription["FIRE SUPPORT COORDINATION LINE"] = { // TODO - popisky jsou přes sebe, čitelné až v určitém zoomu
@@ -262,11 +260,12 @@ entityDescription["FIRE SUPPORT COORDINATION LINE"] = { // TODO - popisky jsou p
     type: "LineString",
   },
   properties: {
-    sidc: "G-F-LCF---",
-    administrator: "XCORPS",
-    name: "ALPHA",
-    dtg: "10095900ZJAN92",
-    dtg1: "10095900ZJAN92",
+    sidc: "G-F-LCF-------X",
+    name: "FSCL",
+    t: "XCORPS",
+    t1:"ALPHA",
+    w: "202100Z",
+    w1: "270800Z SEP",
   }
 };
 entityDescription["MUNITION FLIGHT PATH"] = {
@@ -274,7 +273,7 @@ entityDescription["MUNITION FLIGHT PATH"] = {
     type: "LineString",
   },
   properties: {
-    sidc: "G-F-LCM---",
+    sidc: "G-F-LCM------X",
     name: "MFL",
     dtg: "10095900ZJAN92",
     dtg1: "10095900ZJAN92",
@@ -285,7 +284,7 @@ entityDescription["AIR CORRIDOR"] = {
     type: "MultiLineString",
   },
   properties: {
-    sidc: "G-G-ALC---",
+    sidc: "G-G-ALC------X",
     name: "AC KNIGHT",
     distance: 500,
     uniqueDesignation: "53ID (M)",
@@ -300,7 +299,7 @@ entityDescription["LOW LEVEL TRANSIT ROUTE"] = {
     type: "MultiLineString",
   },
   properties: {
-    sidc: "G-G-ALL---",
+    sidc: "G-G-ALL------X",
     name: "LLTR KNIGHT",
     distance: 500,
     uniqueDesignation: "53ID (M)",
@@ -315,7 +314,7 @@ entityDescription["SAFE LINE"] = {
     type: "MultiLineString",
   },
   properties: {
-    sidc: "G-G-ALL---",
+    sidc: "G-G-ALL------X",
     name: "SL KNIGHT",
     distance: 500,
     uniqueDesignation: "53ID (M)",
@@ -330,7 +329,7 @@ entityDescription["RESTRICTED OPERATING ZONE"] = {
     type: "Polygon",
   },
   properties: {
-    sidc: "G-G-AA----",
+    sidc: "G-G-AA--------X",
     name: "(UNIT ID)",
     altitudeDepth: "2000 FT AGL",
     altitudeDepth1: "3000 FT AGL",

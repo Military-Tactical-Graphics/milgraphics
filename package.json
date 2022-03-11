@@ -1,6 +1,6 @@
 {
   "name": "milgraphics",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "MilGraphics is a library for drawing military graphics",
   "main": "dist/milgraphics.js",
   "types": "index.d.ts",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/spatialillusions/milgraphics"
   },
-  "author": "Måns Beckman (http://www.spatialillusions.com)",
+  "author": "Måns Beckman (http://www.spatialillusions.com), Ondřej Podolský",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spatialillusions/milgraphics/issues"

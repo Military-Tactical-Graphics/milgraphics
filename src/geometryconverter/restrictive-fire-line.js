@@ -11,9 +11,9 @@ module.exports = function(feature) {
     var annotationUnder = "";
 
 
-    if (feature.properties.administrator)
+    if (feature.properties.t)
         annotationTop +=
-        " " + feature.properties.administrator;
+        " " + feature.properties.t;
     if (feature.properties.w)
         annotationUnder += feature.properties.w;
     if (feature.properties.w1)

@@ -4,10 +4,11 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCR-------X",
-            "administrator": "XCORPS",
-            "name":"DELTA",
-            "w": "NO WP SMOKE",
-            "w1": ""
+            "name": "RFL",
+            "t": "XCORPS",
+            "t1":"DELTA",
+            "w": "202100Z",
+            "w1": "270800Z SEP"
         },
         "geometry": {
             "type": "LineString",

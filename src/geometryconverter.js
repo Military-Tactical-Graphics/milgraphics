@@ -11,19 +11,25 @@ geometryConverter[
 ] = require("./geometryconverter/ambush.js");
 geometryConverter[
     "ARTILLERY FIRING POSITION"
-] = require("./geometryconverter/artillery-firing-position.js"); //just for developer purpose - unknown sidc
+] = require("./geometryconverter/artillery-firing-position.js"); 
+geometryConverter[
+    "ARTILLERY MANOEUVRE AREA"
+] = require("./geometryconverter/artillery-firing-position.js");
+geometryConverter[
+    "ARTILLERY RESTRICTED AREA"
+] = require("./geometryconverter/artillery-firing-position.js");
 geometryConverter[
     "ARTILLERY TARGET INTELLIGENCE ZONE"
 ] = require("./geometryconverter/artillery-target-intelligence-zone.js");
 geometryConverter[
     "BARRAGE FIRE"
-] = require("./geometryconverter/barrage-fire.js"); //just for developer purpose - unknown sidc
+] = require("./geometryconverter/barrage-fire.js"); 
 geometryConverter[
     "BLOCK"
 ] = require("./geometryconverter/block.js");
 geometryConverter[
     "BOUNDARIES"
-] = require("./geometryconverter/boundaries.js"); //just for developer purpose - unknown sidc
+] = require("./geometryconverter/boundaries.js");
 geometryConverter[
     "BREACH"
 ] = require("./geometryconverter/breach.js");

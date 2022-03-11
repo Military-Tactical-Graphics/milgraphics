@@ -4,10 +4,11 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCF-------X",
-            "name": "ALPHA",
-            "administrator": "X CORPS",
-            "dtg": "10095900ZJAN92",
-            "dtg1": "10095900ZJAN92"
+            "name": "FSCL",
+            "t": "XCORPS",
+            "t1":"ALPHA",
+            "w": "202100Z",
+            "w1": "270800Z SEP"
         },
         "geometry": {
             "type": "LineString",
