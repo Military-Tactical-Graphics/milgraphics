@@ -3,7 +3,7 @@
     "features": [{
         "type": "Feature",
         "properties": {
-            "sidc": "M-BAR-FIRE----X",
+            "sidc": "M-B-R-FIRE----X",
             "name": "AC",
             "distance": 500,
             "administrator": "VLK",
@@ -13,18 +13,16 @@
             "type": "LineString",
             "coordinates": [
                 [
-                    [
-                        4.85,
-                        52.40
-                    ],
-                    [
-                        4.90,
-                        52.40
-                    ],
-                    [
-                        4.95,
-                        52.42
-                    ]
+                    4.85,
+                    52.40
+                ],
+                [
+                    4.90,
+                    52.40
+                ],
+                [
+                    4.95,
+                    52.42
                 ]
             ]
         }

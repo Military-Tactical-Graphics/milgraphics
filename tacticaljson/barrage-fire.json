@@ -3,7 +3,7 @@
     "features": [{
         "type": "Feature",
         "properties": {
-            "sidc": "BARRA-FIRE",
+            "sidc": "B-R-A-FIRE----X",
             "name": "AC",
             "administrator": "OAK",
             "weaponSystemType": "1BTY"
@@ -12,22 +12,20 @@
             "type": "LineString",
             "coordinates": [
                 [
-                    [
-                        4.85,
-                        52.40
-                    ],
-                    [
-                        4.90,
-                        52.40
-                    ],
-                    [
-                        4.95,
-                        52.39
-                    ],
-                    [
-                        5.0,
-                        52.39
-                    ]
+                    4.85,
+                    52.40
+                ],
+                [
+                    4.90,
+                    52.40
+                ],
+                [
+                    4.95,
+                    52.39
+                ],
+                [
+                    5.0,
+                    52.39
                 ]
             ]
         }

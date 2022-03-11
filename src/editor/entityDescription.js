@@ -37,7 +37,7 @@ entityDescription["ARTILLERY FIRING POSITION"] = {
     type: "LineString",
   },
   properties: {
-    sidc: "ART-FIRING---X",
+    sidc: "A-T-FIRING---X",
     name: "ARTILLERY FIRING POSITION",
     firingPosition: "11",
   }
@@ -47,7 +47,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
       type: "Point",
     },
     properties: {
-      sidc: "ART-MANO-A---X",
+      sidc: "A-T-MANO-A---X",
       distance: 300,
       name: "AMA",
     }
@@ -57,7 +57,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
       type: "LineString",
     },
     properties: {
-      sidc: "ART-MANO-A---X", 
+      sidc: "A-T-MANO-A---X", 
       distance: 300,
       name: "AMA",
     }
@@ -67,7 +67,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
       type: "Polygon",
     },
     properties: {
-      sidc: "ART-MANO-A---X", 
+      sidc: "A-T-MANO-A---X", 
       distance: 300,
       name: "AMA",
     }
@@ -78,7 +78,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
       type: "Point",
     },
     properties: {
-      sidc: "ART-REST-A---X",
+      sidc: "A-T-REST-A---X",
       distance: 300,
       name: "ARA",
     }
@@ -88,7 +88,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
       type: "LineString",
     },
     properties: {
-      sidc: "ART-REST-A---X",
+      sidc: "A-T-REST-A---X",
       distance: 300,
       name: "ARA",
     }
@@ -98,7 +98,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
       type: "Polygon",
     },
     properties: {
-      sidc: "ART-REST-A---X",
+      sidc: "A-T-REST-A---X",
       distance: 300,
       name: "ARA",
     }
@@ -139,7 +139,7 @@ entityDescription["BARRAGE FIRE"] = {
     type: "LineString",
   },
   properties: {
-    sidc: "BARRA-FIRE---X",
+    sidc: "B-R-A-FIRE---X",
     name: "AC",
     administrator: "OAK",
     weaponSystemType: "1BTY",
@@ -150,7 +150,7 @@ entityDescription["MULTILINE BARRAGE FIRE"] = {
     type: "LineString",
   },
   properties: {
-    sidc: "M-BAR-FIRE---X",
+    sidc: "M-B-R-FIRE---X",
     name: "AC",
     administrator: "VLK",
     weaponSystemType: "1BTY",
@@ -281,7 +281,7 @@ entityDescription["MUNITION FLIGHT PATH"] = {
 };
 entityDescription["AIR CORRIDOR"] = {
   geometry: {
-    type: "MultiLineString",
+    type: "LineString",
   },
   properties: {
     sidc: "G-G-ALC------X",
@@ -296,7 +296,7 @@ entityDescription["AIR CORRIDOR"] = {
 };
 entityDescription["LOW LEVEL TRANSIT ROUTE"] = {
   geometry: {
-    type: "MultiLineString",
+    type: "LineString",
   },
   properties: {
     sidc: "G-G-ALL------X",
@@ -311,7 +311,7 @@ entityDescription["LOW LEVEL TRANSIT ROUTE"] = {
 };
 entityDescription["SAFE LINE"] = {
   geometry: {
-    type: "MultiLineString",
+    type: "LineString",
   },
   properties: {
     sidc: "G-G-ALL------X",

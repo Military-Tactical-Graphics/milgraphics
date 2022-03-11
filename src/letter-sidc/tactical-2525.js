@@ -2,14 +2,15 @@ var ms = require("milsymbol");
 
 // Tactical graphics in 2525C + some extra
 module.exports = function tacticalPoints(sidc, std2525) {
+    // custom geometry
     sidc["T-S-T-----"] = ms.geometryConverter["TEST"]; //SIDC FOR DEVELOPER PURPOSES / MARKS WITHOUT ITS OWN SIDC
-    sidc["ART-FIRING"] = ms.geometryConverter["ARTILLERY FIRING POSITION"];
-    sidc["BARRA-FIRE"] = ms.geometryConverter["BARRAGE FIRE"];
-    sidc["M-BAR-FIRE"] = ms.geometryConverter["MULTILINE BARRAGE FIRE"];
-    sidc["ART-MANO-A"] = ms.geometryConverter["ARTILLERY MANOEUVRE AREA"];
-    sidc["ART-REST-A"] = ms.geometryConverter["ARTILLERY RESTRICTED AREA"];
+    sidc["A-T-FIRING"] = ms.geometryConverter["ARTILLERY FIRING POSITION"];
+    sidc["B-R-A-FIRE"] = ms.geometryConverter["BARRAGE FIRE"];
+    sidc["M-B-R-FIRE"] = ms.geometryConverter["MULTILINE BARRAGE FIRE"];
+    sidc["A-T-MANO-A"] = ms.geometryConverter["ARTILLERY MANOEUVRE AREA"];
+    sidc["A-T-REST-A"] = ms.geometryConverter["ARTILLERY RESTRICTED AREA"];
 
-
+    // standard geometry
     sidc["G-T-B-----"] = ms.geometryConverter["BLOCK"]; //TACGRP.TSK.BLK
     sidc["G-T-H-----"] = ms.geometryConverter["BREACH"]; //TACGRP.TSK.BRH
     sidc["G-T-Y-----"] = ms.geometryConverter["BYPASS"]; //TACGRP.TSK.BYS

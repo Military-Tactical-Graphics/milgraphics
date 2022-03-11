@@ -3,7 +3,7 @@
     "features": [{
         "type": "Feature",
         "properties": {
-            "sidc": "ART-FIRING",
+            "sidc": "A-T-FIRING----X",
             "name": "ARTILLERY FIRING POSITION",
             "firingPosition": "11"
         },
