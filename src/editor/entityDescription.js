@@ -66,13 +66,13 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
   },
   properties: {
     sidc: "A-T-MANO-A----X",
-    distance: 300,
+    distance: 300, // TODO nepoužito v kódu
     name: "AMA", // TODO nepoužito v kódu
   }
 },
 {
   geometry: {
-    type: "Polygon",
+    type: "Polygon",  // TODO nemá implementaci v artillery-firing-position.js
   },
   properties: {
     sidc: "A-T-MANO-A----X",
@@ -86,8 +86,8 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
   },
   properties: {
     sidc: "A-T-REST-A----X",
-    distance: 300,
-    name: "ARA",
+    distance: 300, 
+    name: "ARA", 
   }
 },
 {
@@ -97,17 +97,17 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [{
   },
   properties: {
     sidc: "A-T-REST-A----X",
-    distance: 300,
+    distance: 300, // TODO k čemu??
     name: "ARA",
   }
 },
 {
   geometry: {
-    type: "Polygon",
+    type: "Polygon", // TODO nemá implementaci v artillery-firing-position.js
   },
   properties: {
     sidc: "A-T-REST-A----X",
-    distance: 300,
+    distance: 300, // TODO k čemu??
     name: "ARA",
   }
 }
@@ -121,13 +121,13 @@ entityDescription["ARTILLERY TARGET INTELLIGENCE ZONE"] = {
     uniqueDesignation: "Q35"
   }
 };
-entityDescription["BARRAGE FIRE"] = {
+entityDescription["BARRAGE FIRE"] = { // TODO popisky jsou přes sebe
   geometry: {
     type: "LineString",
   },
   properties: {
     sidc: "B-R-A-FIRE----X",
-    name: "AC",
+    name: "AC", // TODO nepoužito v kódu
     administrator: "OAK",
     weaponSystemType: "1BTY",
   }
@@ -234,7 +234,7 @@ entityDescription["COORDINATED FIRE LINE"] = {
     uniqueDesignation: "CZE"
   }
 };
-entityDescription["COUNTERATTACK"] = {
+entityDescription["COUNTERATTACK"] = { // TODO Změnit pořadí zadávání bodů
   geometry: {
     type: "LineString",
     points: 4
@@ -246,15 +246,6 @@ entityDescription["COUNTERATTACK"] = {
 entityDescription["CRITICAL FRIENDLY ZONE"] = [
   {
     geometry: {
-      type: "Polygon"
-    },
-    properties: {
-      sidc: "G-F-AZFI------X",
-      uniqueDesignation: "Q35"
-    }
-  },
-  {
-    geometry: {
       type: "LineString",
       points: 2
     },
@@ -262,6 +253,15 @@ entityDescription["CRITICAL FRIENDLY ZONE"] = [
       sidc: "G-F-AZFR------X",
       distance: 5000,
       uniqueDesignation: "Q36"
+    }
+  },
+  {
+    geometry: {
+      type: "Polygon"
+    },
+    properties: {
+      sidc: "G-F-AZFI------X",
+      uniqueDesignation: "Q35"
     }
   }
 ];
@@ -362,7 +362,7 @@ entityDescription["FIRE SUPPORT COORDINATION LINE"] = { // TODO - popisky jsou p
     w1: "270800Z SEP",
   }
 };
-entityDescription["FIX"] = {
+entityDescription["FIX"] = { // TODO did not find graphic convertor
   geometry: {
     type: "LineString",
     points: 2
@@ -371,7 +371,7 @@ entityDescription["FIX"] = {
     sidc: "G-T-GF--------X"
   }
 };
-entityDescription["FLOT"] = {
+entityDescription["FLOT"] = { // TODO sestřelí prohlížeč při změne bearing
   geometry: {
     type: "LineString",
     points: 2
@@ -384,7 +384,7 @@ entityDescription["FLOT"] = {
 };
 entityDescription["FREE FIRE AREA"] = [{
   geometry: {
-    type: "Point", // TODO nemá implementaci
+    type: "Point"
   },
   properties: {
     sidc: "G-F-ACFC------X",
@@ -437,7 +437,7 @@ entityDescription["ISOLATE"] = {
     sidc: "G-T-E---------X"
   }
 };
-entityDescription["LINE OF CONTACT"] = {
+entityDescription["LINE OF CONTACT"] = { // TODO sestřelí prohlížeč při změne bearing
   geometry: {
     type: "LineString"
   },
@@ -456,14 +456,14 @@ entityDescription["LOW LEVEL TRANSIT ROUTE"] = {
     sidc: "G-G-ALL-------X",
     name: "LLTR KNIGHT",
     distance: 500,
-    uniqueDesignation: "53ID (M)",
+    uniqueDesignation: "53ID (M)", // TODO nepoužito
     altitudeDepth: "500 FT AGL",
     altitudeDepth1: "300 FT AGL",
     dtg: "281400ZAPR",
     dtg1: "281530ZAPR",
   }
 };
-entityDescription["MAIN ATTACK"] = {
+entityDescription["MAIN ATTACK"] = { // TODO Změnit pořadí zadávání bodů
   geometry: {
     type: "LineString"
   },
@@ -477,10 +477,10 @@ entityDescription["MULTILINE BARRAGE FIRE"] = {
   },
   properties: {
     sidc: "M-B-R-FIRE----X",
-    name: "AC",
+    name: "AC",  // TODO Nepoužito
     administrator: "VLK",
-    weaponSystemType: "1BTY",
-    distance: 500
+    weaponSystemType: "1BTY", // TODO Nepoužito
+    distance: 500 // TODO Nepoužito
   }
 };
 entityDescription["MUNITION FLIGHT PATH"] = {
@@ -508,7 +508,7 @@ entityDescription["NO FIRE AREA"] = [
     properties: {
       sidc: "G-F-ACNC------X",
       distance: 300,
-      "fill": "dashes",
+      fill: "dashes",
       name: "NFA"
     },
     geometry: {
@@ -519,7 +519,7 @@ entityDescription["NO FIRE AREA"] = [
     properties: {
       sidc: "G-F-ACNR------X",
       distance: 300,
-      "fill": "dashes",
+      fill: "dashes",
       name: "NFA"
     },
     geometry: {
@@ -529,7 +529,6 @@ entityDescription["NO FIRE AREA"] = [
   }, {
     properties: {
       sidc: "G-F-ACNI------X",
-      distance: 200,
       fill: "dashes",
       name: "NFA"
     },
@@ -549,7 +548,7 @@ entityDescription["NO FIRE LINE"] = {
     dtg: "10095900ZJAN92",
   }
 };
-entityDescription["OCCUPY"] = {
+entityDescription["OCCUPY"] = { // TODO Nefunguje
   properties: {
     sidc: "G-T-O---------X"
   },
@@ -597,7 +596,6 @@ entityDescription["POSITION AREA FOR ARTILLERY"] = [{
   },
   properties: {
     sidc: "G-F-ACP-------X",
-    distance: 300,
     name: "PAA",
   }
 }
@@ -663,7 +661,7 @@ entityDescription["RESTRICTED FIRE AREA"] = [{
   }
 }
 ];
-entityDescription["RESTRICTIVE FIRE LINE"] = {
+entityDescription["RESTRICTIVE FIRE LINE"] = { // TODO popisky se překrývají
   geometry: {
     type: "LineString",
   },
@@ -684,14 +682,14 @@ entityDescription["SAFE LINE"] = {
     sidc: "G-G-ALL-------X",
     name: "SL KNIGHT",
     distance: 500,
-    uniqueDesignation: "53ID (M)",
+    uniqueDesignation: "53ID (M)", // TODO Nepoužito
     altitudeDepth: "500 FT AGL",
     altitudeDepth1: "300 FT AGL",
     dtg: "281400ZAPR",
     dtg1: "281530ZAPR",
   }
 };
-entityDescription["SUPPORTING ATTACK"] = {
+entityDescription["SUPPORTING ATTACK"] = { // TODO Změnit pořadí zadávání
   geometry: {
     type: "LineString"
   },
@@ -702,13 +700,14 @@ entityDescription["SUPPORTING ATTACK"] = {
 entityDescription["TARGET BUILD-UP AREA"] = [
   {
     properties: {
-      sidc: "G-F-ACBI------X",
-      uniqueDesignation: "Q35",
+      sidc: "G-F-ACBC------X",
+      distance: 5000,
       dtg: "10095900ZJAN92",
-      dtg1: "11095900ZJAN92"
+      dtg1: "11095900ZJAN92",
+      uniqueDesignation: "Q37"
     },
     geometry: {
-      type: "Polygon"
+      type: "Point"
     }
   },
   {
@@ -726,7 +725,20 @@ entityDescription["TARGET BUILD-UP AREA"] = [
   },
   {
     properties: {
-      sidc: "G-F-ACBC------X",
+      sidc: "G-F-ACBI------X",
+      uniqueDesignation: "Q35",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92"
+    },
+    geometry: {
+      type: "Polygon"
+    }
+  }
+];
+entityDescription["TARGET VALUE AREA"] = [
+  {
+    properties: {
+      sidc: "G-F-ACVC------X",
       distance: 5000,
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
@@ -734,19 +746,6 @@ entityDescription["TARGET BUILD-UP AREA"] = [
     },
     geometry: {
       type: "Point"
-    }
-  }
-];
-entityDescription["TARGET VALUE AREA"] = [
-  {
-    properties: {
-      sidc: "G-F-ACVI------X",
-      uniqueDesignation: "Q35",
-      dtg: "10095900ZJAN92",
-      dtg1: "11095900ZJAN92",
-    },
-    geometry: {
-      type: "Polygon"
     }
   },
   {
@@ -764,14 +763,13 @@ entityDescription["TARGET VALUE AREA"] = [
   },
   {
     properties: {
-      sidc: "G-F-ACVC------X",
-      distance: 5000,
+      sidc: "G-F-ACVI------X",
+      uniqueDesignation: "Q35",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      uniqueDesignation: "Q37"
     },
     geometry: {
-      type: "Point"
+      type: "Polygon"
     }
   }
 ];
@@ -787,7 +785,7 @@ entityDescription["TARGETED AREA OF INTEREST"] = {
 entityDescription["TERMINALLY GUIDED MUNITION FOOTPRINT"] = {
   properties: {
     sidc: "G-F-ACT-------X",
-    uniqueDesignation: "Q35"
+    uniqueDesignation: "Q35" // TODO Nepoužito
   },
   geometry: {
     type: "Polygon"
@@ -808,11 +806,14 @@ entityDescription["WEAPONS FREE ZONE"] = {
 entityDescription["ZONE OF RESPONSIBILITY"] = [
   {
     properties: {
-      sidc: "G-F-ACZI------X",
-      uniqueDesignation: "Q35"
+      sidc: "G-F-ACZC------X",
+      distance: 5000,
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+      uniqueDesignation: "Q37"
     },
     geometry: {
-      type: "Polygon"
+      type: "Point"
     }
   },
   {
@@ -830,14 +831,11 @@ entityDescription["ZONE OF RESPONSIBILITY"] = [
   },
   {
     properties: {
-      sidc: "G-F-ACZC------X",
-      distance: 5000,
-      dtg: "10095900ZJAN92",
-      dtg1: "11095900ZJAN92",
-      uniqueDesignation: "Q37"
+      sidc: "G-F-ACZI------X",
+      uniqueDesignation: "Q35"
     },
     geometry: {
-      type: "Point"
+      type: "Polygon"
     }
   }
 ];

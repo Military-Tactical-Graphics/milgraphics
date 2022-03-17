@@ -1,7 +1,7 @@
 var ms = require("milsymbol");
 const convertToDashes = require("../geometry/converttodashes");
 
-// Draws a corridor with a widht in meters
+// Draws a corridor with a width in meters
 module.exports = function(feature) {
     var direction, width;
     var points = [...feature.geometry.coordinates];
