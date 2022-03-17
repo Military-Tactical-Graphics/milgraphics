@@ -120,7 +120,7 @@ geometryConverter[
 ] = require("./geometryconverter/no-fire-line.js");
 geometryConverter["OCCUPY"] = require("./geometryconverter/occupy.js");
 geometryConverter[
-    "PHASELINE"
+    "PHASE LINE"
 ] = require("./geometryconverter/phase-line.js");
 geometryConverter[
     "POSITION AREA FOR ARTILLERY"
