@@ -16,19 +16,15 @@ module.exports = function(feature) {
     ];
     geometry.coordinates.push(geom);
 
-    geom = [
-        ms.geometry.toDistanceBearing(points[0], scale * 0.2, bearing + 90 - 30),
-        points[0],
-        ms.geometry.toDistanceBearing(points[0], scale * 0.2, bearing + 90 + 30),
-    ];
-    geometry.coordinates.push(geom);
-
-    geom = [
-        ms.geometry.toDistanceBearing(points[1], scale * 0.2, bearing + 90 - 30),
-        points[1],
-        ms.geometry.toDistanceBearing(points[1], scale * 0.2, bearing + 90 + 30),
-    ];
-    geometry.coordinates.push(geom);
+    // arrows
+    [points[0], points[1]].forEach(arrowPoint => {
+        geom = [
+            ms.geometry.toDistanceBearing(arrowPoint, scale * 0.2, bearing + 90 - 30),
+            arrowPoint,
+            ms.geometry.toDistanceBearing(arrowPoint, scale * 0.2, bearing + 90 + 30),
+        ];
+        geometry.coordinates.push(geom);
+    });
 
     var annotations = [{
         geometry: { type: "Point", coordinates: points[2] },

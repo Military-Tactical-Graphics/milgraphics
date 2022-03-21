@@ -14,10 +14,10 @@ geometryConverter[
 ] = require("./geometryconverter/artillery-firing-position.js"); 
 geometryConverter[
     "ARTILLERY MANOEUVRE AREA"
-] = require("./geometryconverter/artillery-firing-position.js");
+] = require("./geometryconverter/position-area-for-artillery.js");
 geometryConverter[
     "ARTILLERY RESTRICTED AREA"
-] = require("./geometryconverter/artillery-firing-position.js");
+] = require("./geometryconverter/position-area-for-artillery.js");
 geometryConverter[
     "ARTILLERY TARGET INTELLIGENCE ZONE"
 ] = require("./geometryconverter/artillery-target-intelligence-zone.js");
