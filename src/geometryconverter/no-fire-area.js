@@ -1,16 +1,26 @@
 var ms = require("milsymbol");
-const toDistanceBearing = require("../geometry/todistancebearing");
 
 module.exports = function(feature) {
     
     var points = feature.geometry.coordinates;
-    var annotationText = feature.properties.name;
     var distance = feature.properties.distance; //distance in meters
     var centerPoint;
     var annotations = {
         geometry: { type: "Point", coordinates: centerPoint },
-        properties: { text: annotationText }
+        properties: { text: `NFA\n` }
     };
+
+    feature.properties.fill = 'dashes';
+
+    if (feature.properties.name) {
+        annotations.properties.text += feature.properties.name
+    }
+    if (feature.properties.dtg) {
+        annotations.properties.text += `\n${feature.properties.dtg}`
+    }
+    if (feature.properties.dtg1) {
+        annotations.properties.text += ` - ${feature.properties.dtg1}`
+    }
 
     if (feature.geometry.type == "Point") {
         centerPoint = points;

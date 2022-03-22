@@ -12,10 +12,18 @@ module.exports = function(feature) {
         ]
     };
 
+    var annotations = {
+        geometry: { type: "Point" },
+        properties: { text: "O" }
+      };
+
     for (var d = 0; d <= 340; d += 5) {
         geometry.coordinates[0].push(
             ms.geometry.toDistanceBearing(p[0], r, d + bearing)
         );
+        if (d == 340 / 2) {
+            annotations.geometry.coordinates = ms.geometry.toDistanceBearing(p[0], r, d + bearing);
+        }
     }
 
     var pEnd = ms.geometry.toDistanceBearing(p[0], r, 340 + bearing);
@@ -34,5 +42,5 @@ module.exports = function(feature) {
     ];
     geometry.coordinates.push(geom);
 
-    return { geometry: geometry };
+    return { geometry: geometry, annotations: [annotations] };
 };

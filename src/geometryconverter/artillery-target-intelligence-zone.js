@@ -4,10 +4,10 @@ function artilleryTargetIntelligenceZone(feature) {
   var annotations = {};
 
   annotations.geometry = { type: "Point" };
-  annotations.properties = { text: "ATI ZONE" };
+  annotations.properties = { text: "ATI" };
   if (feature.properties.uniqueDesignation)
     annotations.properties.text +=
-      "\n" + feature.properties.uniqueDesignation;
+      " " + feature.properties.uniqueDesignation;
   /*if (feature.properties.dtg)
     annotations.properties.text += "\n" + feature.properties.dtg;
   if (feature.properties.dtg1)

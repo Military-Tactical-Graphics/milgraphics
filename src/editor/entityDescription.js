@@ -2,6 +2,20 @@ import entityImages from './entityImages';
 
 const entityDescription = {};
 
+// TODO ujednotit názvosloví
+
+// AM  Width/Distance
+// B   Echelon
+// FP  Firing Position
+// H   Additional Information 
+// N   Hostile
+// T   Name
+// T1  UniqueDesignation
+// W   DTG Start
+// W1  DTG End
+// X   Min Altitude
+// X1  Max Altitude
+
 entityDescription["AIR CORRIDOR"] = {
   geometry: {
     type: "LineString",
@@ -10,7 +24,6 @@ entityDescription["AIR CORRIDOR"] = {
     sidc: "G-G-ALC-------X",
     name: "AC KNIGHT",
     distance: 500,
-    uniqueDesignation: "53ID (M)",
     altitudeDepth: "500 FT AGL",
     altitudeDepth1: "300 FT AGL",
     dtg: "281400ZAPR",
@@ -68,8 +81,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
   },
   properties: {
     sidc: "A-T-MANO-A----X",
-    distance: 300,
-    name: "AMA"
+    distance: 300
   },
   description: {
     base64: entityImages["ARTILLERY MANOEUVRE AREA - POINT"]
@@ -82,8 +94,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
   },
   properties: {
     sidc: "A-T-MANO-A----X",
-    distance: 300,
-    name: "AMA"
+    distance: 300
   },
   description: {
     base64: entityImages["ARTILLERY MANOEUVRE AREA - LINESTRING"]
@@ -94,8 +105,7 @@ entityDescription["ARTILLERY MANOEUVRE AREA"] = [{
     type: "Polygon",
   },
   properties: {
-    sidc: "A-T-MANO-A----X",
-    name: "AMA",
+    sidc: "A-T-MANO-A----X"
   },
   description: {
     base64: entityImages["ARTILLERY MANOEUVRE AREA - POLYGON"]
@@ -109,8 +119,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [
     },
     properties: {
       sidc: "A-T-REST-A----X",
-      distance: 300, 
-      name: "ARA", 
+      distance: 300
     },
     description: {
       base64: entityImages["ARTILLERY RESTRICTED AREA - POINT"]
@@ -123,8 +132,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [
     },
     properties: {
       sidc: "A-T-REST-A----X",
-      distance: 300,
-      name: "ARA",
+      distance: 300
     },
     description: {
       base64: entityImages["ARTILLERY RESTRICTED AREA - LINESTRING"]
@@ -135,9 +143,7 @@ entityDescription["ARTILLERY RESTRICTED AREA"] = [
       type: "Polygon",
     },
     properties: {
-      sidc: "A-T-REST-A----X",
-      distance: 300,
-      name: "ARA",
+      sidc: "A-T-REST-A----X"
     },
     description: {
       base64: entityImages["ARTILLERY RESTRICTED AREA - POLYGON"]
@@ -150,7 +156,7 @@ entityDescription["ARTILLERY TARGET INTELLIGENCE ZONE"] = {
   },
   properties: {
     sidc: "G-F-AZII------X",
-    uniqueDesignation: "Q35"
+    uniqueDesignation: "Q35" // TODO anotace W,W1 na správné místo!
   },
   description: {
     base64: entityImages["ARTILLERY TARGET INTELLIGENCE ZONE"]
@@ -163,8 +169,7 @@ entityDescription["BARRAGE FIRE"] = { // TODO popisky jsou přes sebe
   },
   properties: {
     sidc: "B-R-A-FIRE----X",
-    name: "AC", // TODO nepoužito v kódu
-    administrator: "OAK",
+    name: "AC",
     weaponSystemType: "1BTY",
   },
   description: {
@@ -188,16 +193,16 @@ entityDescription["BOUNDARIES"] = {
     type: "LineString",
     points: 3
   },
-  properties: {   // TODO přidat anotace
+  properties: {   // TODO přidat anotace N, T, T1, B
     sidc: "G-G-GLB-------X"
   },
   description: {
     base64: entityImages["BOUNDARIES"]
   }
 };
-entityDescription["BREACH"] = {
-  geometry: {
-    type: "LineString",
+entityDescription["BREACH"] = { // TODO bod se generuje na pozici mimo geometrii pri určitém zadání
+  geometry: {                   // viz example - délka se generuje podle vzdálenosti bodu 3 a středem mezi pt.1 a 2
+    type: "LineString",         // místo bodu 3 a vzdálenosti od pt.1 a 2 !!
     points: 3
   },
   properties: {
@@ -219,7 +224,7 @@ entityDescription["BYPASS"] = { // TODO bod se generuje na pozici mimo geometrii
     base64: entityImages["BYPASS"]
   }
 };
-entityDescription["CALL FOR FIRE ZONE"] = {
+entityDescription["CALL FOR FIRE ZONE"] = { // TODO anotace W,W1
   geometry: {
     type: "Polygon",
   },
@@ -231,9 +236,9 @@ entityDescription["CALL FOR FIRE ZONE"] = {
     base64: entityImages["CALL FOR FIRE ZONE"]
   }
 };
-entityDescription["CANALIZE"] = {
-  geometry: {
-    type: "LineString",
+entityDescription["CANALIZE"] = { // TODO bod se generuje na pozici mimo geometrii pri určitém zadání
+  geometry: {                     // viz example - délka se generuje podle vzdálenosti bodu 3 a středem mezi pt.1 a 2
+    type: "LineString",           // místo bodu 3 a vzdálenosti od pt.1 a 2 !! 
     points: 3
   },
   properties: {
@@ -243,7 +248,7 @@ entityDescription["CANALIZE"] = {
     base64: entityImages["CANALIZE"]
   }
 };
-entityDescription["CENSOR ZONE"] = {
+entityDescription["CENSOR ZONE"] = {  // TODO anotace W,W1
   geometry: {
     type: "Polygon"
   },
@@ -268,8 +273,8 @@ entityDescription["CIRCULAR TARGET"] = { // TODO - popisky uvnitř jen v zoomu, 
     base64: entityImages["CIRCULAR TARGET"]
   }
 };
-entityDescription["CLEAR"] = {
-  geometry: {
+entityDescription["CLEAR"] = { // TODO Pokud je 3tí bod na opačné straně než podle dokumentace, zobrazí
+  geometry: {                  // se na opačné straně
     type: "LineString",
     points: 3
   },
@@ -292,14 +297,13 @@ entityDescription["CONTAIN"] = {
     base64: entityImages["CONTAIN"]
   }
 };
-entityDescription["COORDINATED FIRE LINE"] = {
+entityDescription["COORDINATED FIRE LINE"] = { // TODO anotace W,W1
   geometry: {
     type: "LineString"
   },
   properties: { // TODO Upravit anotace
     sidc: "G-F-LCC-------X",
-    name: "CFL",
-    administrator: "4RDB",
+    name: "4RDB",
     uniqueDesignation: "CZE"
   },
   description: {
@@ -346,7 +350,7 @@ entityDescription["CRITICAL FRIENDLY ZONE"] = [   // TODO přidat anotace W, W1
     }
   }
 ];
-entityDescription["DEAD SPACE AREA"] = [   // TODO přidat anotace W, W1
+entityDescription["DEAD SPACE AREA"] = [   // TODO přidat anotace dtg, dtg1 na správné místo
   {
     geometry: {
       type: "Point"
@@ -405,7 +409,7 @@ entityDescription["DELAY"] = {
     base64: entityImages["DELAY"]
   }
 };
-entityDescription["FIRE SUPPORT AREA"] = [   // TODO přidat anotace W, W1
+entityDescription["FIRE SUPPORT AREA"] = [   // TODO přidat anotace dtg, dtg1 na správné místo
   {
     geometry: {
       type: "Point"
@@ -458,16 +462,15 @@ entityDescription["FIRE SUPPORT COORDINATION LINE"] = { // TODO - popisky jsou p
   properties: {
     sidc: "G-F-LCF-------X",
     name: "FSCL",
-    t: "XCORPS",
-    t1: "ALPHA",
-    w: "202100Z",
-    w1: "270800Z SEP",
+    uniqueDesignation: "ALPHA",
+    dtg: "202100Z",
+    dtg1: "270800Z SEP",
   },
   description: {
     base64: entityImages["FIRE SUPPORT COORDINATION LINE"]
   }
 };
-entityDescription["FIX"] = { // TODO Přidat anotaci F
+entityDescription["FIX"] = {
   geometry: {
     type: "LineString",
     points: 2
@@ -582,7 +585,7 @@ entityDescription["LOW LEVEL TRANSIT ROUTE"] = {
   },
   properties: {
     sidc: "G-G-ALL-------X",
-    name: "LLTR KNIGHT",
+    name: "KNIGHT",
     distance: 500,
     altitudeDepth: "500 FT AGL",
     altitudeDepth1: "300 FT AGL",
@@ -611,13 +614,11 @@ entityDescription["MULTILINE BARRAGE FIRE"] = {
   },
   properties: {
     sidc: "M-B-R-FIRE----X",
-    name: "AC",  // TODO Nepoužito
-    administrator: "VLK",
-    weaponSystemType: "1BTY", // TODO Nepoužito
-    distance: 500 // TODO Nepoužito
+    name: "VLK",
+    distance: 500
   },
   description: {
-    base64: entityImages["MULTILINE BARRAGE FIRE"] // TODO dodat obrázek
+    base64: entityImages["MULTILINE BARRAGE FIRE"]
   }
 };
 entityDescription["MUNITION FLIGHT PATH"] = {
@@ -626,9 +627,8 @@ entityDescription["MUNITION FLIGHT PATH"] = {
   },
   properties: {
     sidc: "G-F-LCM-------X",
-    name: "MFL",
     dtg: "10095900ZJAN92",
-    dtg1: "10095900ZJAN92",
+    dtg1: "10095900ZJAN92"
   },
   description: {
     base64: entityImages["MUNITION FLIGHT PATH"]
@@ -646,13 +646,14 @@ entityDescription["NAMED AREA OF INTEREST"] = {
     base64: entityImages["NAMED AREA OF INTEREST"]
   }
 };
-entityDescription["NO FIRE AREA"] = [ // TODO přidat anotace T, W, W1
+entityDescription["NO FIRE AREA"] = [
   {
     properties: {
       sidc: "G-F-ACNC------X",
       distance: 300,
-      fill: "dashes",
-      name: "NFA"
+      name: "Test",
+      dtg: "10095900ZJAN92",
+      dtg1: "10095900ZJAN92"
     },
     geometry: {
       type: "Point"
@@ -665,8 +666,9 @@ entityDescription["NO FIRE AREA"] = [ // TODO přidat anotace T, W, W1
     properties: {
       sidc: "G-F-ACNR------X",
       distance: 300,
-      fill: "dashes",
-      name: "NFA"
+      name: "Test",
+      dtg: "10095900ZJAN92",
+      dtg1: "10095900ZJAN92"
     },
     geometry: {
       type: "LineString",
@@ -678,8 +680,9 @@ entityDescription["NO FIRE AREA"] = [ // TODO přidat anotace T, W, W1
   }, {
     properties: {
       sidc: "G-F-ACNI------X",
-      fill: "dashes",
-      name: "NFA"
+      name: "Test",
+      dtg: "10095900ZJAN92",
+      dtg1: "10095900ZJAN92"
     },
     geometry: {
       type: "Polygon"
@@ -695,15 +698,13 @@ entityDescription["NO FIRE LINE"] = {
   },
   properties: {
     sidc: "G-F-LCN-------X",
-    name: "NFL",
-    administrator: "4RDB",
-    dtg: "10095900ZJAN92",
+    name: "4RDB"
   },
   description: {
     base64: entityImages["NO FIRE LINE"]
   }
 };
-entityDescription["OCCUPY"] = { // TODO Přidat anotaci O
+entityDescription["OCCUPY"] = {
   properties: {
     sidc: "G-T-O---------X"
   },
@@ -721,7 +722,7 @@ entityDescription["PHASE LINE"] = {
   },
   properties: {
     sidc: "G-G-GLP-------X",
-    name: "PL NAME"
+    name: "NAME"
   },
   description: {
     base64: entityImages["PHASE LINE"]
@@ -734,22 +735,19 @@ entityDescription["POSITION AREA FOR ARTILLERY"] = [{
   properties: {
     sidc: "G-F-ACPC------X",
     distance: 300,
-    name: "PAA",
   },
   description: {
     base64: entityImages["POSITION AREA FOR ARTILLERY - POINT"]
   }
 },
 {
-  geometry: { // TODO - Pokud jsou body definovány mimo horizontální/vertikální smer, tak jsou popisky mimo,
-    //        tzn nerotuje s čtvercem, který muze byt obdelnik - asi bych počítal distance
+  geometry: {
     type: "LineString",
     points: 2
   },
   properties: {
     sidc: "G-F-ACPR------X",
-    distance: 300,
-    name: "PAA",
+    distance: 500
   },
   description: {
     base64: entityImages["POSITION AREA FOR ARTILLERY - LINESTRING"]
@@ -760,8 +758,7 @@ entityDescription["POSITION AREA FOR ARTILLERY"] = [{
     type: "Polygon",
   },
   properties: {
-    sidc: "G-F-ACP-------X",
-    name: "PAA",
+    sidc: "G-F-ACP-------X"
   },
   description: {
     base64: entityImages["POSITION AREA FOR ARTILLERY - POLYGON"]
@@ -770,7 +767,7 @@ entityDescription["POSITION AREA FOR ARTILLERY"] = [{
 ];
 entityDescription["RECTANGULAR TARGET"] = { // TODO - popisky uvnitř jen v zoomu, kde se vejdou do geometrie, jinak ne
   geometry: {
-    type: "LineString",
+    type: "LineString",     // TODO dle dokumentace je to POINT s AM, AM1 a AN, tzn sirka, delka, attitude
     points: 2
   },
   properties: {
@@ -850,11 +847,10 @@ entityDescription["RESTRICTIVE FIRE LINE"] = { // TODO popisky se překrývají
   },
   properties: {
     sidc: "G-F-LCR-------X",
-    name: "RFL",
-    t: "XCORPS",
-    t1: "DELTA",
-    w: "202100Z",
-    w1: "270800Z SEP",
+    name: "XCORPS",
+    uniqueDesignation: "DELTA",
+    dtg: "202100Z",
+    dtg1: "270800Z SEP",
   },
   description: {
     base64: entityImages["RESTRICTIVE FIRE LINE"]
@@ -866,7 +862,7 @@ entityDescription["SAFE LANE"] = {
   },
   properties: {
     sidc: "G-G-ALL-------X",
-    name: "SL KNIGHT",
+    name: "KNIGHT",
     distance: 500,
     altitudeDepth: "500 FT AGL",
     altitudeDepth1: "300 FT AGL",
@@ -1012,22 +1008,21 @@ entityDescription["WEAPONS FREE ZONE"] = {
   properties: {
     sidc: "G-G-AAW-------X",
     name: "(unit ID)",
-    timeFrom: "180500Z",
-    timeTo: "180615Z",
-    fill: "dashes"
+    dtg: "180500Z",
+    dtg1: "180615Z"
   },
   description: {
     base64: entityImages["WEAPONS FREE ZONE"]
   }
 };
-entityDescription["ZONE OF RESPONSIBILITY"] = [ // TODO přidat anotace W, W1
+entityDescription["ZONE OF RESPONSIBILITY"] = [ // TODO anotace W,W1 na správné místo!
   {
     properties: {
       sidc: "G-F-ACZC------X",
       distance: 5000,
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      uniqueDesignation: "Q37"
+      name: "Q37"
     },
     geometry: {
       type: "Point"
@@ -1042,7 +1037,7 @@ entityDescription["ZONE OF RESPONSIBILITY"] = [ // TODO přidat anotace W, W1
       distance: 5000,
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      uniqueDesignation: "Q36"
+      name: "Q36"
     },
     geometry: {
       type: "LineString",
@@ -1055,7 +1050,7 @@ entityDescription["ZONE OF RESPONSIBILITY"] = [ // TODO přidat anotace W, W1
   {
     properties: {
       sidc: "G-F-ACZI------X",
-      uniqueDesignation: "Q35"
+      name: "Q35"
     },
     geometry: {
       type: "Polygon"

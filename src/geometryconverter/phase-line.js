@@ -1,8 +1,6 @@
 var ms = require("milsymbol");
 
 module.exports = function(feature) {
-    //var direction, width;
-    console.log(feature);
     var points = feature.geometry.coordinates;
     var name = feature.properties.name;
     var annotations = [];
@@ -16,8 +14,10 @@ module.exports = function(feature) {
     }
     geometry.coordinates = [geometry1];
 
-    annotations.push(ms.geometry.addAnotation(points[0], name));
-    annotations.push(ms.geometry.addAnotation(points.slice(-1)[0], name));
+    if (name) {
+        annotations.push(ms.geometry.addAnotation(points[0], `PL ${name}`));
+        annotations.push(ms.geometry.addAnotation(points.slice(-1)[0], `PL ${name}`));
+    }
 
     return { geometry: geometry, annotations: annotations };
 }

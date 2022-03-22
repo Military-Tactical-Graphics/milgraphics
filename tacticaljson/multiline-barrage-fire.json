@@ -4,10 +4,8 @@
         "type": "Feature",
         "properties": {
             "sidc": "M-B-R-FIRE----X",
-            "name": "AC",
-            "distance": 500,
-            "administrator": "VLK",
-            "weaponSystemType": "1BTY"
+            "distance": 900,
+            "name": "VLK"
         },
         "geometry": {
             "type": "LineString",

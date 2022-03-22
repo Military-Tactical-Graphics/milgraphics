@@ -4,8 +4,7 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCC-------X",
-            "name": "CFL",
-            "administrator": "4RDB",
+            "name": "4RDB",
             "uniqueDesignation": "CZE"
         },
         "geometry": {

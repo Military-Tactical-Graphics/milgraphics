@@ -5,8 +5,7 @@
             "properties": {
                 "sidc": "G-F-ACNC------X",
                 "distance": 300,
-                "fill": "dashes",
-                "name": "NFA"
+                "name": "TEST"
             },
             "geometry": {
                 "type": "Point",
@@ -22,8 +21,7 @@
             "properties": {
                 "sidc": "G-F-ACNR------X",
                 "distance": 300,
-                "fill": "dashes",
-                "name": "NFA"
+                "name": "TEST"
             },
             "geometry": {
                 "type": "LineString",
@@ -44,8 +42,9 @@
             "properties": {
                 "sidc": "G-F-ACNI------X",
                 "distance": 200,
-                "fill": "dashes",
-                "name": "NFA"
+                "name": "TEST",
+                "dtg": "281400ZAPR",
+                "dtg1": "281530ZAPR"
             },
             "geometry": {
                 "type": "Polygon",

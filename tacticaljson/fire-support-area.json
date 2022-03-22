@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-F-ACSI------X",
-                "uniqueDesignation": "I"
+                "name": "I"
             },
             "geometry": {
                 "type": "Polygon",
@@ -60,7 +60,7 @@
             "properties": {
                 "sidc": "G-F-ACSR------X",
                 "distance": 5000,
-                "uniqueDesignation": "II"
+                "name": "II"
             },
             "geometry": {
                 "type": "LineString",
@@ -83,7 +83,7 @@
                 "distance": 5000,
                 "dtg": "10095900ZJAN92",
                 "dtg1": "11095900ZJAN92",
-                "uniqueDesignation": "III"
+                "name": "III"
             },
             "geometry": {
                 "type": "Point",

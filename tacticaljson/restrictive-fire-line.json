@@ -4,11 +4,10 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCR-------X",
-            "name": "RFL",
-            "t": "XCORPS",
-            "t1":"DELTA",
-            "w": "202100Z",
-            "w1": "270800Z SEP"
+            "name": "XCORPS",
+            "uniqueDesignation":"DELTA",
+            "dtg": "202100Z",
+            "dtg1": "270800Z SEP"
         },
         "geometry": {
             "type": "LineString",

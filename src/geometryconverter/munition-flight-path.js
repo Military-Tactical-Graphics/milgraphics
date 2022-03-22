@@ -5,13 +5,11 @@ module.exports = function(feature) {
     var geometry = { type: "MultiLineString", coordinates: [] };
 
     var annotations = [];
-    var annotationTop = "";
+    var annotationTop = "MFP";
     var annotationUnder = "";
     var annotationTopCoordinates;
 
 
-    if (feature.properties.name)
-        annotationTop += feature.properties.name;
     if (feature.properties.dtg)
         annotationUnder += feature.properties.dtg;
     if (feature.properties.dtg1)
@@ -31,7 +29,9 @@ module.exports = function(feature) {
 
     annotations.push(ms.geometry.addAnotation(annotationTopCoordinates, annotationTop));
 
-    annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(points[0], -30, -45), annotationUnder));
+    var middlePoint = ms.geometry.pointBetween(points[0], points[1], 0.25);
+
+    annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(middlePoint, -30, -45), annotationUnder));
 
 
     return { geometry: geometry, annotations: annotations };

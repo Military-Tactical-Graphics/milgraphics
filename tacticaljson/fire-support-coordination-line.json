@@ -4,11 +4,10 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCF-------X",
-            "name": "FSCL",
-            "t": "XCORPS",
-            "t1":"ALPHA",
-            "w": "202100Z",
-            "w1": "270800Z SEP"
+            "name": "XCORPS",
+            "uniqueDesignation":"ALPHA",
+            "dtg": "202100Z",
+            "dtg1": "270800Z SEP"
         },
         "geometry": {
             "type": "LineString",

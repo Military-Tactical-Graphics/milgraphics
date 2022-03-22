@@ -4,9 +4,8 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-G-ALC-------X",
-                "name": "AC KNIGHT",
+                "name": "KNIGHT",
                 "distance": 500,
-                "uniqueDesignation": "53ID (M)",
                 "altitudeDepth": "500 FT AGL",
                 "altitudeDepth1": "300 FT AGL",
                 "dtg": "281400ZAPR",

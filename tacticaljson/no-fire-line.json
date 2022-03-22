@@ -4,9 +4,7 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCN-------X",
-            "name": "NFL",
-            "administrator": "4RDB",
-            "dtg": "10095900ZJAN92"
+            "name": "4RDB"
         },
         "geometry": {
             "type": "LineString",

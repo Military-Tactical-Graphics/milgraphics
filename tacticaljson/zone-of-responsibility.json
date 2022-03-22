@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-F-ACZI------X",
-                "uniqueDesignation": "Q35"
+                "name": "Q35"
             },
             "geometry": {
                 "type": "Polygon",

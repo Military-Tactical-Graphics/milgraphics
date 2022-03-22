@@ -10,7 +10,7 @@ module.exports = function (feature) {
   var points = feature.geometry.coordinates;
   var bearing = ms.geometry.bearingBetween(points[0], points[1]);;
   var size = 500;
-  var distance = 750; //distance between lines
+  var distance = feature.properties.distance; //distance between lines
   var annotTopPos;  
 
       // if odd number of vertices, put on central vertex
@@ -60,8 +60,8 @@ module.exports = function (feature) {
     ms.geometry.toDistanceBearing(ms.geometry.toDistanceBearing(points.slice(-1)[0], size, bearing - 90), distance, bearing + 90)
   ];
   geometry.coordinates.push(geom, geomBot);
-  if (feature.properties.administrator) {
-    annotations.push(ms.geometry.addAnotation(annotTopPos, feature.properties.administrator));
+  if (feature.properties.name) {
+    annotations.push(ms.geometry.addAnotation(annotTopPos, feature.properties.name));
   }
 
 

@@ -6,9 +6,8 @@
             "properties": {
                 "sidc": "G-G-AAW-------X",
                 "name": "(unit ID)",
-                "timeFrom": "180500Z",
-                "timeTo": "180615Z",
-                "fill": "dashes"
+                "dtg": "180500Z",
+                "dtg1": "180615Z"
             },
             "geometry": {
                 "type": "Polygon",

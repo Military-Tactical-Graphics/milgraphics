@@ -9,6 +9,7 @@ module.exports = function tacticalPoints(sidc, std2525) {
     sidc["M-B-R-FIRE"] = ms.geometryConverter["MULTILINE BARRAGE FIRE"];
     sidc["A-T-MANO-A"] = ms.geometryConverter["ARTILLERY MANOEUVRE AREA"];
     sidc["A-T-REST-A"] = ms.geometryConverter["ARTILLERY RESTRICTED AREA"];
+    sidc["S-F-LANE--"] = ms.geometryConverter["SAFE LANE"];
 
     // standard geometry
     sidc["G-T-B-----"] = ms.geometryConverter["BLOCK"]; //TACGRP.TSK.BLK

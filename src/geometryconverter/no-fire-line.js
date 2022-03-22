@@ -7,15 +7,11 @@ module.exports = function(feature) {
     var geometry = { type: "MultiLineString", coordinates: [] };
 
     var annotations = [];
-    var annotationText = feature.properties.name;
+    var annotationText = "NFL\n";
 
-
-    if (feature.properties.administrator)
-        annotationText +=
-        " " + feature.properties.administrator;
-    if (feature.properties.dtg)
-        annotationText += "\n\n" + feature.properties.dtg;
-
+    if (feature.properties.name) {
+        annotationText += `(PL ${feature.properties.name})`; 
+    }
 
     geometry.coordinates = [points];
     annotations.push(ms.geometry.addAnotation(points[0], annotationText));

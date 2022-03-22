@@ -65,7 +65,7 @@ function asOpenLayers(crs) {
         if (feature.graphic.isConverted() && olFeature.getGeometry().getType() == "Polygon") {
             if (feature.properties.fill == "dashes") {
 
-                var pattern = makePattern('#000', 'obliqueLeft', 15);
+                var pattern = makePattern('#000', 'obliqueRight', 15);
                 styles[0].setFill(
                     new style.Fill({
                         color: pattern

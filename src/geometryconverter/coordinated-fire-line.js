@@ -1,5 +1,4 @@
 var ms = require("milsymbol");
-const { getPointResolution } = require("ol/proj");
 const convertToDashes = require("../geometry/converttodashes");
 
 module.exports = function(feature) {
@@ -7,37 +6,40 @@ module.exports = function(feature) {
     var points = feature.geometry.coordinates;
     var geometry = { type: "MultiLineString", coordinates: [] };
     var geometry1 = [];
-    var annotationText = feature.properties.name;
+    var annotationText = "CFL";
 
     for (var i = 0; i < points.length; i++) {
         geometry1.push(points[i]);
-
     }
 
-    var annotations = {
-        geometry: { type: "Point" },
-        properties: { text: annotationText }
-    };
+    var annotations = [
+        {
+            geometry: { type: "Point" },
+            properties: { text: annotationText }
+        }
+    ];
 
     // if odd number of vertices, put on central vertex
     if (points.length % 2 !== 0) {
-        annotations.geometry.coordinates = points[parseInt(points.length / 2)];
+        annotations[0].geometry.coordinates = points[parseInt(points.length / 2)];
     } else {
-        annotations.geometry.coordinates = ms.geometry.pointBetween(
+        annotations[0].geometry.coordinates = ms.geometry.pointBetween(
             points[parseInt(points.length / 2) - 1],
             points[parseInt(points.length / 2)],
             0.5
         );
     }
-    if (feature.properties.administrator)
-        annotations.properties.text +=
-        " " + feature.properties.administrator;
-    if (feature.properties.uniqueDesignation)
-        annotations.properties.text += " (" + feature.properties.uniqueDesignation + ") ";
-
-
+    if (feature.properties.name) {
+        annotations[0].properties.text += " " + feature.properties.name;
+    }
+    
     geometry.coordinates = convertToDashes(geometry1, 1 / 50);
 
+    if (feature.properties.uniqueDesignation) {
+        const text = `PL ${feature.properties.uniqueDesignation}`;
+        annotations.push(ms.geometry.addAnotation(geometry.coordinates[0][0], text));
+        annotations.push(ms.geometry.addAnotation(geometry.coordinates.slice(-1)[0][1], text));
+    }
 
-    return { geometry: geometry, annotations: [annotations], props: { dashes: true } };
+    return { geometry: geometry, annotations: annotations, props: { dashes: true } };
 };

@@ -5,13 +5,13 @@ module.exports = function(feature) {
     geometry: { type: "Point" },
     properties: { text: "ZOR" }
   };
-  if (feature.properties.uniqueDesignation)
+  if (feature.properties.name)
     annotations.properties.text +=
-      "\n" + feature.properties.uniqueDesignation;
-  if (feature.properties.dtg)
-    annotations.properties.text += "\n" + feature.properties.dtg;
-  if (feature.properties.dtg1)
-    annotations.properties.text += "\n" + feature.properties.dtg1;
+      "\n" + feature.properties.name;
+  // if (feature.properties.dtg)
+  //   annotations.properties.text += "\n" + feature.properties.dtg;
+  // if (feature.properties.dtg1)
+  //   annotations.properties.text += "\n" + feature.properties.dtg1;
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
   if (polygon.annotation.hasOwnProperty("geometry")) {
