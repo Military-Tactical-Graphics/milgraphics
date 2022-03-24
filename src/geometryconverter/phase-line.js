@@ -14,10 +14,8 @@ module.exports = function(feature) {
     }
     geometry.coordinates = [geometry1];
 
-    if (name) {
-        annotations.push(ms.geometry.addAnotation(points[0], `PL ${name}`));
-        annotations.push(ms.geometry.addAnotation(points.slice(-1)[0], `PL ${name}`));
-    }
+    annotations.push(ms.geometry.addAnotation(points[0], `PL ${name || ''}`));
+    annotations.push(ms.geometry.addAnotation(points.slice(-1)[0], `PL ${name || ''}`));
 
     return { geometry: geometry, annotations: annotations };
 }

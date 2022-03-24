@@ -7,7 +7,7 @@ import GraphicsLayer from './src/graphicslayer';
 import geometryConverter from './src/geometryconverter';
 import addSIDCgraphics from './src/ms/addsidcgraphics';
 import format from './src/format';
-import geometry from './src/geometry';
+import { geometry } from './src/geometry';
 import editor from './src/editor/entityDescription';
 
 ms.addSIDCgraphics = addSIDCgraphics;

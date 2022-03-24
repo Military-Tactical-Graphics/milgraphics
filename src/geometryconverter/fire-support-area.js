@@ -3,7 +3,7 @@ var ms = require("milsymbol");
 module.exports = function(feature) {
   var annotations = {
     geometry: { type: "Point" },
-    properties: { text: `FSA ${feature.properties.name}` }
+    properties: { text: `FSA ${feature.properties.uniqueDesignation || ''}` }
   };
   
   // if (feature.properties.dtg)

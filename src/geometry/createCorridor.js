@@ -17,10 +17,8 @@ export function createCorridor(feature, text) {
     };
 
     for (let a = 1; a < points.length; a++) {
-        if (feature.properties.name) {
-            var midpoint = ms.geometry.pointBetween(points[a - 1], points[a], 0.5);
-            annotations.push(ms.geometry.addAnotation(midpoint, `${text} ${feature.properties.name}`));
-        }
+        var midpoint = ms.geometry.pointBetween(points[a - 1], points[a], 0.5);
+        annotations.push(ms.geometry.addAnotation(midpoint, `${text} ${feature.properties.name || ''}`));
     }
 
     if (feature.properties.name)

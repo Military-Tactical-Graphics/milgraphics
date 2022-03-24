@@ -35,11 +35,9 @@ module.exports = function(feature) {
     
     geometry.coordinates = convertToDashes(geometry1, 1 / 50);
 
-    if (feature.properties.uniqueDesignation) {
-        const text = `PL ${feature.properties.uniqueDesignation}`;
-        annotations.push(ms.geometry.addAnotation(geometry.coordinates[0][0], text));
-        annotations.push(ms.geometry.addAnotation(geometry.coordinates.slice(-1)[0][1], text));
-    }
+    const text = `PL ${feature.properties.uniqueDesignation || ''}`;
+    annotations.push(ms.geometry.addAnotation(geometry.coordinates[0][0], text));
+    annotations.push(ms.geometry.addAnotation(geometry.coordinates.slice(-1)[0][1], text));
 
     return { geometry: geometry, annotations: annotations, props: { dashes: true } };
 };

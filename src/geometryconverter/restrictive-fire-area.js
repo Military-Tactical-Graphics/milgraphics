@@ -6,9 +6,9 @@ module.exports = function(feature) {
     geometry: { type: "Point" },
     properties: { text: "RFA" }
   };
-  if (feature.properties.administrator)
+  if (feature.properties.name)
     annotations.properties.text +=
-      "\n" + feature.properties.administrator;
+      "\n" + feature.properties.name;
   if (feature.properties.dtg)
     annotations.properties.text += "\n" + feature.properties.dtg;
   if (feature.properties.dtg1)

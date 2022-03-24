@@ -21,7 +21,7 @@ function airspaceCoordinationArea(feature) {
   if (feature.properties.dtg)
     annotations.properties.text += "\nEFF: " + feature.properties.dtg;
   if (feature.properties.dtg1)
-    annotations.properties.text += "\n- " + feature.properties.dtg1;
+    annotations.properties.text += " -\n" + feature.properties.dtg1;
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
   if (polygon.annotation.hasOwnProperty("geometry")) {

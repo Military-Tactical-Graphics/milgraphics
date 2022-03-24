@@ -1,7 +1,4 @@
 var ms = require("milsymbol");
-const distanceBetween = require("./distancebetween");
-const bearingBetween = require("./bearingbetween");
-const toDistanceBearing = require("./todistancebearing");
 
 function convertToDashes(lineString, segmentInterval) {
     if (segmentInterval <= 0)
@@ -12,7 +9,7 @@ function convertToDashes(lineString, segmentInterval) {
     // Get the lineString's total length (in meters)
     let lineLength = 0;
     for(let i = 0; i < lineString.length - 1; i++) {
-        lineLength += parseFloat(distanceBetween(lineString[i], lineString[i + 1]));
+        lineLength += parseFloat(ms.geometry.distanceBetween(lineString[i], lineString[i + 1]));
     }
 
     const segmentLength = lineLength * segmentInterval;
@@ -51,8 +48,8 @@ function lineSliceAlong(lineString, startDist, stopDist) {
                 slice.push([...lineString[i]]);
                 return slice;
             }
-            direction = bearingBetween(lineString[i], lineString[i - 1]) - 180;
-            interpolated = toDistanceBearing(lineString[i], overshot, direction);
+            direction = ms.geometry.bearingBetween(lineString[i], lineString[i - 1]) - 180;
+            interpolated = ms.geometry.toDistanceBearing(lineString[i], overshot, direction);
             slice.push([...interpolated]);
         }
 
@@ -62,8 +59,8 @@ function lineSliceAlong(lineString, startDist, stopDist) {
                 slice.push([...lineString[i]]);
                 return slice;
             }
-            direction = bearingBetween(lineString[i], lineString[i - 1]) - 180;
-            interpolated = toDistanceBearing(lineString[i], overshot, direction);
+            direction = ms.geometry.bearingBetween(lineString[i], lineString[i - 1]) - 180;
+            interpolated = ms.geometry.toDistanceBearing(lineString[i], overshot, direction);
             slice.push([...interpolated]);
             return slice;
         }
@@ -76,7 +73,7 @@ function lineSliceAlong(lineString, startDist, stopDist) {
             return slice;
         }
 
-        travelled += parseFloat(distanceBetween(lineString[i], lineString[i + 1]));
+        travelled += parseFloat(ms.geometry.distanceBetween(lineString[i], lineString[i + 1]));
     }
 
     if (travelled < startDist && lineString.length === origCoordsLength)

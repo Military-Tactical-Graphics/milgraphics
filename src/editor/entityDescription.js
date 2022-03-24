@@ -22,7 +22,7 @@ entityDescription["AIR CORRIDOR"] = {
   },
   properties: {
     sidc: "G-G-ALC-------X",
-    name: "AC KNIGHT",
+    name: "KNIGHT",
     distance: 500,
     altitudeDepth: "500 FT AGL",
     altitudeDepth1: "300 FT AGL",
@@ -154,9 +154,9 @@ entityDescription["ARTILLERY TARGET INTELLIGENCE ZONE"] = {
   geometry: {
     type: "Polygon"
   },
-  properties: {
+  properties: { // TODO přidat anotace W,W1 na správné místo!
     sidc: "G-F-AZII------X",
-    uniqueDesignation: "Q35" // TODO anotace W,W1 na správné místo!
+    uniqueDesignation: "Q35"
   },
   description: {
     base64: entityImages["ARTILLERY TARGET INTELLIGENCE ZONE"]
@@ -224,11 +224,11 @@ entityDescription["BYPASS"] = { // TODO bod se generuje na pozici mimo geometrii
     base64: entityImages["BYPASS"]
   }
 };
-entityDescription["CALL FOR FIRE ZONE"] = { // TODO anotace W,W1
+entityDescription["CALL FOR FIRE ZONE"] = {
   geometry: {
     type: "Polygon",
   },
-  properties: {
+  properties: {  // TODO anotace W,W1
     sidc: "G-F-AZXI------X",
     uniqueDesignation: "Q35"
   },
@@ -427,7 +427,8 @@ entityDescription["FIRE SUPPORT AREA"] = [   // TODO přidat anotace dtg, dtg1 n
   },
   {
     geometry: {
-      type: "LineString"
+      type: "LineString",
+      points: 2
     },
     properties: {
       sidc: "G-F-ACSR------X",
@@ -487,7 +488,7 @@ entityDescription["FLOT"] = { // TODO sestřelí prohlížeč při změne bearin
     type: "LineString",
     points: 2
   },
-  properties: {   // TODO přidat anotace N
+  properties: {   // TODO přidat anotace N, smazat FLOT ze stredu, pridat na kraje
     sidc: "G-G-GLF-------X",
     bearingWidth: 450,
     bearingSpacing: 20
@@ -514,6 +515,7 @@ entityDescription["FREE FIRE AREA"] = [{
 {
   geometry: {
     type: "LineString",
+    points: 2
   },
   properties: {
     sidc: "G-F-ACFR------X",
@@ -541,7 +543,7 @@ entityDescription["FREE FIRE AREA"] = [{
   }
 }
 ];
-entityDescription["GROUP OF TARGETS"] = {
+entityDescription["GROUP OF TARGETS"] = { // TODO anotace uprostřed nejvrchnější části
   geometry: {
     type: "Polygon",
   },
@@ -553,7 +555,7 @@ entityDescription["GROUP OF TARGETS"] = {
     base64: entityImages["GROUP OF TARGETS"]
   }
 };
-entityDescription["ISOLATE"] = {
+entityDescription["ISOLATE"] = { // TODO pouze 7 hrotů
   geometry: {
     type: "LineString",
     points: 2
@@ -567,7 +569,8 @@ entityDescription["ISOLATE"] = {
 };
 entityDescription["LINE OF CONTACT"] = { // TODO sestřelí prohlížeč při změne bearing
   geometry: {
-    type: "LineString"
+    type: "LineString",
+    points: 2
   },
   properties: {  // TODO přidat anotace N, smazat Line of Contact
     sidc: "G-G-GLC-------X",
@@ -623,7 +626,7 @@ entityDescription["MULTILINE BARRAGE FIRE"] = {
 };
 entityDescription["MUNITION FLIGHT PATH"] = {
   geometry: {
-    type: "LineString",
+    type: "LineString"
   },
   properties: {
     sidc: "G-F-LCM-------X",
@@ -803,7 +806,7 @@ entityDescription["RESTRICTIVE FIRE AREA"] = [{
     sidc: "G-F-ACRC------X",
     dtg: "10095900ZJAN92",
     dtg1: "11095900ZJAN92",
-    administrator: "X CORPS",
+    name: "X CORPS",
     distance: 5000
   },
   description: {
