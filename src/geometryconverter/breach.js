@@ -4,8 +4,7 @@ module.exports = function(feature) {
     var points = feature.geometry.coordinates;
     var geometry = { type: "MultiLineString", coordinates: [] };
     var scale = ms.geometry.distanceBetween(points[0], points[1]);
-    var pMid = ms.geometry.pointBetween(points[0], points[1], 0.5);
-    var length = ms.geometry.distanceBetween(pMid, points[2]);
+    var length = ms.geometry.crossTrackDistance(points[0], points[1], points[2]);
     var bearing = ms.geometry.bearingBetween(points[0], points[1]);
 
     var geom = [

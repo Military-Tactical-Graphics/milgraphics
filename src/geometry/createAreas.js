@@ -9,7 +9,7 @@ export function createAreas(feature, text) {
   if (feature.geometry.type == "Point") {
     [0, 90, 180, 270].forEach(angle =>
       annotations.push(
-        ms.geometry.addAnotation(ms.geometry.toDistanceBearing(
+        ms.geometry.addAnnotation(ms.geometry.toDistanceBearing(
           points, feature.properties.distance, angle), annotationText)
       ));
     shape = ms.geometry.circleCorridorPolygon(feature);
@@ -20,7 +20,7 @@ export function createAreas(feature, text) {
     var rectangle = [...shape.geometry.coordinates[0], shape.geometry.coordinates[0][0]];
     for (var i = 0; i < rectangle.length - 1; i++) {
       annotations.push(
-        ms.geometry.addAnotation(
+        ms.geometry.addAnnotation(
           ms.geometry.pointBetween(rectangle[i], rectangle[i + 1], 0.5),
           annotationText
         ));
@@ -35,16 +35,16 @@ export function createAreas(feature, text) {
 
     for (var a = 0; a < points[0].length; a++) {
       if (points[0][a][0] == minLatitudes) {
-        annotations.push(ms.geometry.addAnotation(points[0][a], annotationText));
+        annotations.push(ms.geometry.addAnnotation(points[0][a], annotationText));
       }
       if (points[0][a][0] == maxLatitudes) {
-        annotations.push(ms.geometry.addAnotation(points[0][a], annotationText));
+        annotations.push(ms.geometry.addAnnotation(points[0][a], annotationText));
       }
       if (points[0][a][1] == minLongitudes) {
-        annotations.push(ms.geometry.addAnotation(points[0][a], annotationText));
+        annotations.push(ms.geometry.addAnnotation(points[0][a], annotationText));
       }
       if (points[0][a][1] == maxLongitudes) {
-        annotations.push(ms.geometry.addAnotation(points[0][a], annotationText));
+        annotations.push(ms.geometry.addAnnotation(points[0][a], annotationText));
       }
     }
     shape = ms.geometry.circleCorridorPolygon(feature);

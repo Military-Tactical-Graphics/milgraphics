@@ -33,7 +33,7 @@ function artilleryFiringPosition(feature) {
 
     if (feature.properties.firingPosition) {
         var annotationPoint = ms.geometry.toDistanceBearing(centerPoint, scale * 0.05, bearing + 45);
-        annotations.push(ms.geometry.addAnotation(annotationPoint, feature.properties.firingPosition));
+        annotations.push(ms.geometry.addAnnotation(annotationPoint, feature.properties.firingPosition));
     }
 
     return {

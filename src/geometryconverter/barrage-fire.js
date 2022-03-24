@@ -48,10 +48,10 @@ geom = [
 geometry.coordinates.push(geom);
 
   if(feature.properties.name){
-    annotations.push(ms.geometry.addAnotation(annotTopPos, feature.properties.name));
+    annotations.push(ms.geometry.addAnnotation(annotTopPos, feature.properties.name));
   }
   if(feature.properties.weaponSystemType){
-    annotations.push(ms.geometry.addAnotation(annotUndPos, feature.properties.weaponSystemType));
+    annotations.push(ms.geometry.addAnnotation(annotUndPos, feature.properties.weaponSystemType));
   }
   
 

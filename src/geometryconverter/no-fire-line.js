@@ -14,8 +14,8 @@ module.exports = function(feature) {
     }
 
     geometry.coordinates = [points];
-    annotations.push(ms.geometry.addAnotation(points[0], annotationText));
-    annotations.push(ms.geometry.addAnotation(points.slice(-1)[0], annotationText));
+    annotations.push(ms.geometry.addAnnotation(points[0], annotationText));
+    annotations.push(ms.geometry.addAnnotation(points.slice(-1)[0], annotationText));
 
     return { geometry: geometry, annotations: annotations };
 };

@@ -35,9 +35,9 @@ module.exports = function(feature) {
     // Draw the arrow body
     geometry.coordinates.push([points[2], center]);
 
-    annotations.push(ms.geometry.addAnotation(
+    annotations.push(ms.geometry.addAnnotation(
         ms.geometry.toDistanceBearing(center, radius, intialBearing + 90), "C"));
-    annotations.push(ms.geometry.addAnotation(
+    annotations.push(ms.geometry.addAnnotation(
         ms.geometry.pointBetween(points[2], center, 0.5), "ENY"));
 
     return { geometry: geometry, annotations: annotations };

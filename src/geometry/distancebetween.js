@@ -1,6 +1,11 @@
 import LatLon from 'geodesy/latlon-spherical';
 
-// Calculates the great circle distance between two points in meter
+/**
+ * Calculates the great circle distance between two points in meter
+ * @param {[number, number]} p1 First point
+ * @param {[number, number]} p2 Second point
+ * @returns {number} Distance between points
+ */
 export function distanceBetween(p1, p2) {
   const point1 = new LatLon(p1[1], p1[0]);
   const point2 = new LatLon(p2[1], p2[0]);

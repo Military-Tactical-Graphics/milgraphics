@@ -27,11 +27,11 @@ module.exports = function(feature) {
     );
   }
 
-    annotations.push(ms.geometry.addAnotation(annotationTopCoordinates, annotationTop));
+    annotations.push(ms.geometry.addAnnotation(annotationTopCoordinates, annotationTop));
 
     var middlePoint = ms.geometry.pointBetween(points[0], points[1], 0.25);
 
-    annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(middlePoint, -30, -45), annotationUnder));
+    annotations.push(ms.geometry.addAnnotation(ms.geometry.toDistanceBearing(middlePoint, -30, -45), annotationUnder));
 
 
     return { geometry: geometry, annotations: annotations };

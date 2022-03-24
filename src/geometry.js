@@ -2,6 +2,7 @@ import { bearingBetween } from "./geometry/bearingbetween.js";
 import { distanceBetween } from "./geometry/distancebetween.js";
 import { pointBetween  } from "./geometry/pointbetween.js";
 import { toDistanceBearing } from "./geometry/todistancebearing.js";
+import { crossTrackDistance } from "./geometry/crossTrackDistance.js";
 
 export let geometry = {};
 
@@ -16,4 +17,5 @@ geometry.pointBetweenAbsolute = require("./geometry/pointbetweenabsolute.js");
 geometry.rectangle = require("./geometry/rectangle.js");
 geometry.toDistanceBearing = toDistanceBearing;
 geometry.testGeometry = require("./geometry/testGeometry.js");
-geometry.addAnotation = require("./geometry/anotations.js");
+geometry.addAnnotation = require("./geometry/annotations.js");
+geometry.crossTrackDistance = crossTrackDistance;

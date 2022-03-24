@@ -200,9 +200,9 @@ entityDescription["BOUNDARIES"] = {
     base64: entityImages["BOUNDARIES"]
   }
 };
-entityDescription["BREACH"] = { // TODO bod se generuje na pozici mimo geometrii pri určitém zadání
-  geometry: {                   // viz example - délka se generuje podle vzdálenosti bodu 3 a středem mezi pt.1 a 2
-    type: "LineString",         // místo bodu 3 a vzdálenosti od pt.1 a 2 !!
+entityDescription["BREACH"] = {
+  geometry: {
+    type: "LineString",
     points: 3
   },
   properties: {
@@ -212,9 +212,9 @@ entityDescription["BREACH"] = { // TODO bod se generuje na pozici mimo geometrii
     base64: entityImages["BREACH"]
   }
 };
-entityDescription["BYPASS"] = { // TODO bod se generuje na pozici mimo geometrii pri určitém zadání
-  geometry: {                   // viz example - délka se generuje podle vzdálenosti bodu 3 a středem mezi pt.1 a 2
-    type: "LineString",         // místo bodu 3 a vzdálenosti od pt.1 a 2 !! 
+entityDescription["BYPASS"] = {
+  geometry: {
+    type: "LineString",
     points: 3
   },
   properties: {
@@ -236,9 +236,9 @@ entityDescription["CALL FOR FIRE ZONE"] = {
     base64: entityImages["CALL FOR FIRE ZONE"]
   }
 };
-entityDescription["CANALIZE"] = { // TODO bod se generuje na pozici mimo geometrii pri určitém zadání
-  geometry: {                     // viz example - délka se generuje podle vzdálenosti bodu 3 a středem mezi pt.1 a 2
-    type: "LineString",           // místo bodu 3 a vzdálenosti od pt.1 a 2 !! 
+entityDescription["CANALIZE"] = {
+  geometry: {
+    type: "LineString",
     points: 3
   },
   properties: {

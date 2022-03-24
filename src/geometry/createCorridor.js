@@ -18,7 +18,7 @@ export function createCorridor(feature, text) {
 
     for (let a = 1; a < points.length; a++) {
         var midpoint = ms.geometry.pointBetween(points[a - 1], points[a], 0.5);
-        annotations.push(ms.geometry.addAnotation(midpoint, `${text} ${feature.properties.name || ''}`));
+        annotations.push(ms.geometry.addAnnotation(midpoint, `${text} ${feature.properties.name || ''}`));
     }
 
     if (feature.properties.name)
@@ -38,7 +38,7 @@ export function createCorridor(feature, text) {
         annotationText += "\nDTG End:" + feature.properties.dtg1;
 
     if (annotationText != '') {
-        annotations.push(ms.geometry.addAnotation(ms.geometry.toDistanceBearing(centerPoint, width * 2, 0), annotationText));
+        annotations.push(ms.geometry.addAnnotation(ms.geometry.toDistanceBearing(centerPoint, width * 2, 0), annotationText));
     }
 
     var direction = (ms.geometry.bearingBetween(points[0], points[1]) + 360) % 360;

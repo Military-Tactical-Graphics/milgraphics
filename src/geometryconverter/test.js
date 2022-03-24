@@ -60,7 +60,7 @@ module.exports = function (feature) {
   ];
   geometry.coordinates.push(geom, geomBot);
   if (feature.properties.administrator) {
-    annotations.push(ms.geometry.addAnotation(annotTopPos, feature.properties.administrator));
+    annotations.push(ms.geometry.addAnnotation(annotTopPos, feature.properties.administrator));
   }
 
 

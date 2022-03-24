@@ -1,5 +1,5 @@
 var ms = require("milsymbol");
-const convertToDashes = require("../geometry/converttodashes");
+const convertToDashed = require("../geometry/converttodashed");
 
 // Draws a corridor with a width in meters
 module.exports = function(feature) {
@@ -98,8 +98,8 @@ module.exports = function(feature) {
         )
     );
 
-    annotations.push(ms.geometry.addAnotation(ms.geometry.pointBetween(points[0], points[1], 0.5), "CATK"));
-    geometry.coordinates = convertToDashes(geometry1, 1 / 64);
+    annotations.push(ms.geometry.addAnnotation(ms.geometry.pointBetween(points[0], points[1], 0.5), "CATK"));
+    geometry.coordinates = convertToDashed(geometry1, 1 / 64);
 
     return { geometry: geometry, annotations: annotations, props: { dashes: true } };
 };

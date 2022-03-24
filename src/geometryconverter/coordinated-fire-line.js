@@ -1,5 +1,5 @@
 var ms = require("milsymbol");
-const convertToDashes = require("../geometry/converttodashes");
+const convertToDashed = require("../geometry/converttodashed");
 
 module.exports = function(feature) {
 
@@ -33,11 +33,11 @@ module.exports = function(feature) {
         annotations[0].properties.text += " " + feature.properties.name;
     }
     
-    geometry.coordinates = convertToDashes(geometry1, 1 / 50);
+    geometry.coordinates = convertToDashed(geometry1, 1 / 50);
 
     const text = `PL ${feature.properties.uniqueDesignation || ''}`;
-    annotations.push(ms.geometry.addAnotation(geometry.coordinates[0][0], text));
-    annotations.push(ms.geometry.addAnotation(geometry.coordinates.slice(-1)[0][1], text));
+    annotations.push(ms.geometry.addAnnotation(geometry.coordinates[0][0], text));
+    annotations.push(ms.geometry.addAnnotation(geometry.coordinates.slice(-1)[0][1], text));
 
     return { geometry: geometry, annotations: annotations, props: { dashes: true } };
 };
