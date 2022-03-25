@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 // Draws a NAI
 function targetedAreaOfInterest(feature) {
@@ -11,11 +11,8 @@ function targetedAreaOfInterest(feature) {
       "\n" + feature.properties.uniqueDesignation;
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
-  if (polygon.annotation.hasOwnProperty("geometry")) {
-    annotations.geometry = polygon.annotation.geometry;
-  }
 
   return { geometry: polygon.geometry, annotations: [annotations] };
 };
 
-module.exports = targetedAreaOfInterest 
+export default targetedAreaOfInterest;

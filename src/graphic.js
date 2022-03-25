@@ -1,6 +1,5 @@
 import getproperties from "./graphic/getproperties";
-
-var ms = require("milsymbol");
+import ms from '../index';
 
 function graphic(feature) {
   this.SIDC = feature.properties.sidc;

@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
+export default function(feature) {
   var annotations = {
     geometry: { type: "Point" },
     properties: { text: feature.properties.name }

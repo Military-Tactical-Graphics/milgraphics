@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(sidc, STD2525) {
+export default function(sidc, STD2525) {
   // We modify sidc directly in the called functions so we don't need to return anything.
   // Might change this later since it adds complexity to understand the code.
   for (var i in ms._letterSIDCgraphics) {

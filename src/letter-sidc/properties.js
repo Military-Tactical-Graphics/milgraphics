@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(properties, mapping) {
+export default function(properties, mapping) {
   this.SIDC = this.SIDC.toUpperCase();
 
   var codingscheme = this.SIDC.charAt(0) != "" ? this.SIDC.charAt(0) : "-";

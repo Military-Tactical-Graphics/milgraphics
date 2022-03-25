@@ -1,7 +1,8 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 // Draws a NAI
-module.exports = function(feature) {
+export default function(feature) {
+  var geometry;
   var annotations = {
     geometry: { type: "Point" },
     properties: { text: "NAI" }
@@ -12,9 +13,6 @@ module.exports = function(feature) {
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
   geometry = polygon.geometry;
-  if (polygon.annotation.hasOwnProperty("geometry")) {
-    annotations.geometry = polygon.annotation.geometry;
-  }
 
   return { geometry: polygon.geometry, annotations: [annotations] };
 };

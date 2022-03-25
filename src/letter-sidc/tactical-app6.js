@@ -1,5 +1,7 @@
+import ms from '../../index';
+
 // Tactical graphics in APP6-B
-module.exportS = function tacticalPoints(sidc, std2525) {
+export default function tacticalPoints(sidc, std2525) {
   //sidc['G---------'] = [];//2.X
   //sidc['G-T-------'] = [];//2.X.1
   //sidc['G-T-G-----'] = [];//2.X.1.1

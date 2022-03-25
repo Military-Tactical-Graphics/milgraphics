@@ -1,7 +1,8 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 // Draws a ROZ
-module.exports = function (feature) {
+export default function (feature) {
+  var geometry;
   var annotations = {
     geometry: {
       type: "Point"
@@ -29,11 +30,7 @@ module.exports = function (feature) {
       annotations.properties.text += "\nTime to:" + feature.properties.dtg1;
 
     var polygon = ms.geometry.circleCorridorPolygon(feature);
-
     geometry = polygon.geometry;
-    if (polygon.annotation.hasOwnProperty("geometry")) {
-      annotations.geometry = polygon.annotation.geometry;
-    }
 
   } else {
     alert("Not enough coordinates. This graphic requires at least 3 anchor points.");

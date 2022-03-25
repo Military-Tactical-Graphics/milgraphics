@@ -1,7 +1,7 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 // Tactical graphics in 2525C + some extra
-module.exports = function tacticalPoints(sidc, std2525) {
+export default function tacticalPoints(sidc, std2525) {
     // custom geometry
     sidc["T-S-T-----"] = ms.geometryConverter["TEST"]; //SIDC FOR DEVELOPER PURPOSES / MARKS WITHOUT ITS OWN SIDC
     sidc["A-T-FIRING"] = ms.geometryConverter["ARTILLERY FIRING POSITION"];

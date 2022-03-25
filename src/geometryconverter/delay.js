@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
+export default function(feature) {
     var directionFactor = -1;
     var points = feature.geometry.coordinates;
     var width = ms.geometry.distanceBetween(points[1], points[2]);

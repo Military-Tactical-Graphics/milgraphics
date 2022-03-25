@@ -1,5 +1,5 @@
-var ms = require("milsymbol");
-const { Feature } = require("ol");
+import ms from '../../index';
+import { Feature } from "ol";
 
 /**
  * Create rectangle geometry from LineString
@@ -11,4 +11,4 @@ function rectangle(feature) {
   return ms.geometry.corridor(feature);
 };
 
-module.exports = rectangle;
+export default rectangle;

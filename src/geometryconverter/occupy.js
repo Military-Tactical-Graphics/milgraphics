@@ -1,7 +1,7 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 // Draws a circle withe a radius in meters
-module.exports = function(feature) {
+export default function(feature) {
     var p = feature.geometry.coordinates;
     var r = ms.geometry.distanceBetween(p[0], p[1]);
     var bearing = ms.geometry.bearingBetween(p[0], p[1]);

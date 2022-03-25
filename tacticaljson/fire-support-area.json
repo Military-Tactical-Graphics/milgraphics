@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-F-ACSI------X",
-                "name": "I"
+                "uniqueDesignation": "I"
             },
             "geometry": {
                 "type": "Polygon",

@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
+export default function(feature) {
     let annotations = [],
         points = feature.geometry.coordinates,
         center = ms.geometry.pointBetween(points[0], points[1], 0.5),

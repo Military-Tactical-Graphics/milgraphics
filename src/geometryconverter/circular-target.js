@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 function circularTarget(feature) {
   var annotations = {
@@ -12,4 +12,4 @@ function circularTarget(feature) {
   return { geometry: circle.geometry, annotations: [annotations] };
 };
 
-module.exports = circularTarget;
+export default circularTarget;

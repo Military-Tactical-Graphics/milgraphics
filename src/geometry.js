@@ -3,19 +3,24 @@ import { distanceBetween } from "./geometry/distancebetween.js";
 import { pointBetween  } from "./geometry/pointbetween.js";
 import { toDistanceBearing } from "./geometry/todistancebearing.js";
 import { crossTrackDistance } from "./geometry/crossTrackDistance.js";
+import circlecorridorpolygon from "./geometry/circlecorridorpolygon.js";
+import circleWithRadius from "./geometry/circle.js";
+import corridor from "./geometry/corridor.js";
+import rectangle from "./geometry/rectangle.js";
+import pointBetweenAbsolute from "./geometry/pointbetweenabsolute.js";
 
-export let geometry = {};
-
-geometry.bearingBetween = bearingBetween;
-geometry.circle = require("./geometry/circle.js");
-geometry.circleCorridorPolygon = require("./geometry/circlecorridorpolygon.js");
-geometry.corridor = require("./geometry/corridor.js");
-geometry.distanceBetween = distanceBetween;
-geometry.isClockwise = require("./geometry/isclockwise.js");
-geometry.pointBetween = pointBetween;
-geometry.pointBetweenAbsolute = require("./geometry/pointbetweenabsolute.js");
-geometry.rectangle = require("./geometry/rectangle.js");
-geometry.toDistanceBearing = toDistanceBearing;
-geometry.testGeometry = require("./geometry/testGeometry.js");
-geometry.addAnnotation = require("./geometry/annotations.js");
-geometry.crossTrackDistance = crossTrackDistance;
+export const geometry = {
+    bearingBetween,
+    distanceBetween,
+    toDistanceBearing,
+    crossTrackDistance,
+    circle: circleWithRadius,
+    circleCorridorPolygon: circlecorridorpolygon,
+    corridor: corridor,
+    isClockwise: require("./geometry/isclockwise.js"),
+    pointBetween,
+    pointBetweenAbsolute,
+    rectangle,
+    testGeometry: require("./geometry/testGeometry.js"),
+    addAnnotation: require("./geometry/annotations.js")
+};

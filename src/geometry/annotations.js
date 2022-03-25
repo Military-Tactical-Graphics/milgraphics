@@ -4,7 +4,6 @@
  * @param {string} text Annotation text
  * @returns {object} geometry object
  */
-
 function addAnnotation(coordinates, text) {
     return ({
         geometry: {

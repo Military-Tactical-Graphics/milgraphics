@@ -1,5 +1,10 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
+/**
+ * SLF format
+ * @param {string} xml 
+ * @returns {JSON} GeoJSON
+ */
 function SLF(xml) {
   var features = [];
 
@@ -384,6 +389,4 @@ function SLF(xml) {
   });
 }
 
-if (typeof module !== "undefined") {
-  module.exports = SLF;
-}
+export default SLF;

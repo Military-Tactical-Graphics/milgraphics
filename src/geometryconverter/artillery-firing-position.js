@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 function artilleryFiringPosition(feature) {
     var annotations = [];
@@ -42,4 +42,4 @@ function artilleryFiringPosition(feature) {
     };
 };
 
-module.exports = artilleryFiringPosition;
+export default artilleryFiringPosition;

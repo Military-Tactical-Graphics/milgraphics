@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 export function createCorridor(feature, text) {
     var annotations = [];

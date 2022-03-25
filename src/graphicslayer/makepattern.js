@@ -3,6 +3,7 @@
  * @param fill HEX color string
  * @param direction hatch direction, enum of HATCH_DIRECTION
  * @param size number value for spaces between lines
+ * @returns {CanvasPattern} Canvas Pattern
  */
 function makePattern(fill, direction, size) {
   var cnv = document.createElement('canvas');

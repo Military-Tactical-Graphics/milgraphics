@@ -1,174 +1,75 @@
-const geometryConverter = {};
+import {
+    airspaceCoordinationArea, ambush, artilleryFiringPosition, artilleryTargetIntelligenceZone,
+    barrageFire, block, boundaries, breach, bypass, callForFireZone, canalize, censorZone,
+    circularTarget, clear, contain, coordinatedFireLine, corridor, counterattack, cover,
+    criticalFriendlyZone, deadSpaceArea, delay, fireSupportArea,
+    fireSupportCoordinationLine, fix, flot, freeFireArea, groupOfTargets, isolate, lineOfContact,
+    mainAttack, multilineBarrageFire, munitionFlightPath, namedAreaOfInterest, noFireLine,
+    noFireArea, occupy, phaseLine, rectangularTarget, restrictedOperationsZone, restrictiveFireArea,
+    restrictiveFireLine, sensorZone, supportingAttack, targetBuildUpArea, targetValueArea,
+    targetedAreaOfInterest, terminallyGuidedMunitionFootprint, test, weaponsFreeZone,
+    zoneOfResponsibility
+} from './geometryconverter/index';
 
-geometryConverter[
-    "AIR CORRIDOR"
-] = require("./geometryconverter/air-corridor.js");
-geometryConverter[
-    "AIRSPACE COORDINATION AREA"
-] = require("./geometryconverter/airspace-coordination-area.js");
-geometryConverter[
-    "AMBUSH"
-] = require("./geometryconverter/ambush.js");
-geometryConverter[
-    "ARTILLERY FIRING POSITION"
-] = require("./geometryconverter/artillery-firing-position.js"); 
-geometryConverter[
-    "ARTILLERY MANOEUVRE AREA"
-] = require("./geometryconverter/artillery-manoeuvre-area.js");
-geometryConverter[
-    "ARTILLERY RESTRICTED AREA"
-] = require("./geometryconverter/artillery-restricted-area.js");
-geometryConverter[
-    "ARTILLERY TARGET INTELLIGENCE ZONE"
-] = require("./geometryconverter/artillery-target-intelligence-zone.js");
-geometryConverter[
-    "BARRAGE FIRE"
-] = require("./geometryconverter/barrage-fire.js"); 
-geometryConverter[
-    "BLOCK"
-] = require("./geometryconverter/block.js");
-geometryConverter[
-    "BOUNDARIES"
-] = require("./geometryconverter/boundaries.js");
-geometryConverter[
-    "BREACH"
-] = require("./geometryconverter/breach.js");
-geometryConverter[
-    "BYPASS"
-] = require("./geometryconverter/bypass.js");
-geometryConverter[
-    "CALL FOR FIRE ZONE"
-] = require("./geometryconverter/call-for-fire-zone.js");
-geometryConverter[
-    "CANALIZE"
-] = require("./geometryconverter/canalize.js");
-geometryConverter[
-    "CENSOR ZONE"
-] = require("./geometryconverter/censor-zone.js");
-//geometryConverter.circle = require("./geometryconverter/circle.js");
-geometryConverter[
-    "CIRCULAR TARGET"
-] = require("./geometryconverter/circular-target.js");
-geometryConverter[
-    "CLEAR"
-] = require("./geometryconverter/clear.js");
-geometryConverter[
-    "CONTAIN"
-] = require("./geometryconverter/contain.js");
-geometryConverter[
-    "COORDINATED FIRE LINE"
-] = require("./geometryconverter/coordinated-fire-line.js");
-geometryConverter["CORRIDOR"] = require("./geometryconverter/corridor.js");
-geometryConverter[
-    "COUNTERATTACK"
-] = require("./geometryconverter/counterattack.js");
-geometryConverter["COVER"] = require("./geometryconverter/cover.js");
-geometryConverter[
-    "CRITICAL FRIENDLY ZONE"
-] = require("./geometryconverter/critical-friendly-zone.js");
-geometryConverter[
-    "DEAD SPACE AREA"
-] = require("./geometryconverter/dead-space-area.js");
-geometryConverter[
-    "DELAY"
-] = require("./geometryconverter/delay.js");
-geometryConverter[
-    "FIRE SUPPORT AREA"
-] = require("./geometryconverter/fire-support-area.js");
-geometryConverter[
-    "FIRE SUPPORT COORDINATION LINE"
-] = require("./geometryconverter/fire-support-coordination-line.js");
-geometryConverter[
-    "FIX"
-] = require("./geometryconverter/fix.js");
-geometryConverter[
-    "FLOT"
-] = require("./geometryconverter/flot.js");
-geometryConverter[
-    "FREE FIRE AREA"
-] = require("./geometryconverter/free-fire-area.js");
-geometryConverter[
-    "GROUP OF TARGETS"
-] = require("./geometryconverter/group-of-targets.js");
-geometryConverter["GUARD"] = require("./geometryconverter/guard.js");
-geometryConverter[
-    "ISOLATE"
-] = require("./geometryconverter/isolate.js");
-geometryConverter[
-    "LINE OF CONTACT"
-] = require("./geometryconverter/line-of-contact.js");
-geometryConverter[
-    "LOW LEVEL TRANSIT ROUTE"
-] = require("./geometryconverter/low-level-transit-route.js");
-geometryConverter[
-    "MAIN ATTACK"
-] = require("./geometryconverter/main-attack.js");
-geometryConverter[
-    "MULTILINE BARRAGE FIRE"
-] = require("./geometryconverter/multiline-barrage-fire.js"); // New
-geometryConverter[
-    "MUNITION FLIGHT PATH"
-] = require("./geometryconverter/munition-flight-path.js");
-geometryConverter[
-    "NAMED AREA OF INTEREST"
-] = require("./geometryconverter/named-area-of-interest.js");
-geometryConverter[
-    "NO FIRE AREA"
-] = require("./geometryconverter/no-fire-area.js");
-geometryConverter[
-    "NO FIRE LINE"
-] = require("./geometryconverter/no-fire-line.js");
-geometryConverter["OCCUPY"] = require("./geometryconverter/occupy.js");
-geometryConverter[
-    "PHASE LINE"
-] = require("./geometryconverter/phase-line.js");
-geometryConverter[
-    "POSITION AREA FOR ARTILLERY"
-] = require("./geometryconverter/position-area-for-artillery.js");
-geometryConverter[
-    "RECTANGULAR TARGET"
-] = require("./geometryconverter/rectangular-target.js");
-geometryConverter[
-    "RESTRICTED OPERATIONS ZONE"
-] = require("./geometryconverter/restricted-operations-zone.js");
-geometryConverter[
-    "RESTRICTIVE FIRE AREA"
-] = require("./geometryconverter/restrictive-fire-area.js");
-geometryConverter[
-    "RESTRICTIVE FIRE LINE"
-] = require("./geometryconverter/restrictive-fire-line.js");
-geometryConverter[
-    "SAFE LANE"
-] = require("./geometryconverter/safe-lane.js");
-geometryConverter[
-    "SEARCH AREA"
-] = require("./geometryconverter/search-area.js")
-geometryConverter[
-    "SENSOR ZONE"
-] = require("./geometryconverter/sensor-zone.js");
-geometryConverter[
-    "SUPPORTING ATTACK"
-] = require("./geometryconverter/supporting-attack.js");
-geometryConverter[
-    "TARGET BUILD-UP AREA"
-] = require("./geometryconverter/target-build-up-area.js");
-geometryConverter[
-    "TARGET VALUE AREA"
-] = require("./geometryconverter/target-value-area.js");
-geometryConverter[
-    "TARGETED AREA OF INTEREST"
-] = require("./geometryconverter/targeted-area-of-interest.js");
-geometryConverter[
-    "TERMINALLY GUIDED MUNITION FOOTPRINT"
-] = require("./geometryconverter/terminally-guided-munition-footprint.js");
-geometryConverter[
-    "TEST"
-] = require("./geometryconverter/test.js");
-geometryConverter[
-    "WEAPONS FREE ZONE"
-] = require("./geometryconverter/weapons-free-zone.js");
-geometryConverter[
-    "ZONE OF RESPONSIBILITY"
-] = require("./geometryconverter/zone-of-responsibility.js");
-
-export default geometryConverter;
+export const geometryConverter = {
+    ["AIR CORRIDOR"]: require("./geometryconverter/air-corridor.js"),
+    ["AIRSPACE COORDINATION AREA"]: airspaceCoordinationArea,
+    ["AMBUSH"]: ambush,
+    ["ARTILLERY FIRING POSITION"]: artilleryFiringPosition,
+    ["ARTILLERY MANOEUVRE AREA"]: require("./geometryconverter/artillery-manoeuvre-area.js"),
+    ["ARTILLERY RESTRICTED AREA"]: require("./geometryconverter/artillery-restricted-area.js"),
+    ["ARTILLERY TARGET INTELLIGENCE ZONE"]: artilleryTargetIntelligenceZone,
+    ["BARRAGE FIRE"]: barrageFire,
+    ["BLOCK"]: block,
+    ["BOUNDARIES"]: boundaries,
+    ["BREACH"]: breach,
+    ["BYPASS"]: bypass,
+    ["CALL FOR FIRE ZONE"]: callForFireZone,
+    ["CANALIZE"]: canalize,
+    ["CENSOR ZONE"]: censorZone,
+    ["CIRCULAR TARGET"]: circularTarget,
+    ["CLEAR"]: clear,
+    ["CONTAIN"]: contain,
+    ["COORDINATED FIRE LINE"]: coordinatedFireLine,
+    ["CORRIDOR"]: corridor,
+    ["COUNTERATTACK"]: counterattack,
+    ["COVER"]: cover.js,
+    ["CRITICAL FRIENDLY ZONE"]: criticalFriendlyZone,
+    ["DEAD SPACE AREA"]: deadSpaceArea,
+    ["DELAY"]: delay,
+    ["FIRE SUPPORT AREA"]: fireSupportArea,
+    ["FIRE SUPPORT COORDINATION LINE"]: fireSupportCoordinationLine,
+    ["FIX"]: fix,
+    ["FLOT"]: flot,
+    ["FREE FIRE AREA"]: freeFireArea,
+    ["GROUP OF TARGETS"]: groupOfTargets,
+    ["GUARD"]: require("./geometryconverter/guard.js"),
+    ["ISOLATE"]: isolate,
+    ["LINE OF CONTACT"]: lineOfContact,
+    ["LOW LEVEL TRANSIT ROUTE"]: require("./geometryconverter/low-level-transit-route.js"),
+    ["MAIN ATTACK"]: mainAttack,
+    ["MULTILINE BARRAGE FIRE"]: multilineBarrageFire,
+    ["MUNITION FLIGHT PATH"]: munitionFlightPath,
+    ["NAMED AREA OF INTEREST"]: namedAreaOfInterest,
+    ["NO FIRE AREA"]: noFireArea,
+    ["NO FIRE LINE"]: noFireLine,
+    ["OCCUPY"]: occupy,
+    ["PHASE LINE"]: phaseLine,
+    ["POSITION AREA FOR ARTILLERY"]: require("./geometryconverter/position-area-for-artillery.js"),
+    ["RECTANGULAR TARGET"]: rectangularTarget,
+    ["RESTRICTED OPERATIONS ZONE"]: restrictedOperationsZone,
+    ["RESTRICTIVE FIRE AREA"]: restrictiveFireArea,
+    ["RESTRICTIVE FIRE LINE"]: restrictiveFireLine,
+    ["SAFE LANE"]: require("./geometryconverter/safe-lane.js"),
+    ["SEARCH AREA"]: require("./geometryconverter/search-area.js"),
+    ["SENSOR ZONE"]: sensorZone,
+    ["SUPPORTING ATTACK"]: supportingAttack,
+    ["TARGET BUILD-UP AREA"]: targetBuildUpArea,
+    ["TARGET VALUE AREA"]: targetValueArea,
+    ["TARGETED AREA OF INTEREST"]: targetedAreaOfInterest,
+    ["TERMINALLY GUIDED MUNITION FOOTPRINT"]: terminallyGuidedMunitionFootprint,
+    ["TEST"]: test,
+    ["WEAPONS FREE ZONE"]: weaponsFreeZone,
+    ["ZONE OF RESPONSIBILITY"]: zoneOfResponsibility
+};
+    

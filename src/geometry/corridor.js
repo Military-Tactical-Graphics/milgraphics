@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 // Draws a corridor with a widht in meters
 function corridor(feature) {
@@ -72,4 +72,4 @@ function corridor(feature) {
     return { geometry: geometry };
 };
 
-module.exports = corridor;
+export default corridor;

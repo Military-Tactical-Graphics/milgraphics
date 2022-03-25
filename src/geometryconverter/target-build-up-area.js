@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
+export default function(feature) {
   var annotations = {
     geometry: { type: "Point" },
     properties: { text: "TBA" }
@@ -14,9 +14,6 @@ module.exports = function(feature) {
     annotations.properties.text += "\n" + feature.properties.dtg1;
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
-  if (polygon.annotation.hasOwnProperty("geometry")) {
-    annotations.geometry = polygon.annotation.geometry;
-  }
 
   return { geometry: polygon.geometry, annotations: [annotations] };
 };

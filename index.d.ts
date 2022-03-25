@@ -1,6 +1,6 @@
 import { Feature } from "ol";
 import Geometry from "ol/geom/Geometry";
-import geometryConverterObject from "./src/geometryconverter";
+import { geometryConverterObject } from "./src/geometryconverter";
 import getproperties from "./src/graphic/getproperties";
 
 type GeometryType = {

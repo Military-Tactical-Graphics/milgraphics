@@ -1,31 +1,22 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
+export default function(feature) {
     var annotations = [];
     var points = feature.geometry.coordinates;
     var annotationText = feature.properties.name;
 
     var polygon = ms.geometry.circleCorridorPolygon(feature);
-    if (polygon.annotation.hasOwnProperty("geometry")) {
-        annotations.geometry = polygon.annotation.geometry;
-    }
-    console.log(points);
-
     var maxLongitudes = Math.max.apply(null, getLatLong(points).longitudes);
-
 
     for (var a = 0; a < points[0].length; a++) {
         if (points[0][a][1] == maxLongitudes) {
             annotations.push(ms.geometry.addAnnotation(points[0][a], annotationText));
         }
-
     }
-
     return {
         geometry: polygon.geometry,
         annotations: annotations
     };
-
 }
 
 function getLatLong(array) {

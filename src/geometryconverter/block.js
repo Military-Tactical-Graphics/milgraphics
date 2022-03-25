@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 function block(feature) {
   //var direction, width;
@@ -24,4 +24,4 @@ function block(feature) {
   return { geometry: geometry, annotations: [annotations] };
 }
 
-module.exports = block;
+export default block;

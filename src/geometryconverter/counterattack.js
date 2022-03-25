@@ -1,8 +1,8 @@
-var ms = require("milsymbol");
-const convertToDashed = require("../geometry/converttodashed");
+import ms from '../../index';
+import convertToDashed from "../geometry/converttodashed";
 
 // Draws a corridor with a width in meters
-module.exports = function(feature) {
+export default function(feature) {
     var direction, width;
     var points = [...feature.geometry.coordinates];
     var arrowHead = points.pop();

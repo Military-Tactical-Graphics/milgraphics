@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 /**
  * Convert LineString to Dashed MultiLineString
@@ -89,4 +89,4 @@ function lineSliceAlong(lineString, startDist, stopDist) {
   return [last, last];
 }
 
-module.exports = convertToDashed;
+export default convertToDashed;

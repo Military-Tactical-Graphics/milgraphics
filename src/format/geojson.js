@@ -1,3 +1,11 @@
+import { Feature } from "ol";
+
+/**
+ * GeoJSON format
+ * @param {Feature[]} data 
+ * @param {*} mapping 
+ * @returns {JSON} GeoJSON
+ */
 function GeoJSON(data, mapping) {
   if (typeof mapping == "undefined") {
     mapping = {};
@@ -33,4 +41,4 @@ function GeoJSON(data, mapping) {
   return { type: "FeatureCollection", features: feature_copy };
 }
 
-module.exports = GeoJSON;
+export default GeoJSON;

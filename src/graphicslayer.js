@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../index';
 import asOpenLayers from "./graphicslayer/asopenlayers.js";
 import asCesium from "./graphicslayer/ascesium.js";
 function GraphicsLayer(data) {

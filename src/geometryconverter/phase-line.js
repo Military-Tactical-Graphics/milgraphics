@@ -1,6 +1,7 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
+export default function(feature) {
+    var distance;
     var points = feature.geometry.coordinates;
     var name = feature.properties.name;
     var annotations = [];

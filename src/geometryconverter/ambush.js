@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 function ambush(feature) {
   var geom;
@@ -77,4 +77,4 @@ function ambush(feature) {
   return { geometry: geometry };
 }
 
-module.exports = ambush;
+export default ambush;

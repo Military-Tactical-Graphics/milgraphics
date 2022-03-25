@@ -1,3 +1,8 @@
+/**
+ * NVG format
+ * @param {*} data 
+ * @returns {JSON} GeoJSON
+ */
 function NVG(data) {
   var _ = {};
   _.document = "nvg";
@@ -818,4 +823,4 @@ function NVG(data) {
   return toGeoJSON();
 }
 
-module.exports = NVG;
+export default NVG;

@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function (feature) {
+export default function (feature) {
   var annotations = [];
   var geometry = {
     type: "MultiLineString",

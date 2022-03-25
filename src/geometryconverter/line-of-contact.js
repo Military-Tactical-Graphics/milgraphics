@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 function lineOfContact(feature, relative = false) {
     //var direction, width;
@@ -11,7 +11,6 @@ function lineOfContact(feature, relative = false) {
     var bearingSpacing = (feature.properties.bearingSpacing) ? feature.properties.bearingSpacing : 5;
     var spaceBetween = (feature.properties.spaceBetween) ? feature.properties.spaceBetween : 10;
 
-    console.log(feature.properties);
     // loop to repeat for every segment of the polygon that was input
     for (var i = 1; i < points.length; i += 1) {
         if (relative === false) {
@@ -99,7 +98,7 @@ function lineOfContactRelative(geo, pointa, pointb, degree = 0, bearingSpacing =
 }
 
 function lineOfContactAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing, spaceBetween) {
-
+    var midpoint;
     // measure distance between each two points
     let distance = ms.geometry.distanceBetween(pointa, pointb);
     // calculate how many bearings can fit
@@ -169,4 +168,4 @@ function lineOfContactAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing
     return geo;
 }
 
-module.exports = lineOfContact;
+export default lineOfContact;

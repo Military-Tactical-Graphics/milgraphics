@@ -1,7 +1,7 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
-    
+export default function (feature) {
+
     var points = feature.geometry.coordinates;
     var distance = feature.properties.distance; //distance in meters
     var centerPoint;
@@ -24,20 +24,17 @@ module.exports = function(feature) {
 
     if (feature.geometry.type == "Point") {
         centerPoint = points;
-
-    } else if (feature.geometry.type == "LineString") {
-
+    }
+    if (feature.geometry.type == "LineString") {
         centerPoint = ms.geometry.pointBetween(points[0], points[1], 0.5);
         distance = distance / 2;
-
-    } else if (feature.geometry.type = "Polygon") {
-
+    }
+    if (feature.geometry.type == "Polygon") {
         //Variables for northernmost, southernmost coordinates for annotations in polygon
         var northernmost;
         var southernmost;
         var maxLongitudes = Math.max.apply(null, getLatLong(points).longitudes);
         var minLongitudes = Math.min.apply(null, getLatLong(points).longitudes);
- 
 
         for (var a = 0; a < points[0].length; a++) {
             if (points[0][a][1] == minLongitudes) {
@@ -55,7 +52,6 @@ module.exports = function(feature) {
         geometry: shape.geometry,
         annotations: [annotations]
     };
-
 }
 
 function getLatLong(array) {

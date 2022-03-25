@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(properties, mapping) {
+export default function(properties, mapping) {
   var version = this.SIDC.substr(0, 2);
   var standardIdentity1 = this.SIDC.substr(2, 1);
   var standardIdentity2 = this.SIDC.substr(3, 1);

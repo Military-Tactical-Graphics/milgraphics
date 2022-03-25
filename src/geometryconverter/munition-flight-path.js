@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
+export default function(feature) {
     var points = feature.geometry.coordinates;
     var geometry = { type: "MultiLineString", coordinates: [] };
 

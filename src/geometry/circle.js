@@ -1,6 +1,11 @@
-var ms = require("milsymbol");
+import ms from "../../index";
+import { Feature } from "ol";
 
-// Draws a circle withe a radius in meters
+/**
+ * Draws a circle with a radius in meters
+ * @param {Feature} feature LineString geometry (two points)
+ * @returns {object} Circle geometry (geometry type is Polygon)
+ */
 function circleWithRadius(feature) {
   var p = feature.geometry.coordinates;
   var r = feature.properties.distance;
@@ -13,4 +18,4 @@ function circleWithRadius(feature) {
   return { geometry: geometry };
 };
 
-module.exports = circleWithRadius;
+export default circleWithRadius;

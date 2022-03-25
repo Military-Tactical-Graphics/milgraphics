@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 /**
  * Calculates a point between two points p1 and p2 at any absolute distance l from p1 in the direction of p2
@@ -19,4 +19,4 @@ function pointBetweenAbsolute(p1, p2, l) {
   return p3;
 }
 
-module.exports = pointBetweenAbsolute;
+export default pointBetweenAbsolute;

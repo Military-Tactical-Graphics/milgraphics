@@ -1,4 +1,4 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
 function flot(feature, relative = false) {
     var points = feature.geometry.coordinates;
@@ -84,6 +84,7 @@ function flotifyRelative(geo, pointa, pointb, degree = 0, bearingSpacing = 4) {
 
 
 function flotifyAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing) {
+    var midpoint;
     // measure distance between each two points
     let distance = ms.geometry.distanceBetween(pointa, pointb);
     // calculate how many bearings can fit
@@ -138,4 +139,4 @@ function flotifyAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing) {
     return geo;
 }
 
-module.exports = flot;
+export default flot;

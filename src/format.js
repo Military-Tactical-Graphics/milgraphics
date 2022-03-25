@@ -1,8 +1,17 @@
-const format = {};
+import ArmyXML from "./format/armyxml.js";
+import GeoJSONFormat from "./format/geojson.js";
+import SLF from "./format/slf.js";
+import NVG from "./format/nvg.js";
 
-format.ArmyXML = require("./format/armyxml.js");
-format.GeoJSON = require("./format/geojson.js");
-format.NVG = require("./format/nvg.js");
-format.SLF = require("./format/slf.js");
+/**
+ * Format
+ * @module ms/format
+ */
+const format = {
+    ArmyXML,
+    NVG,
+    SLF,
+    GeoJSON: GeoJSONFormat
+};
 
 export default format;

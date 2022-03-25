@@ -1,6 +1,6 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
-module.exports = function(feature) {
+export default function(feature) {
     var points = feature.geometry.coordinates;
     var length = ms.geometry.distanceBetween(points[0], points[1]);
     var bearing = ms.geometry.bearingBetween(points[0], points[1]);

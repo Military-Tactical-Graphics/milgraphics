@@ -9,7 +9,8 @@ module.exports = {
     path: path.resolve(path.resolve(), "dist"),
     library: "milgraphics",
     libraryTarget: "umd",
-    umdNamedDefine: true
+    umdNamedDefine: true,
+    libraryExport: 'default'
   },
   plugins: [
     new CustomVarLibraryNamePlugin({

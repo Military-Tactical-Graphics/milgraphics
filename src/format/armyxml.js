@@ -1,5 +1,10 @@
-var ms = require("milsymbol");
+import ms from '../../index';
 
+/**
+ * ArmyXML format
+ * @param {string} xml XML document
+ * @returns {JSON} GeoJSON
+ */
 function ArmyXML(xml) {
   var features = [];
   /*  
@@ -421,6 +426,4 @@ function ArmyXML(xml) {
   });
 }
 
-if (typeof module !== "undefined") {
-  module.exports = ArmyXML;
-}
+export default ArmyXML;

@@ -1,7 +1,7 @@
-var ms = require("milsymbol");
-const convertToDashed = require("../geometry/converttodashed");
+import ms from '../../index';
+import convertToDashed from "../geometry/converttodashed";
 
-module.exports = function(feature) {
+export default function(feature) {
 
     var points = feature.geometry.coordinates;
     var geometry = { type: "MultiLineString", coordinates: [] };
