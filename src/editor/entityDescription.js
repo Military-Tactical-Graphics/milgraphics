@@ -164,7 +164,7 @@ const entityDescription = {
       base64: entityImages["ARTILLERY TARGET INTELLIGENCE ZONE"]
     }
   },
-  ["BARRAGE FIRE"]: { // TODO popisky jsou přes sebe
+  ["BARRAGE FIRE"]: { // TODO popisky jsou přes sebe, odebrat z obrazku spodní čtverec
     geometry: {
       type: "LineString",
       points: 2
@@ -287,8 +287,8 @@ const entityDescription = {
       base64: entityImages["CLEAR"]
     }
   },
-  ["CONTAIN"]: {
-    geometry: {
+  ["CONTAIN"]: { // TODO pokud odpovídá obrázek geometri, nebo je prevrácen, šipka se zobrazuje správně,
+    geometry: {  // pokud je ale otočen o 90°, tak se šipka kreslí přes půlkruh, viz example
       type: "LineString",
       points: 3
     },
@@ -314,8 +314,7 @@ const entityDescription = {
   },
   ["COUNTERATTACK"]: {
     geometry: {
-      type: "LineString",
-      points: 4
+      type: "LineString"
     },
     properties: {
       sidc: "G-T-K---------X"
@@ -398,7 +397,7 @@ const entityDescription = {
       }
     }
   ],
-  ["DELAY"]: {
+  ["DELAY"]: { // TODO Pokud je bod 3 na levé strane osy PT1, PT2 - jak bude vypadat?
     geometry: {
       type: "LineString",
       points: 3
