@@ -28,26 +28,7 @@ function lineOfContact(feature, relative = false) {
         geometry.coordinates.push(bearingGeos[i]);
     }
 
-    var annotations = {
-        geometry: { type: "Point" },
-        properties: { text: "Line of Contact" }
-    };
-
-    // if odd number of vertices, put on central vertex
-    if (points.length % 2 !== 0) {
-        // takes the central vertex by automatic rounding down and indexing from zero
-        annotations.geometry.coordinates = points[parseInt(points.length / 2)];
-    }
-    // otherwise even number of vertices mean odd number of sides, put on central side
-    else {
-        annotations.geometry.coordinates = ms.geometry.pointBetween(
-            points[parseInt(points.length / 2) - 1],
-            points[parseInt(points.length / 2)],
-            0.5
-        );
-    }
-
-    return { geometry: geometry, annotations: [annotations] };
+    return { geometry: geometry };
 }
 
 // old implementation, creates a bearing line with 2^(degree-1) bearings, each segment has bearings of different size

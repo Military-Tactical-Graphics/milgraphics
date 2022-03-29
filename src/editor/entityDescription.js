@@ -312,7 +312,7 @@ const entityDescription = {
       base64: entityImages["COORDINATED FIRE LINE"]
     }
   },
-  ["COUNTERATTACK"]: {
+  ["COUNTERATTACK"]: { // TODO s více body šipky se změní čárkování
     geometry: {
       type: "LineString"
     },
@@ -823,7 +823,7 @@ const entityDescription = {
       sidc: "G-F-ACRR------X",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      administrator: "X CORPS",
+      name: "X CORPS",
       distance: 5000,
     },
     description: {
@@ -838,7 +838,7 @@ const entityDescription = {
       sidc: "G-F-ACRI------X",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      administrator: "X CORPS",
+      name: "X CORPS",
     },
     description: {
       base64: entityImages["RESTRICTIVE FIRE AREA - POLYGON"]
