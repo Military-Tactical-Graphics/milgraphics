@@ -369,7 +369,8 @@ const entityDescription = {
     },
     {
       geometry: {
-        type: "LineString"
+        type: "LineString",
+        points: 2
       },
       properties: {
         sidc: "G-F-ACDR------X",

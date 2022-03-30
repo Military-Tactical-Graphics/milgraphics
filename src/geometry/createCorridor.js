@@ -11,9 +11,7 @@ export function createCorridor(feature, text) {
 
     var geometry = {
         type: "MultiLineString",
-        coordinates: [
-            []
-        ]
+        coordinates: []
     };
 
     for (let a = 1; a < points.length; a++) {
