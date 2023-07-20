@@ -29,6 +29,7 @@ import groupOfTargets from "./group-of-targets";
 import isolate from "./isolate";
 import lineOfContact from "./line-of-contact";
 import mainAttack from "./main-attack";
+import mez from "./mez";
 import multilineBarrageFire from "./multiline-barrage-fire";
 import munitionFlightPath from "./munition-flight-path";
 import namedAreaOfInterest from "./named-area-of-interest";
@@ -41,6 +42,7 @@ import restrictedOperationsZone from "./restricted-operations-zone";
 import restrictiveFireArea from "./restrictive-fire-area";
 import restrictiveFireLine from "./restrictive-fire-line";
 import sensorZone from "./sensor-zone";
+import shoradez from "./shoradez";
 import supportingAttack from "./supporting-attack";
 import targetBuildUpArea from "./target-build-up-area";
 import targetValueArea from "./target-value-area";
@@ -56,9 +58,9 @@ export {
     circularTarget, clear, contain, coordinatedFireLine, corridor, counterattack, cover,
     criticalFriendlyZone, deadSpaceArea, delay, fireSupportArea,
     fireSupportCoordinationLine, fix, flot, freeFireArea, groupOfTargets, isolate, lineOfContact,
-    mainAttack, multilineBarrageFire, munitionFlightPath, namedAreaOfInterest, noFireLine,
+    mainAttack, mez, multilineBarrageFire, munitionFlightPath, namedAreaOfInterest, noFireLine,
     noFireArea, occupy, phaseLine, rectangularTarget, restrictedOperationsZone, restrictiveFireArea,
-    restrictiveFireLine, sensorZone, supportingAttack, targetBuildUpArea, targetValueArea,
+    restrictiveFireLine, sensorZone, shoradez, supportingAttack, targetBuildUpArea, targetValueArea,
     targetedAreaOfInterest, terminallyGuidedMunitionFootprint, test, weaponsFreeZone,
     zoneOfResponsibility
 };

@@ -73,9 +73,9 @@ export default function tacticalPoints(sidc, std2525) {
     sidc['G-G-ALL---'] = ms.geometryConverter["LOW LEVEL TRANSIT ROUTE"]; //TACGRP.C2GM.AVN.LNE.LLTR
     sidc['G-G-AA----'] = ms.geometryConverter["RESTRICTED OPERATIONS ZONE"]; //TACGRP.C2GM.AVN.ARS
     //sidc['G-G-AAR---'] = [];//TACGRP.C2GM.AVN.ARS.ROZ
-    //sidc['G-G-AAF---'] = [];//TACGRP.C2GM.AVN.ARS.SHRDEZ
+    sidc['G-G-AAF---'] = ms.geometryConverter["SHORADEZ"]; //TACGRP.C2GM.AVN.ARS.SHRDEZ
     //sidc['G-G-AAH---'] = [];//TACGRP.C2GM.AVN.ARS.HIDACZ
-    //sidc['G-G-AAM---'] = [];//TACGRP.C2GM.AVN.ARS.MEZ
+    sidc['G-G-AAM---'] = ms.geometryConverter["MISSILE ENGAGEMENT ZONE"]; //TACGRP.C2GM.AVN.ARS.MEZ
     //sidc['G-G-AAML--'] = [];//TACGRP.C2GM.AVN.ARS.MEZ.LAMEZ
     //sidc['G-G-AAMH--'] = [];//TACGRP.C2GM.AVN.ARS.MEZ.HAMEZ
     sidc['G-G-AAW---'] = ms.geometryConverter["WEAPONS FREE ZONE"]; //TACGRP.C2GM.AVN.ARS.WFZ

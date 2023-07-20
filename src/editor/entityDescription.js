@@ -275,7 +275,7 @@ const entityDescription = {
       base64: entityImages["CIRCULAR TARGET"]
     }
   },
-  ["CLEAR"]: { // TODO Pokud je 3tí bod na opačné straně než podle dokumentace, zobrazí
+  ["CLEAR"]: { // TODO Pokud je 3. bod na opačné straně než podle dokumentace, zobrazí
     geometry: {                  // se na opačné straně
       type: "LineString",
       points: 3
@@ -287,7 +287,7 @@ const entityDescription = {
       base64: entityImages["CLEAR"]
     }
   },
-  ["CONTAIN"]: { // TODO pokud odpovídá obrázek geometri, nebo je prevrácen, šipka se zobrazuje správně,
+  ["CONTAIN"]: { // TODO pokud odpovídá obrázek geometrii, nebo je prevrácen, šipka se zobrazuje správně,
     geometry: {  // pokud je ale otočen o 90°, tak se šipka kreslí přes půlkruh, viz example
       type: "LineString",
       points: 3
@@ -612,6 +612,22 @@ const entityDescription = {
       base64: entityImages["MAIN ATTACK"]
     }
   },
+  ["MISSILE ENGAGEMENT ZONE"]: {
+    geometry: {
+      type: "Polygon",
+    },
+    properties: {
+      sidc: "G-G-AA--------X",
+      name: "(UNIT ID)",
+      altitudeDepth: "2000 FT AGL",
+      altitudeDepth1: "3000 FT AGL",
+      dtg: "180500Z",
+      dtg1: "180615Z",
+    },
+    description: {
+      base64: entityImages["MEZ"]
+    }
+  },
   ["MULTILINE BARRAGE FIRE"]: {
     geometry: {
       type: "LineString",
@@ -866,7 +882,7 @@ const entityDescription = {
       type: "LineString",
     },
     properties: {
-      sidc: "G-G-ALL-------X",
+      sidc: "S-F-LANE------X",
       name: "KNIGHT",
       distance: 500,
       altitudeDepth: "500 FT AGL",
@@ -876,6 +892,22 @@ const entityDescription = {
     },
     description: {
       base64: entityImages["SAFE LANE"]
+    }
+  },
+  ["SHORADEZ"]: {
+    geometry: {
+      type: "Polygon",
+    },
+    properties: {
+      sidc: "G-G-AA--------X",
+      name: "(UNIT ID)",
+      altitudeDepth: "2000 FT AGL",
+      altitudeDepth1: "3000 FT AGL",
+      dtg: "180500Z",
+      dtg1: "180615Z",
+    },
+    description: {
+      base64: entityImages["SHORADEZ"]
     }
   },
   ["SUPPORTING ATTACK"]: {

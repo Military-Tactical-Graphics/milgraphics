@@ -1,6 +1,6 @@
 import ms from '../../index';
 
-// Draws a ROZ
+// Draws a SHORADEZ
 export default function (feature) {
   var geometry;
   var annotations = {
@@ -8,7 +8,7 @@ export default function (feature) {
       type: "Point"
     },
     properties: {
-      text: "ROZ"
+      text: "SHORADEZ"
     }
   };
   var points = feature.geometry.coordinates;

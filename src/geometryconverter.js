@@ -8,7 +8,7 @@ import {
     noFireArea, occupy, phaseLine, rectangularTarget, restrictedOperationsZone, restrictiveFireArea,
     restrictiveFireLine, sensorZone, supportingAttack, targetBuildUpArea, targetValueArea,
     targetedAreaOfInterest, terminallyGuidedMunitionFootprint, test, weaponsFreeZone,
-    zoneOfResponsibility
+    zoneOfResponsibility, mez, shoradez
 } from './geometryconverter/index';
 
 export const geometryConverter = {
@@ -48,6 +48,7 @@ export const geometryConverter = {
     ["LINE OF CONTACT"]: lineOfContact,
     ["LOW LEVEL TRANSIT ROUTE"]: require("./geometryconverter/low-level-transit-route.js"),
     ["MAIN ATTACK"]: mainAttack,
+    ["MISSILE ENGAGEMENT ZONE"]: mez,
     ["MULTILINE BARRAGE FIRE"]: multilineBarrageFire,
     ["MUNITION FLIGHT PATH"]: munitionFlightPath,
     ["NAMED AREA OF INTEREST"]: namedAreaOfInterest,
@@ -63,6 +64,7 @@ export const geometryConverter = {
     ["SAFE LANE"]: require("./geometryconverter/safe-lane.js"),
     ["SEARCH AREA"]: require("./geometryconverter/search-area.js"),
     ["SENSOR ZONE"]: sensorZone,
+    ["SHORADEZ"]: shoradez,
     ["SUPPORTING ATTACK"]: supportingAttack,
     ["TARGET BUILD-UP AREA"]: targetBuildUpArea,
     ["TARGET VALUE AREA"]: targetValueArea,
