@@ -4,7 +4,7 @@
         {
             "type": "Feature",
             "properties": {
-                "sidc": "G-G-AA--------X",
+                "sidc": "G-G-AAR-------X",
                 "name": "(unit ID)",
                 "altitudeDepth": "2000 FT AGL",
                 "altitudeDepth1": "3000 FT AGL",

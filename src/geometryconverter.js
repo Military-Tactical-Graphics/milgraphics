@@ -33,7 +33,7 @@ export const geometryConverter = {
     ["COORDINATED FIRE LINE"]: coordinatedFireLine,
     ["CORRIDOR"]: corridor,
     ["COUNTERATTACK"]: counterattack,
-    ["COVER"]: cover.js,
+    ["COVER"]: cover,
     ["CRITICAL FRIENDLY ZONE"]: criticalFriendlyZone,
     ["DEAD SPACE AREA"]: deadSpaceArea,
     ["DELAY"]: delay,

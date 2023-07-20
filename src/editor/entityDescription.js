@@ -617,7 +617,7 @@ const entityDescription = {
       type: "Polygon",
     },
     properties: {
-      sidc: "G-G-AA--------X",
+      sidc: "G-G-AAM-------X",
       name: "(UNIT ID)",
       altitudeDepth: "2000 FT AGL",
       altitudeDepth1: "3000 FT AGL",
@@ -805,7 +805,7 @@ const entityDescription = {
       type: "Polygon",
     },
     properties: {
-      sidc: "G-G-AA--------X",
+      sidc: "G-G-AAR-------X",
       name: "(UNIT ID)",
       altitudeDepth: "2000 FT AGL",
       altitudeDepth1: "3000 FT AGL",
@@ -899,7 +899,7 @@ const entityDescription = {
       type: "Polygon",
     },
     properties: {
-      sidc: "G-G-AA--------X",
+      sidc: "G-G-AAF-------X",
       name: "(UNIT ID)",
       altitudeDepth: "2000 FT AGL",
       altitudeDepth1: "3000 FT AGL",
