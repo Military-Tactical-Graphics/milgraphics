@@ -8,7 +8,7 @@ type GeometryType = {
     MultiLineString: string;
     Polygon: string;
     Point: string;
-};
+}
 
 type GeometryOptions = {
     additionalInformation?:string;

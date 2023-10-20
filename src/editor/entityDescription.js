@@ -7,8 +7,8 @@ import entityImages from './entityImages.js';
   // FP  Firing Position
   // H   Additional Information 
   // N   Hostile
-  // T   Name
-  // T1  UniqueDesignation
+  // T   UniqueDesignation
+  // T1  UniqueDesignation 1
   // W   DTG Start
   // W1  DTG End
   // X   Min Altitude
@@ -24,7 +24,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-G-ALC-------X",
-      name: "KNIGHT",
+      uniqueDesignation: "KNIGHT",
       distance: 500,
       altitudeDepth: "500 FT AGL",
       altitudeDepth1: "300 FT AGL",
@@ -58,7 +58,7 @@ const entityDescription = {
       points: 3
     },
     properties: {
-      sidc: "GFGPSLA-------X"
+      sidc: "G-GPSLA-------X"
     },
     description: {
       base64: entityImages["AMBUSH"]
@@ -894,6 +894,52 @@ const entityDescription = {
       base64: entityImages["SAFE LANE"]
     }
   },
+  ["SENSOR ZONE"]: [{
+    geometry: {
+      type: "Point",
+    },
+    properties: {
+      sidc: "G-F-ACEC------X",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+      uniqueDesignation: "Q37",
+      distance: 5000
+    },
+    description: {
+      base64: entityImages["SENSOR ZONE - POINT"]
+    }
+  },
+  {
+    geometry: {
+      type: "LineString",
+      points: 2
+    },
+    properties: {
+      sidc: "G-F-ACER------X",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+      uniqueDesignation: "Q36",
+      distance: 5000,
+    },
+    description: {
+      base64: entityImages["SENSOR ZONE - LINESTRING"]
+    }
+  },
+  {
+    geometry: {
+      type: "Polygon",
+    },
+    properties: {
+      sidc: "G-F-ACEI------X",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92",
+      uniqueDesignation: "Q35"
+    },
+    description: {
+      base64: entityImages["SENSOR ZONE - POLYGON"]
+    }
+  }
+  ],
   ["SHORADEZ"]: {
     geometry: {
       type: "Polygon",

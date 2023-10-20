@@ -4,6 +4,7 @@ var GeoJSON = require('ol/format/GeoJSON');
 // } = require('ol/source/UrlTile');
 var style = require('ol/style');
 var makePattern = require('./makepattern');
+var ms = require('milsymbol');
 
 function asOpenLayers(crs) {
     crs = crs || "EPSG:3857";
@@ -44,11 +45,36 @@ function asOpenLayers(crs) {
             }
         }
 
+        let MS_COLOR = ms.getColorMode('Medium');
+
+        const COLOR_BY_AFFILIATION_TYPES = {
+            '-': '#000000',
+            P: MS_COLOR.Unknown,
+            U: MS_COLOR.Unknown,
+            A: MS_COLOR.Friend,
+            F: MS_COLOR.Friend,
+            N: MS_COLOR.Neutral,
+            S: MS_COLOR.Hostile,
+            H: MS_COLOR.Hostile,
+            G: MS_COLOR.Unknown,
+            W: MS_COLOR.Unknown,
+            D: MS_COLOR.Friend,
+            L: MS_COLOR.Neutral,
+            M: MS_COLOR.Friend,
+            J: MS_COLOR.Hostile,
+            K: MS_COLOR.Hostile,
+            O: MS_COLOR.Unknown
+        };
+
+
+
+        const COLOR = COLOR_BY_AFFILIATION_TYPES[olFeature.getProperties().sidc.charAt(1) || '-'];
+
         var styles = [
             new style.Style({
                 stroke: new style.Stroke({
                     lineCap: "butt",
-                    color: "#000000",
+                    color: COLOR,
                     width: 2
                 })
             })
@@ -57,7 +83,7 @@ function asOpenLayers(crs) {
         if (feature.graphic.isConverted() && (olFeature.getGeometry().getType() == "LineString" ||
                 olFeature.getGeometry().getType() == "MultiLineString")) {
             if (feature.graphic.annotations) {
-                styles = styles.concat(createAnnotationsStyle(feature.graphic.annotations, crs));
+                styles = styles.concat(createAnnotationsStyle(feature.graphic.annotations, crs, COLOR));
             }
             olFeature.setStyle(styles);
         }
@@ -65,7 +91,7 @@ function asOpenLayers(crs) {
         if (feature.graphic.isConverted() && olFeature.getGeometry().getType() == "Polygon") {
             if (feature.properties.fill == "dashes") {
 
-                var pattern = makePattern('#000', 'obliqueRight', 15);
+                var pattern = makePattern(COLOR, 'obliqueRight', 15);
                 styles[0].setFill(
                     new style.Fill({
                         color: pattern
@@ -76,16 +102,16 @@ function asOpenLayers(crs) {
             } else {
                 styles[0].setFill(
                     new style.Fill({
-                        color: "rgba(0,0,0,0)"
+                        color: 'transparent'
                     })
                 );
             }
 
             if (feature.graphic.annotations) {
                 if (!feature.graphic.annotations[0].geometry.coordinates) {
-                    styles[0].setText(getText(feature.graphic.annotations[0].properties.text));
+                    styles[0].setText(getText(feature.graphic.annotations[0].properties.text, COLOR));
                 }
-                styles = styles.concat(createAnnotationsStyle(feature.graphic.annotations, crs));
+                styles = styles.concat(createAnnotationsStyle(feature.graphic.annotations, crs, COLOR));
             }
             olFeature.setStyle(styles);
         }
@@ -97,7 +123,7 @@ function asOpenLayers(crs) {
     return features;
 }
 
-function createAnnotationsStyle(annotations, crs) {
+function createAnnotationsStyle(annotations, crs, color) {
     var add_styles = [];
     for (var a = 0; a < annotations.length; a++) {
         if (annotations[a].geometry.coordinates) {
@@ -107,7 +133,7 @@ function createAnnotationsStyle(annotations, crs) {
             }).getGeometry();
             add_styles.push(
                 new style.Style({
-                    text: getText(annotations[a].properties.text),
+                    text: getText(annotations[a].properties.text, color),
                     geometry: labelgeom
                 })
             );
@@ -116,16 +142,16 @@ function createAnnotationsStyle(annotations, crs) {
     return add_styles;
 }
 
-function getText(text) {
+function getText(text, color) {
     return new style.Text({
         fill: new style.Fill({
-            color: "black"
+            color: color
         }),
         font: "bold 16px sans-serif",
-        stroke: new style.Stroke({
-            color: "rgb(239, 239, 239)", // off-white
-            width: 4
-        }),
+        // stroke: new style.Stroke({
+        //     color: "rgb(239, 239, 239)", // off-white
+        //     width: 4
+        // }),
         text: text
     });
 }
