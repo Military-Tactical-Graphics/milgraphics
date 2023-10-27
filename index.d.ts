@@ -77,7 +77,7 @@ export namespace geometry {
     export function rectangle(feature: Feature<Geometry>): GeometryObject;
     export function toDistanceBearing(point1: PointType, point2: PointType, bearing: number): GeometryObject;
     export function testGeometry(point1: PointType, point2: PointType, fractionalDistance: number): PointType;
-    export function addAnnotation(point: PointType, text: string): Feature<Geometry>;
+    export function addAnnotation(point: PointType, text: string, angle: number): Feature<Geometry>;
 }
 
 export type geometryConverter = typeof geometryConverterObject;

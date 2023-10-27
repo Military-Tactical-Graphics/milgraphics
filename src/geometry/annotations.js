@@ -4,14 +4,15 @@
  * @param {string} text Annotation text
  * @returns {object} geometry object
  */
-function addAnnotation(coordinates, text) {
+function addAnnotation(coordinates, text, angle) {
     return ({
         geometry: {
             coordinates,
             type: "Point"
         },
         properties: {
-            text
+            text,
+            angle
         }
     });
 }

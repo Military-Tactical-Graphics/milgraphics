@@ -6,22 +6,23 @@ function airspaceCoordinationArea(feature) {
     geometry: { type: "Point" },
     properties: { text: "ACA" }
   };
-  if (feature.properties.uniqueDesignation)
-    annotations.properties.text +=
-      "\n" + feature.properties.uniqueDesignation;
-  if (feature.properties.altitudeDepth)
-    annotations.properties.text +=
-      "\nMIN ALT: " + feature.properties.altitudeDepth;
-  if (feature.properties.altitudeDepth1)
-    annotations.properties.text +=
-      "\nMAX ALT: " + feature.properties.altitudeDepth1;
-  if (feature.properties.additionalInformation)
-    annotations.properties.text +=
-      "\nGrids " + feature.properties.additionalInformation;
-  if (feature.properties.dtg)
-    annotations.properties.text += "\nEFF: " + feature.properties.dtg;
-  if (feature.properties.dtg1)
-    annotations.properties.text += " -\n" + feature.properties.dtg1;
+
+    const labels = {
+      [feature.properties.uniqueDesignation]: '',
+      'Min Alt:': feature.properties.altitudeDepth,
+      'Max Alt:': feature.properties.altitudeDepth1,
+      'Grids': feature.properties.additionalInformation,
+      'EFF:': `${feature.properties.dtg}-`,
+      '    ': feature.properties.dtg1
+  };
+
+  Object.keys(labels).forEach((label) => {
+      if (labels[label] !== undefined) {
+          const TXT = `\n ${label}`;
+          annotations.properties.text += `${TXT} ${labels[label]}`;
+      }
+  })
+
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
 

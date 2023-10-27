@@ -16,27 +16,29 @@ export function createCorridor(feature, text) {
 
     for (let a = 1; a < points.length; a++) {
         var midpoint = ms.geometry.pointBetween(points[a - 1], points[a], 0.5);
-        annotations.push(ms.geometry.addAnnotation(midpoint, `${text} ${feature.properties.name || ''}`));
+        const angle = -90 + ms.geometry.bearingBetween(points[a - 1], points[a]);
+        annotations.push(ms.geometry.addAnnotation(midpoint, `${text} ${feature.properties.uniqueDesignation || ''}`, angle));
     }
 
-    if (feature.properties.name)
-        annotationText +=
-        "\nName:" + feature.properties.name;
-        annotationText +=
-        "\nWidth:" + feature.properties.distance + "m";
-    if (feature.properties.altitudeDepth)
-        annotationText +=
-        "\nMIN ALT: " + feature.properties.altitudeDepth;
-    if (feature.properties.altitudeDepth1)
-        annotationText +=
-        "\nMAX ALT: " + feature.properties.altitudeDepth1;
-    if (feature.properties.dtg)
-        annotationText += "\nDTG Start: " + feature.properties.dtg;
-    if (feature.properties.dtg1)
-        annotationText += "\nDTG End:" + feature.properties.dtg1;
+    const labels = {
+        'Name': feature.properties.uniqueDesignation,
+        'Width': `${feature.properties.distance} m`,
+        'Min Alt': feature.properties.altitudeDepth,
+        'Max Alt': feature.properties.altitudeDepth1,
+        'DTG Start': feature.properties.dtg,
+        'DTG End': feature.properties.dtg1
+    };
+
+    Object.keys(labels).forEach((label) => {
+        if (labels[label]) {
+            const TXT = `\n${label}:          `.slice(0, 12);
+            annotationText += `${TXT} ${labels[label]}`;
+        }
+    })
+
 
     if (annotationText != '') {
-        annotations.push(ms.geometry.addAnnotation(ms.geometry.toDistanceBearing(centerPoint, width * 2, 0), annotationText));
+        annotations.push(ms.geometry.addAnnotation(ms.geometry.toDistanceBearing(centerPoint, width * 1.5, 0), annotationText));
     }
 
     var direction = (ms.geometry.bearingBetween(points[0], points[1]) + 360) % 360;

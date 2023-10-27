@@ -133,7 +133,7 @@ function createAnnotationsStyle(annotations, crs, color) {
             }).getGeometry();
             add_styles.push(
                 new style.Style({
-                    text: getText(annotations[a].properties.text, color),
+                    text: getText(annotations[a].properties.text, color, annotations[a].properties.angle),
                     geometry: labelgeom
                 })
             );
@@ -142,17 +142,21 @@ function createAnnotationsStyle(annotations, crs, color) {
     return add_styles;
 }
 
-function getText(text, color) {
+function getText(text, color, angle = 0) {
+    angle = angle > 180 ? angle - 180 : angle;
     return new style.Text({
         fill: new style.Fill({
             color: color
         }),
-        font: "bold 16px sans-serif",
+        font: "bold 16px monospace",
+        textAlign: 'left',
         // stroke: new style.Stroke({
         //     color: "rgb(239, 239, 239)", // off-white
         //     width: 4
         // }),
-        text: text
+        text: text,
+        rotation: angle * (Math.PI / 180)
+        
     });
 }
 
