@@ -66,8 +66,6 @@ function asOpenLayers(crs) {
             O: MS_COLOR.Unknown
         };
 
-
-
         const COLOR = COLOR_BY_AFFILIATION_TYPES[olFeature.getProperties().sidc.charAt(1) || '-'];
 
         var styles = [
@@ -97,8 +95,6 @@ function asOpenLayers(crs) {
                         color: pattern
                     })
                 );
-
-
             } else {
                 styles[0].setFill(
                     new style.Fill({
@@ -119,11 +115,8 @@ function asOpenLayers(crs) {
             }
             olFeature.setStyle(styles);
         }
-
-
         features.push(olFeature);
     }
-
     return features;
 }
 

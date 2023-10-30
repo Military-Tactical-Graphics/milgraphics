@@ -98,7 +98,7 @@ export default function(feature) {
         )
     );
 
-    annotations.push(ms.geometry.addAnnotation(ms.geometry.pointBetween(points[0], points[1], 0.5), "CATK"));
+    annotations.push(ms.geometry.addAnnotation(ms.geometry.pointBetween(points[0], points[1], 0.5), "CATK", { align: 'center' }));
     geometry.coordinates = convertToDashed(geometry1, 1 / 64);
 
     return { geometry: geometry, annotations: annotations, props: { dashes: true } };

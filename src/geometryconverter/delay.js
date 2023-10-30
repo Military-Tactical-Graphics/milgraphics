@@ -6,19 +6,21 @@ export default function(feature) {
     var width = ms.geometry.distanceBetween(points[1], points[2]);
     var bearing = ms.geometry.bearingBetween(points[0], points[1]);
 
-    var geometry = { type: "MultiLineString", coordinates: [] };
-    var geometry1 = [
+    var geometry = { type: "MultiLineString", coordinates: [ ]};
+
+    geometry.coordinates.push([
         points[0],
+        ms.geometry.pointBetween(points[0], points[1], 0.48)
+    ]);
+    geometry.coordinates.push([
+        ms.geometry.pointBetween(points[0], points[1], 0.52),
         points[1]
-    ];
+    ]);
+    var geometry1 = [points[1]];
 
     var midpoint = ms.geometry.pointBetween(points[1], points[2], 0.5);
     var curveBearing = ms.geometry.bearingBetween(points[1], points[2]);
-    if (curveBearing < 0 && bearing < 0) directionFactor = 1; // OK
-    //if (curveBearing > 0 && bearing < 0)directionFactor = -1; // OK
-    //if (curveBearing < 0 && bearing > 0)directionFactor = -1; // OK
-    //if (curveBearing > 0 && bearing > 0)directionFactor = -1; // OK
-    //var directionFactor = (Math.abs(curveBearing)/curveBearing)*(Math.abs(bearing)/bearing);
+    if (curveBearing < 0 && bearing < 0) directionFactor = 1;
 
     for (var i = 10; i < 180; i += 10) {
         geometry1.push(
@@ -31,14 +33,13 @@ export default function(feature) {
     }
     geometry1.push(points[2]);
 
-    // Geometry 2 - The head of the arrow:
     var geometry2 = [
-        ms.geometry.toDistanceBearing(points[0], width * 0.4, bearing + 45), // Right end
-        points[0], // Tip of the arrow
-        ms.geometry.toDistanceBearing(points[0], width * 0.4, bearing - 45) // Left end
+        ms.geometry.toDistanceBearing(points[0], width * 0.4, bearing + 45),
+        points[0],
+        ms.geometry.toDistanceBearing(points[0], width * 0.4, bearing - 45)
     ];
 
-    geometry.coordinates = [geometry1, geometry2];
+    geometry.coordinates = [...geometry.coordinates, geometry1, geometry2];
     var annotations = [{
         geometry: {
             type: "Point",
@@ -49,7 +50,9 @@ export default function(feature) {
             )
         },
         properties: {
-            text: feature.properties.dtg ? feature.properties.dtg + "\nD" : "D"
+            text: feature.properties.dtg ? feature.properties.dtg + "\nD" : "D",
+            angle: bearing - 90,
+            align: 'center'
         }
     }];
 

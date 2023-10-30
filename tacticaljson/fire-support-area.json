@@ -5,7 +5,9 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-F-ACSI------X",
-                "uniqueDesignation": "I"
+                "uniqueDesignation": "I",
+                "dtg": "281400ZAPR",
+                "dtg1": "281530ZAPR"
             },
             "geometry": {
                 "type": "Polygon",
@@ -60,7 +62,9 @@
             "properties": {
                 "sidc": "G-F-ACSR------X",
                 "distance": 5000,
-                "name": "II"
+                "uniqueDesignation": "II",
+                "dtg": "281400ZAPR",
+                "dtg1": "281530ZAPR"
             },
             "geometry": {
                 "type": "LineString",
@@ -81,9 +85,9 @@
             "properties": {
                 "sidc": "G-F-ACSC------X",
                 "distance": 5000,
+                "uniqueDesignation": "III",
                 "dtg": "10095900ZJAN92",
-                "dtg1": "11095900ZJAN92",
-                "name": "III"
+                "dtg1": "11095900ZJAN92"
             },
             "geometry": {
                 "type": "Point",

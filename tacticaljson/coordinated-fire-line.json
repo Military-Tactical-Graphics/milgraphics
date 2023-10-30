@@ -4,8 +4,10 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCC-------X",
-            "name": "4RDB",
-            "uniqueDesignation": "CZE"
+            "dtg": "281400ZAPR",
+            "dtg1": "281530ZAPR",
+            "uniqueDesignation": "T",
+            "uniqueDesignation1": "T1"
         },
         "geometry": {
             "type": "LineString",
