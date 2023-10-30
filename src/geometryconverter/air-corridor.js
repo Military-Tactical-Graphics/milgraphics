@@ -1,5 +1,5 @@
-const { createCorridor } = require("../geometry/createCorridor");
+import { createCorridor } from "../geometry/createCorridor";
 
-module.exports = function(feature) {
+export function airCorridor(feature) {
    return createCorridor(feature, 'AC');
 };

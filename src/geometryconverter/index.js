@@ -1,3 +1,4 @@
+import { airCorridor } from './air-corridor';
 import airspaceCoordinationArea from "./airspace-coordination-area";
 import ambush from "./ambush";
 import artilleryFiringPosition from "./artillery-firing-position";
@@ -53,7 +54,7 @@ import weaponsFreeZone from "./weapons-free-zone";
 import zoneOfResponsibility from "./zone-of-responsibility";
 
 export {
-    airspaceCoordinationArea, ambush, artilleryFiringPosition, artilleryTargetIntelligenceZone,
+    airCorridor, airspaceCoordinationArea, ambush, artilleryFiringPosition, artilleryTargetIntelligenceZone,
     barrageFire, block, boundaries, breach, bypass, callForFireZone, canalize, censorZone,
     circularTarget, clear, contain, coordinatedFireLine, corridor, counterattack, cover,
     criticalFriendlyZone, deadSpaceArea, delay, fireSupportArea,

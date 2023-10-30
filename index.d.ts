@@ -75,9 +75,10 @@ export namespace geometry {
     export function pointBetween(point1: PointType, point2: PointType, fractionalDistance: number): PointType;
     export function pointBetweenAbsolute(point1: PointType, point2: PointType, absoluteDistance: number): PointType;
     export function rectangle(feature: Feature<Geometry>): GeometryObject;
-    export function toDistanceBearing(point1: PointType, point2: PointType, bearing: number): GeometryObject;
+    export function toDistanceBearing(point1: PointType, distance: number, bearing: number): GeometryObject;
     export function testGeometry(point1: PointType, point2: PointType, fractionalDistance: number): PointType;
-    export function addAnnotation(point: PointType, text: string, angle: number): Feature<Geometry>;
+    export function addAnnotation(point: PointType, text: string, options: { angle: number; align: string }): Feature<Geometry>;
+    export function getLeftPoint(coordinates: [PointType[]]): PointType;
 }
 
 export type geometryConverter = typeof geometryConverterObject;

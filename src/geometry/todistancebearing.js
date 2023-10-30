@@ -4,7 +4,7 @@ import LatLon from 'geodesy/latlon-spherical';
 /**
  * Calculate destination point from current point, distance and bearing
  * @param {[number, number]} point Current point
- * @param {[number, number]} distance Distance
+ * @param {number} distance Distance
  * @param {number} bearing Bearing
  * @returns {[number, number]} Destination point
  */

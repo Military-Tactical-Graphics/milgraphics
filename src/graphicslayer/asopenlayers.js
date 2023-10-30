@@ -81,7 +81,7 @@ function asOpenLayers(crs) {
         ];
 
         if (feature.graphic.isConverted() && (olFeature.getGeometry().getType() == "LineString" ||
-                olFeature.getGeometry().getType() == "MultiLineString")) {
+            olFeature.getGeometry().getType() == "MultiLineString")) {
             if (feature.graphic.annotations) {
                 styles = styles.concat(createAnnotationsStyle(feature.graphic.annotations, crs, COLOR));
             }
@@ -109,7 +109,11 @@ function asOpenLayers(crs) {
 
             if (feature.graphic.annotations) {
                 if (!feature.graphic.annotations[0].geometry.coordinates) {
-                    styles[0].setText(getText(feature.graphic.annotations[0].properties.text, COLOR));
+                    styles[0].setText(getText(
+                        feature.graphic.annotations[0].properties.text,
+                        COLOR,
+                        feature.graphic.annotations[0].properties
+                    ));
                 }
                 styles = styles.concat(createAnnotationsStyle(feature.graphic.annotations, crs, COLOR));
             }
@@ -133,7 +137,7 @@ function createAnnotationsStyle(annotations, crs, color) {
             }).getGeometry();
             add_styles.push(
                 new style.Style({
-                    text: getText(annotations[a].properties.text, color, annotations[a].properties.angle),
+                    text: getText(annotations[a].properties.text, color, annotations[a].properties),
                     geometry: labelgeom
                 })
             );
@@ -142,21 +146,28 @@ function createAnnotationsStyle(annotations, crs, color) {
     return add_styles;
 }
 
-function getText(text, color, angle = 0) {
-    angle = angle > 180 ? angle - 180 : angle;
+function getText(text, color, options) {
+    let angle = 0;
+    let align = 'left';
+    if (options?.angle) {
+        angle = options.angle > 180 ? options.angle - 180 : options.angle;
+    }
+    if (options?.align) {
+        align = options.align
+    }
     return new style.Text({
         fill: new style.Fill({
             color: color
         }),
         font: "bold 16px monospace",
-        textAlign: 'left',
+        textAlign: align,
         // stroke: new style.Stroke({
         //     color: "rgb(239, 239, 239)", // off-white
         //     width: 4
         // }),
         text: text,
         rotation: angle * (Math.PI / 180)
-        
+
     });
 }
 

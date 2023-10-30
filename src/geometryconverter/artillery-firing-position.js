@@ -9,31 +9,21 @@ function artilleryFiringPosition(feature) {
     var points = feature.geometry.coordinates;
     var bearing = ms.geometry.bearingBetween(points[0], points[1]);
     var scale = ms.geometry.distanceBetween(points[0], points[1]);
-    var centerPoint;
 
     var geom = [
-        points[0],
-        ms.geometry.toDistanceBearing(points[0], length, bearing + 90),
-        ms.geometry.toDistanceBearing(points[1], length, bearing + 90),
-        points[1]
-    ];
-    geometry.coordinates.push(geom);
-    geom = [
         ms.geometry.toDistanceBearing(points[0], scale * 0.1, bearing + 90),
-        ms.geometry.toDistanceBearing(points[0], 0, bearing - 90)
-
-    ];
-    geometry.coordinates.push(geom);
-    geom = [
-        ms.geometry.toDistanceBearing(points.slice(-1)[0], scale * 0.1, bearing + 90),
-        ms.geometry.toDistanceBearing(points.slice(-1)[0], 0, bearing - 90),
-        centerPoint = ms.geometry.pointBetween(ms.geometry.toDistanceBearing(points.slice(-1)[0], scale * 0.1, bearing + 90), ms.geometry.toDistanceBearing(points.slice(-1)[0], 0, bearing - 90), 0.5)
+        points[0],
+        points[1],
+        ms.geometry.toDistanceBearing(points[1], scale * 0.1, bearing + 90),
     ];
     geometry.coordinates.push(geom);
 
     if (feature.properties.firingPosition) {
-        var annotationPoint = ms.geometry.toDistanceBearing(centerPoint, scale * 0.05, bearing + 45);
-        annotations.push(ms.geometry.addAnnotation(annotationPoint, feature.properties.firingPosition));
+        var centerPoint = ms.geometry.pointBetween(geom[2], geom[3], 0.5);
+        let angle = ms.geometry.bearingBetween(geom[2], geom[3]);
+        var annotationPoint = ms.geometry.toDistanceBearing(centerPoint, -scale * 0.02, angle + 90);
+
+        annotations.push(ms.geometry.addAnnotation(annotationPoint, feature.properties.firingPosition, { angle: -180 + angle }));
     }
 
     return {

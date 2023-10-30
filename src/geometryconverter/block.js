@@ -2,15 +2,22 @@ import ms from '../../index';
 
 function block(feature) {
   //var direction, width;
-  var points = feature.geometry.coordinates;
+  const points = feature.geometry.coordinates;
 
-  var geometry1 = [points[0], points[1]];  
-  var midpoint = ms.geometry.pointBetween(points[0], points[1], 0.5);
-  var geometry2 = [points[2], midpoint];
+  const geometry1 = [points[0], points[1]];  
+  const midpoint = ms.geometry.pointBetween(points[0], points[1], 0.5);
+  const angle = ms.geometry.bearingBetween(points[2], midpoint);
 
-  var geometry = { type: "MultiLineString", coordinates: [geometry1, geometry2] };
+  const p1 = ms.geometry.pointBetween(points[2], midpoint, 0.48);
+  const p2 = ms.geometry.pointBetween(points[2], midpoint, 0.52);
 
-  var annotations = {
+  const line1 = [points[2], p1];
+  const line2 = [p2, midpoint];
+  
+
+  const geometry = { type: "MultiLineString", coordinates: [geometry1, line1, line2] };
+
+  const annotations = {
     geometry: {
       type: "Point",
       coordinates: ms.geometry.pointBetween(
@@ -19,7 +26,7 @@ function block(feature) {
         0.5
       )
     },
-    properties: { text: "B" }
+    properties: { text: "B", angle: angle + 90, align: 'center'  }
   };
   return { geometry: geometry, annotations: [annotations] };
 }

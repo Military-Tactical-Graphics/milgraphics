@@ -17,7 +17,7 @@ export function createCorridor(feature, text) {
     for (let a = 1; a < points.length; a++) {
         var midpoint = ms.geometry.pointBetween(points[a - 1], points[a], 0.5);
         const angle = -90 + ms.geometry.bearingBetween(points[a - 1], points[a]);
-        annotations.push(ms.geometry.addAnnotation(midpoint, `${text} ${feature.properties.uniqueDesignation || ''}`, angle));
+        annotations.push(ms.geometry.addAnnotation(midpoint, `${text} ${feature.properties.uniqueDesignation || ''}`, { angle }));
     }
 
     const labels = {

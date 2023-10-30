@@ -1,5 +1,5 @@
 import {
-    airspaceCoordinationArea, ambush, artilleryFiringPosition, artilleryTargetIntelligenceZone,
+    airCorridor, airspaceCoordinationArea, ambush, artilleryFiringPosition, artilleryTargetIntelligenceZone,
     barrageFire, block, boundaries, breach, bypass, callForFireZone, canalize, censorZone,
     circularTarget, clear, contain, coordinatedFireLine, corridor, counterattack, cover,
     criticalFriendlyZone, deadSpaceArea, delay, fireSupportArea,
@@ -12,7 +12,7 @@ import {
 } from './geometryconverter/index';
 
 export const geometryConverter = {
-    ["AIR CORRIDOR"]: require("./geometryconverter/air-corridor.js"),
+    ["AIR CORRIDOR"]: airCorridor,
     ["AIRSPACE COORDINATION AREA"]: airspaceCoordinationArea,
     ["AMBUSH"]: ambush,
     ["ARTILLERY FIRING POSITION"]: artilleryFiringPosition,

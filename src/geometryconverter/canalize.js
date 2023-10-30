@@ -1,35 +1,39 @@
 import ms from '../../index';
 
 export default function(feature) {
-    var points = feature.geometry.coordinates;
-    var geometry = { type: "MultiLineString", coordinates: [] };
-    var scale = ms.geometry.distanceBetween(points[0], points[1]);
-    var length = ms.geometry.crossTrackDistance(points[0], points[1], points[2]);
-    var bearing = ms.geometry.bearingBetween(points[0], points[1]);
+    const points = feature.geometry.coordinates;
+    const geometry = { type: "MultiLineString", coordinates: [] };
+    const scale = ms.geometry.distanceBetween(points[0], points[1]);
+    const length = ms.geometry.crossTrackDistance(points[0], points[1], points[2]);
+    const bearing = ms.geometry.bearingBetween(points[0], points[1]);
+    
+    const P1 = ms.geometry.toDistanceBearing(points[0], length, bearing + 90);
+    const P2 = ms.geometry.toDistanceBearing(points[1], length, bearing + 90);
 
-    var geom = [
+    geometry.coordinates.push([
         points[0],
-        ms.geometry.toDistanceBearing(points[0], length, bearing + 90),
-        ms.geometry.toDistanceBearing(points[1], length, bearing + 90),
+        P1,
+        ms.geometry.pointBetween(P1, P2, 0.48)
+    ]);
+    geometry.coordinates.push([
+        ms.geometry.pointBetween(P1, P2, 0.52),
+        P2,
         points[1]
-    ];
-    geometry.coordinates.push(geom);
+    ]);
 
-    geom = [
-        ms.geometry.toDistanceBearing(points[0], scale * 0.2, bearing + 45),
-        ms.geometry.toDistanceBearing(points[0], scale * 0.2, bearing + 45 + 180)
-    ];
-    geometry.coordinates.push(geom);
+    geometry.coordinates.push([
+        ms.geometry.toDistanceBearing(points[0], scale * 0.05, bearing + 45),
+        ms.geometry.toDistanceBearing(points[0], scale * 0.05, bearing + 45 + 180)
+    ]);
 
-    geom = [
-        ms.geometry.toDistanceBearing(points[1], scale * 0.2, bearing - 45),
-        ms.geometry.toDistanceBearing(points[1], scale * 0.2, bearing - 45 + 180)
-    ];
-    geometry.coordinates.push(geom);
+    geometry.coordinates.push([
+        ms.geometry.toDistanceBearing(points[1], scale * 0.05, bearing - 45),
+        ms.geometry.toDistanceBearing(points[1], scale * 0.05, bearing - 45 + 180)
+    ]);
 
-    var annotations = [{
-        geometry: { type: "Point", coordinates: points[2] },
-        properties: { text: "C" }
+    const annotations = [{
+        geometry: { type: "Point", coordinates: ms.geometry.pointBetween(P1, P2, 0.5) },
+        properties: { text: "C", angle: bearing - 180, align: 'center' }
     }];
 
     return { geometry: geometry, annotations: annotations };

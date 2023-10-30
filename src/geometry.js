@@ -8,6 +8,8 @@ import circleWithRadius from "./geometry/circle.js";
 import corridor from "./geometry/corridor.js";
 import rectangle from "./geometry/rectangle.js";
 import pointBetweenAbsolute from "./geometry/pointbetweenabsolute.js";
+import { getLeftPoint } from './geometry/leftAnnotationPoint.js'
+import createZone from './geometry/createZone.js';
 
 export const geometry = {
     bearingBetween,
@@ -22,5 +24,7 @@ export const geometry = {
     pointBetweenAbsolute,
     rectangle,
     testGeometry: require("./geometry/testGeometry.js"),
-    addAnnotation: require("./geometry/annotations.js")
+    addAnnotation: require("./geometry/annotations.js"),
+    getLeftPoint,
+    createZone
 };

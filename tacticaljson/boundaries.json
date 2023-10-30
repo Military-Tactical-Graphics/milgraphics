@@ -4,7 +4,11 @@
       {
         "type": "Feature",
         "properties": {
-          "sidc": "G-G-GLB-------X"
+          "sidc": "G-G-GLB-------X",
+          "uniqueDesignation": "T",
+          "uniqueDesignation1": "T1",
+          "echelon": "B",
+          "hostile": "N"
         },
         "geometry": {
           "type": "MultiLineString",

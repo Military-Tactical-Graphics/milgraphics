@@ -1,13 +1,12 @@
 import ms from '../../index';
 
 function circularTarget(feature) {
-  var annotations = {
+  const annotations = {
     geometry: { type: "Point" },
-    properties: { text: feature.properties.name }
+    properties: { text: feature.properties.name, align: 'center' }
   };
 
-  var circle = ms.geometry.circle(feature);
-
+  const circle = ms.geometry.circle(feature);
 
   return { geometry: circle.geometry, annotations: [annotations] };
 };

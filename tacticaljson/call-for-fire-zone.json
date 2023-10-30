@@ -5,7 +5,9 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-F-AZXI------X",
-                "uniqueDesignation": "Q35"
+                "uniqueDesignation": "Q35",
+                "dtg": "281400ZAPR",
+                "dtg1": "281530ZAPR"
             },
             "geometry": {
                 "type": "Polygon",
@@ -60,7 +62,9 @@
             "properties": {
                 "sidc": "G-F-AZXR------X",
                 "distance": 5000,
-                "uniqueDesignation": "Q36"
+                "uniqueDesignation": "Q36",
+                "dtg": "281400ZAPR",
+                "dtg1": "281530ZAPR"
             },
             "geometry": {
                 "type": "LineString",

@@ -31,7 +31,6 @@ const APP = () => {
   const [selected, onSelect] = useState('air-corridor');
   const [affiliation, onAffiliation] = useState('-');
   const NAME = `${selected.split(/\-|_/).join(" ")}`.toUpperCase().replace("BUILD UP", "BUILD-UP");
-  console.log(NAME);
   return (
     <>
       <div style={{ position: 'fixed', zIndex: 100, right: 0 }}>
@@ -62,7 +61,6 @@ const APP = () => {
 };
 
 const updateFiles = (file, editor, affiliation) => {
-  console.log(file, editor, affiliation);
   const VALID_SIDC = Array.isArray(editor) ?
     editor.map(e => e.properties.sidc.slice(2)) : [editor?.properties?.sidc.slice(2)];
 

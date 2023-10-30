@@ -1,60 +1,65 @@
 import ms from '../../index';
 
 export default function(feature) {
-    var points = feature.geometry.coordinates;
-    var geometry = { type: "MultiLineString", coordinates: [] };
-    var scale = ms.geometry.distanceBetween(points[0], points[1]);
+    const points = feature.geometry.coordinates;
+    const geometry = { type: "MultiLineString", coordinates: [] };
+    const scale = ms.geometry.distanceBetween(points[0], points[1]);
 
-    var geom = [points[0], points[1]];
-    geometry.coordinates.push(geom);
+    geometry.coordinates.push([points[0], points[1]]);
 
-    var pMid = ms.geometry.pointBetween(points[0], points[1], 0.5);
-    var length = ms.geometry.distanceBetween(pMid, points[2]);
-    var bearing = ms.geometry.bearingBetween(points[0], points[1]);
+    let pMid = ms.geometry.pointBetween(points[0], points[1], 0.5);
+    const length = ms.geometry.distanceBetween(pMid, points[2]);
+    const bearing = ms.geometry.bearingBetween(points[0], points[1]);
 
-    geom = [pMid, ms.geometry.toDistanceBearing(pMid, length, bearing + 90)];
-    geometry.coordinates.push(geom);
+    const mPoint = ms.geometry.toDistanceBearing(pMid, length, bearing + 90);
 
-    var annotations = [{
+    geometry.coordinates.push([
+        pMid, ms.geometry.pointBetween(pMid, mPoint, 0.48)
+    ]);
+    geometry.coordinates.push([
+        ms.geometry.pointBetween(pMid, mPoint, 0.52), mPoint
+    ]);
+
+    const angle = ms.geometry.bearingBetween(pMid, mPoint);
+
+    const annotations = [{
         geometry: {
             type: "Point",
             coordinates: ms.geometry.pointBetween(
                 pMid,
-                geom[1],
+                mPoint,
                 0.5
             )
         },
-        properties: { text: "C" }
+        properties: { text: "C", align: 'center', angle: angle - 90 }
     }];
 
-    geom = [
+    geometry.coordinates.push([ // arrow
         ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60),
         pMid,
         ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60 + 60)
-    ];
-    geometry.coordinates.push(geom);
+    ]);
 
     pMid = ms.geometry.pointBetween(points[0], points[1], 0.2);
-    geom = [pMid, ms.geometry.toDistanceBearing(pMid, length, bearing + 90)];
-    geometry.coordinates.push(geom);
+    geometry.coordinates.push([pMid, ms.geometry.toDistanceBearing(pMid, length, bearing + 90)]);
 
-    geom = [
+    geometry.coordinates.push([ // arrow
         ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60),
         pMid,
         ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60 + 60)
-    ];
-    geometry.coordinates.push(geom);
+    ]);
+
 
     pMid = ms.geometry.pointBetween(points[0], points[1], 0.8);
-    geom = [pMid, ms.geometry.toDistanceBearing(pMid, length, bearing + 90)];
-    geometry.coordinates.push(geom);
+    geometry.coordinates.push([pMid, ms.geometry.toDistanceBearing(pMid, length, bearing + 90)]);
 
-    geom = [
+
+    geometry.coordinates.push([ // arrow
         ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60),
         pMid,
         ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60 + 60)
-    ];
-    geometry.coordinates.push(geom);
+    ]);
+
 
     return { geometry: geometry, annotations: annotations };
 };
