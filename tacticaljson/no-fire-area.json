@@ -5,7 +5,7 @@
             "properties": {
                 "sidc": "G-F-ACNC------X",
                 "distance": 300,
-                "name": "TEST"
+                "uniqueDesignation": "TEST"
             },
             "geometry": {
                 "type": "Point",
@@ -21,7 +21,7 @@
             "properties": {
                 "sidc": "G-F-ACNR------X",
                 "distance": 300,
-                "name": "TEST"
+                "uniqueDesignation": "TEST"
             },
             "geometry": {
                 "type": "LineString",
@@ -42,7 +42,7 @@
             "properties": {
                 "sidc": "G-F-ACNI------X",
                 "distance": 200,
-                "name": "TEST",
+                "uniqueDesignation": "TEST",
                 "dtg": "281400ZAPR",
                 "dtg1": "281530ZAPR"
             },

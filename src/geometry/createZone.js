@@ -1,6 +1,6 @@
 import ms from '../../index';
 
-function createZone(feature, text, newLineUniq = false) {
+function createZone(feature, text, newLineUniq = false, insideLabel = false) {
   let annotations = [];
   let annotation1 = {
     geometry: { type: "Point" },
@@ -16,26 +16,36 @@ function createZone(feature, text, newLineUniq = false) {
       annotation1.properties.text += ` ${feature.properties.uniqueDesignation}`; 
     }
   }
-  annotations.push(annotation1);
+  
+  let TEXT = '';
 
-  if (feature.properties.dtg || feature.properties.dtg1) {
-    
-    let POINT = ms.geometry.toDistanceBearing(ms.geometry.getLeftPoint(polygon.geometry.coordinates[0]), 100, 275);
-    let annotation2 = {
-      geometry: { type: "Point", coordinates: POINT },
-      properties: { text: "", align: 'right' }
-    };
-
-    if (feature.properties.dtg) {
-      annotation2.properties.text = feature.properties.dtg;
-    }
-    if (feature.properties.dtg1) {
-      annotation2.properties.text
-        += `${feature.properties.dtg ? '-' : '' }${newLineUniq ? '\n' : ''}${feature.properties.dtg1}`;
-    }
-    annotations.push(annotation2);
+  if (feature.properties.dtg) {
+    TEXT = feature.properties.dtg;
+  }
+  if (feature.properties.dtg1) {
+    TEXT += `${feature.properties.dtg ? '-' : '' }${newLineUniq ? '\n' : ''}${feature.properties.dtg1}`;
   }
 
+  if (insideLabel) {
+    annotation1.properties.text += `\n${TEXT}`;
+  }
+
+  annotations.push(annotation1);
+
+
+
+  if (TEXT && !insideLabel) {
+      let annotation2 = {
+        geometry: { type: "Point" },
+        properties: { text: TEXT, align: 'center' }
+      };
+      let POINT = ms.geometry.toDistanceBearing(ms.geometry.getLeftPoint(polygon.geometry.coordinates[0]), 100, 275);
+      annotation2.geometry.coordinates = POINT;
+      annotation2.properties.align = 'right';
+      annotations.push(annotation2);
+  }
+
+  console.log(annotations);    
   return { geometry: polygon.geometry, annotations };
 };
 

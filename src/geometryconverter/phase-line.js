@@ -1,29 +1,23 @@
 import ms from '../../index';
 
 export default function(feature) {
-    var distance;
     var points = feature.geometry.coordinates;
-    var name = feature.properties.name;
     var annotations = [];
-    var geometry = { type: "MultiLineString" };
-    var geometry1 = [];
-    for (var i = 1; i < points.length; i += 1) {
-        // measure distance between each two points
-        distance = ms.geometry.distanceBetween(points[i - 1], points[i])
-            // Making each segment straight
-        geometry1 = laundery(geometry1, points[i - 1], points[i], 0, 0)
-    }
-    geometry.coordinates = [geometry1];
+    var geometry = { type: "MultiLineString", coordinates: [points] };
+    
+    const text = `PL ${feature.properties.name || ''}`;
+    const angle1 = ms.geometry.bearingBetween(points[0], points[1]);
 
-    annotations.push(ms.geometry.addAnnotation(points[0], `PL ${name || ''}`));
-    annotations.push(ms.geometry.addAnnotation(points.slice(-1)[0], `PL ${name || ''}`));
+    const LAST = points.slice(-2);
+    const angle2 = ms.geometry.bearingBetween(LAST[0], LAST[1]);
 
-    return { geometry: geometry, annotations: annotations };
-}
+    annotations.push(ms.geometry.addAnnotation(
+        points[0], `${text} `, { align: "right", angle: angle1 - 90 }
+    ));
 
-function laundery(geo, pointa, pointb, degree = 0) {
-    if (degree <= 0) {
-        geo.push(pointa, pointb)
-        return geo;
-    }
+    annotations.push(ms.geometry.addAnnotation(
+        LAST[1], ` ${text}`, { align: "left", angle: angle2 - 90 }
+    ));
+
+    return { geometry, annotations };
 }

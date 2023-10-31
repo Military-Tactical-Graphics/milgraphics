@@ -8,24 +8,23 @@ export default function(feature) {
     var geometry = {
         type: "MultiLineString",
         coordinates: [
-            []
+            [], []
         ]
     };
 
-    var annotations = {
-        geometry: { type: "Point" },
-        properties: { text: "O" }
-      };
-
     for (var d = 0; d <= 340; d += 5) {
-        geometry.coordinates[0].push(
+        geometry.coordinates[d < 180 ? 0 : 1].push(
             ms.geometry.toDistanceBearing(p[0], r, d + bearing)
         );
-        if (d == 340 / 2) {
-            annotations.geometry.coordinates = ms.geometry.toDistanceBearing(p[0], r, d + bearing);
-        }
     }
 
+    const P = ms.geometry.toDistanceBearing(p[0], r, 177.5 + bearing);
+    const angle = ms.geometry.bearingBetween(p[0], P) - 90;
+    var annotations = {
+        geometry: { type: "Point", coordinates: P },
+        properties: { text: "O", align: 'center', angle }
+      };
+    
     var pEnd = ms.geometry.toDistanceBearing(p[0], r, 340 + bearing);
     var geom = [
         ms.geometry.toDistanceBearing(pEnd, r * 0.2, 320 + bearing - (90 - 15) + 45),

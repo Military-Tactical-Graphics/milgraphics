@@ -6,7 +6,8 @@
             "sidc": "G-G-GLC-------X",
             "bearingWidth": 400,
             "bearingSpacing": 10,
-            "spaceBetween": 10
+            "spaceBetween": 10,
+            "hostile": "ENY"
         },
         "geometry": {
             "type": "LineString",

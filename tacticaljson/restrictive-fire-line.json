@@ -4,8 +4,8 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCR-------X",
-            "name": "XCORPS",
-            "uniqueDesignation":"DELTA",
+            "uniqueDesignation": "XCORPS",
+            "uniqueDesignation1":"DELTA",
             "dtg": "202100Z",
             "dtg1": "270800Z SEP"
         },

@@ -28,7 +28,27 @@ function lineOfContact(feature, relative = false) {
         geometry.coordinates.push(bearingGeos[i]);
     }
 
-    return { geometry: geometry };
+    var annotations = [];
+    const initialBearing = ms.geometry.bearingBetween(points[0], points[1]);
+    const lastPoints = points.slice(-2);
+    const endBearing = ms.geometry.bearingBetween(lastPoints[0], lastPoints[1])
+    const P1 = ms.geometry.toDistanceBearing(points[0], bearingWidth / 2, initialBearing - 275);
+    const P2 = ms.geometry.toDistanceBearing(points.slice(-1)[0], bearingWidth / 2, endBearing + 90)
+    let TEXT = '';
+    if (feature.properties?.hostile) {
+        TEXT += feature.properties.hostile
+    }    
+    annotations.push(
+        ms.geometry.addAnnotation(P1, TEXT, { align: 'center', angle: initialBearing - 90 }
+        )
+    );
+    annotations.push(
+        ms.geometry.addAnnotation(P2, TEXT, { align: 'center', angle: endBearing - 90 }
+        )
+    );
+
+
+    return { geometry, annotations };
 }
 
 // old implementation, creates a bearing line with 2^(degree-1) bearings, each segment has bearings of different size
@@ -140,10 +160,10 @@ function lineOfContactAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing
                     bearingWidth / 2,
                     curveBearing + j + 180
                 )
-            )
+            );
         }
-        geo.push(bearingGeo1)
-        geo.push(bearingGeo2)
+        geo.push(bearingGeo1);
+        geo.push(bearingGeo2);
     }
 
     return geo;

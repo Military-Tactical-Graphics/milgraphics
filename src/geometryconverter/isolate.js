@@ -15,20 +15,20 @@ export default function(feature) {
         );
     }
 
-    for (d = 20; d <= 320; d += 40) {
+    for (d = 20; d <= 320; d += 45) {
         var geom = [
             ms.geometry.toDistanceBearing(p[0], r, d + bearing),
-            ms.geometry.toDistanceBearing(p[0], r * 0.7, 10 + d + bearing),
-            ms.geometry.toDistanceBearing(p[0], r, 20 + d + bearing)
+            ms.geometry.toDistanceBearing(p[0], r * 0.7, 12.5 + d + bearing),
+            ms.geometry.toDistanceBearing(p[0], r, 25 + d + bearing)
         ];
         geometry.coordinates.push(geom);
     }
 
     var pEnd = ms.geometry.toDistanceBearing(p[0], r, 340 + bearing);
     geom = [
-        ms.geometry.toDistanceBearing(pEnd, r * 0.2, 320 + bearing - (90 - 15) + 45),
+        ms.geometry.toDistanceBearing(pEnd, r * 0.25, 320 + bearing - (90 - 15) + 45),
         pEnd,
-        ms.geometry.toDistanceBearing(pEnd, r * 0.2, 320 + bearing - (90 - 15) - 45)
+        ms.geometry.toDistanceBearing(pEnd, r * 0.25, 320 + bearing - (90 - 15) - 45)
     ];
     geometry.coordinates.push(geom);
 

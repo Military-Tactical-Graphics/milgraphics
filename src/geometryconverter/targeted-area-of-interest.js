@@ -4,7 +4,7 @@ import ms from '../../index';
 function targetedAreaOfInterest(feature) {
   var annotations = {
     geometry: { type: "Point" },
-    properties: { text: "TAI" }
+    properties: { text: "TAI", align: 'center' }
   };
   if (feature.properties.uniqueDesignation)
     annotations.properties.text +=

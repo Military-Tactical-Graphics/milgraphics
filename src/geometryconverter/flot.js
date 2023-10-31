@@ -3,10 +3,8 @@ import ms from '../../index';
 function flot(feature, relative = false) {
     var points = feature.geometry.coordinates;
     var geometry = { type: "MultiLineString", coordinates: [] };
-    
     // Geometry 1 - bearing line of n points
     var bearingGeos = [];
- 
     var bearingWidth = (feature.properties.bearingWidth) ? feature.properties.bearingWidth : 400;
     var bearingSpacing = (feature.properties.bearingSpacing) ? feature.properties.bearingSpacing : 5;
 
@@ -14,11 +12,11 @@ function flot(feature, relative = false) {
     for (var i = 1; i < points.length; i += 1) {
         if (relative === false) {
             // visualize that many bearings with absolute width
-            bearingGeos = flotifyAbsolute(bearingGeos, points[i - 1], points[i], bearingWidth, bearingSpacing)
+            bearingGeos = flotifyAbsolute(bearingGeos, points[i - 1], points[i], bearingWidth, bearingSpacing);
         } else {
             // Alternative - old implementation based on relative sizes of bearings
             // Making each segment into a bearing line with 2^5 = 32 bearings
-            bearingGeos = flotifyRelative(bearingGeos, points[i - 1], points[i], 5)
+            bearingGeos = flotifyRelative(bearingGeos, points[i - 1], points[i], 5);
         }
     }
 
@@ -27,7 +25,26 @@ function flot(feature, relative = false) {
         geometry.coordinates.push(bearingGeos[i]);
     }
 
-    return { geometry: geometry };
+    var annotations = [];
+    const initialBearing = ms.geometry.bearingBetween(points[0], points[1]);
+    const lastPoints = points.slice(-2);
+    const endBearing = ms.geometry.bearingBetween(lastPoints[0], lastPoints[1])
+    const P1 = ms.geometry.toDistanceBearing(geometry.coordinates[0][0], bearingWidth / 3, initialBearing - 120);
+    const P2 = ms.geometry.toDistanceBearing(geometry.coordinates.slice(-1)[0].slice(-1)[0], bearingWidth / 3, endBearing - 60)
+    let TEXT = 'FLOT';
+    if (feature.properties?.hostile) {
+        TEXT = `${feature.properties.hostile}\n${TEXT}`
+    }    
+    annotations.push(
+        ms.geometry.addAnnotation(P1, TEXT, { align: 'center', angle: initialBearing - 90 }
+        )
+    );
+    annotations.push(
+        ms.geometry.addAnnotation(P2, TEXT, { align: 'center', angle: endBearing - 90 }
+        )
+    );
+
+    return { geometry, annotations };
 }
 
 // old implementation, creates a bearing line with 2^(degree-1) bearings, each segment has bearings of different size
@@ -47,7 +64,7 @@ function flotifyRelative(geo, pointa, pointb, degree = 0, bearingSpacing = 4) {
 
     if (degree === 1) {
         var bearingGeo = [];
-        for (var i = 0; i <= 180; i += 10) {
+        for (var i = 0; i <= 180; i += 15) {
             bearingGeo.push(
                 ms.geometry.toDistanceBearing(
                     midpoint,
@@ -63,7 +80,6 @@ function flotifyRelative(geo, pointa, pointb, degree = 0, bearingSpacing = 4) {
     }
     return geo;
 }
-
 
 function flotifyAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing) {
     var midpoint;
@@ -93,7 +109,6 @@ function flotifyAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing) {
     for (var i = 1; i <= numBearings; i += 1) {
 
         var bearingGeo = [];
-
         // draw bearings of constant size along the dedicated segment, starting at a point offset by the internal padding
         let leftAnchor = ms.geometry.pointBetweenAbsolute(
             pointa, pointb, (padding + ((i * bearingWidth) - bearingWidth) + (i - 1) * bearingSpacing)
@@ -117,7 +132,6 @@ function flotifyAbsolute(geo, pointa, pointb, bearingWidth, bearingSpacing) {
         }
         geo.push(bearingGeo)
     }
-
     return geo;
 }
 

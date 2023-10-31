@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "sidc": "G-G-AAF-------X",
-                "name": "(unit ID)",
+                "uniqueDesignation": "(unit ID)",
                 "altitudeDepth": "2000 FT AGL",
                 "altitudeDepth1": "3000 FT AGL",
                 "dtg": "180500Z",

@@ -5,15 +5,27 @@ export default function(feature) {
     var geometry = { type: "MultiLineString", coordinates: [] };
 
     var annotations = [];
-    var annotationText = "NFL\n";
+    var annotationText = " NFL\n";
 
     if (feature.properties.name) {
         annotationText += `(PL ${feature.properties.name})`; 
     }
 
     geometry.coordinates = [points];
-    annotations.push(ms.geometry.addAnnotation(points[0], annotationText));
-    annotations.push(ms.geometry.addAnnotation(points.slice(-1)[0], annotationText));
+    const startBearing = ms.geometry.bearingBetween(points[1], points[0]);
+    const lastTwo = points.slice(-2);
+    const endBearing = ms.geometry.bearingBetween(lastTwo[0], lastTwo[1]);
+
+    annotations.push(ms.geometry.addAnnotation(
+        ms.geometry.toDistanceBearing(points[0], 50, startBearing),
+        annotationText,
+        { angle: startBearing - 90, align: 'right' }
+    ));
+    annotations.push(ms.geometry.addAnnotation(
+        ms.geometry.toDistanceBearing(lastTwo[1], 50, endBearing),
+        annotationText,
+        { angle: endBearing - 90, align: 'left' }
+    ));
 
     return { geometry: geometry, annotations: annotations };
 };

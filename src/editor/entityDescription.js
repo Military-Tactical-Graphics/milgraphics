@@ -618,7 +618,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-G-AAM-------X",
-      name: "(UNIT ID)",
+      uniqueDesignation: "(UNIT ID)",
       altitudeDepth: "2000 FT AGL",
       altitudeDepth1: "3000 FT AGL",
       dtg: "180500Z",
@@ -672,7 +672,7 @@ const entityDescription = {
       properties: {
         sidc: "G-F-ACNC------X",
         distance: 300,
-        name: "Test",
+        uniqueDesignation: "Test",
         dtg: "10095900ZJAN92",
         dtg1: "10095900ZJAN92"
       },
@@ -687,7 +687,7 @@ const entityDescription = {
       properties: {
         sidc: "G-F-ACNR------X",
         distance: 300,
-        name: "Test",
+        uniqueDesignation: "Test",
         dtg: "10095900ZJAN92",
         dtg1: "10095900ZJAN92"
       },
@@ -701,7 +701,7 @@ const entityDescription = {
     }, {
       properties: {
         sidc: "G-F-ACNI------X",
-        name: "Test",
+        uniqueDesignation: "Test",
         dtg: "10095900ZJAN92",
         dtg1: "10095900ZJAN92"
       },
@@ -806,7 +806,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-G-AAR-------X",
-      name: "(UNIT ID)",
+      uniqueDesignation: "(UNIT ID)",
       altitudeDepth: "2000 FT AGL",
       altitudeDepth1: "3000 FT AGL",
       dtg: "180500Z",
@@ -824,7 +824,7 @@ const entityDescription = {
       sidc: "G-F-ACRC------X",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      name: "X CORPS",
+      uniqueDesignation: "X CORPS",
       distance: 5000
     },
     description: {
@@ -1090,7 +1090,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-G-AAW-------X",
-      name: "(unit ID)",
+      uniqueDesignation: "(unit ID)",
       dtg: "180500Z",
       dtg1: "180615Z"
     },

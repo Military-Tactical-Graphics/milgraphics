@@ -17,12 +17,12 @@ export default function (feature) {
 
   if (points[0].length >= 3) {
 
-    if (feature.properties.name)
-      annotations.properties.text += feature.properties.name;
+    if (feature.properties.uniqueDesignation)
+      annotations.properties.text += feature.properties.uniqueDesignation;
     if (feature.properties.dtg)
-      annotations.properties.text += "\nTime from: " + feature.properties.dtg;
+      annotations.properties.text += "\nTIME FROM: " + feature.properties.dtg;
     if (feature.properties.dtg1)
-      annotations.properties.text += "\nTime to:" + feature.properties.dtg1;
+      annotations.properties.text += "\nTIME TO:" + feature.properties.dtg1;
 
     var polygon = ms.geometry.circleCorridorPolygon(feature);
 

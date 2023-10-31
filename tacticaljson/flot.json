@@ -5,7 +5,8 @@
         "properties": {
             "sidc": "G-G-GLF-------X",
             "bearingWidth": 450,
-            "bearingSpacing": 20
+            "bearingSpacing": 20,
+            "hostile": "ENY"
         },
         "geometry": {
             "type": "LineString",
@@ -15,8 +16,12 @@
                     52.40
                 ],
                 [
-                    4.92,
+                    4.90,
                     52.40 
+                ],
+                [
+                    4.92,
+                    52.42 
                 ]
             ]
         }

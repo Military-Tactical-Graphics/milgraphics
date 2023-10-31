@@ -9,8 +9,8 @@ function airspaceCoordinationArea(feature) {
 
     const labels = {
       [feature.properties.uniqueDesignation]: '',
-      'Min Alt:': feature.properties.altitudeDepth,
-      'Max Alt:': feature.properties.altitudeDepth1,
+      'MIN ALT:': feature.properties.altitudeDepth,
+      'MAX ALT:': feature.properties.altitudeDepth1,
       'Grids': feature.properties.additionalInformation,
       'EFF:': `${feature.properties.dtg}-`,
       '    ': feature.properties.dtg1

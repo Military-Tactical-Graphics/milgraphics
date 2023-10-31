@@ -21,12 +21,12 @@ export function createCorridor(feature, text) {
     }
 
     const labels = {
-        'Name': feature.properties.uniqueDesignation,
-        'Width': `${feature.properties.distance} m`,
-        'Min Alt': feature.properties.altitudeDepth,
-        'Max Alt': feature.properties.altitudeDepth1,
-        'DTG Start': feature.properties.dtg,
-        'DTG End': feature.properties.dtg1
+        'NAME': feature.properties.uniqueDesignation,
+        'WIDTH': `${feature.properties.distance} m`,
+        'MIN ALT': feature.properties.altitudeDepth,
+        'MAX ALT': feature.properties.altitudeDepth1,
+        'DTG START': feature.properties.dtg,
+        'DTG END': feature.properties.dtg1
     };
 
     Object.keys(labels).forEach((label) => {

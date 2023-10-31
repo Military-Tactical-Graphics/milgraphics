@@ -1,38 +1,43 @@
 import ms from '../../index';
 
-export default function(feature) {
-    var points = feature.geometry.coordinates;
-    var geometry = { type: "MultiLineString", coordinates: [] };
+export default function (feature) {
 
-    var annotations = [];
-    var annotationTop = "MFP";
-    var annotationUnder = "";
-    var annotationTopCoordinates;
+  const points = feature.geometry.coordinates;
+    const geometry = { type: "MultiLineString", coordinates: [] };
+    const ANNOTATIONS = [];
+    const LINES = [];
+    let SEGMENTS = [];
 
+    for (let i = 0; i < points.length - 1; ++i) {
+        LINES.push(
+            [points[i], points[i + 1]]
+        );
+    }
 
-    if (feature.properties.dtg)
-        annotationUnder += feature.properties.dtg;
-    if (feature.properties.dtg1)
-        annotationUnder += " -\n" + feature.properties.dtg1;
+    let DTG = '';
+    if (feature.properties.dtg) DTG += feature.properties.dtg;
+    if (feature.properties.dtg1) DTG += `-\n${feature.properties.dtg1}`;
 
-    geometry.coordinates = [points];
-     
-  if (points.length % 2 !== 0) {
-    annotationTopCoordinates = points[parseInt(points.length / 2)];
-  }  else {
-    annotationTopCoordinates = ms.geometry.pointBetween(
-      points[parseInt(points.length / 2) - 1],
-      points[parseInt(points.length / 2)],
-      0.5
-    );
-  }
+    LINES.forEach((line) => {
+        const ANGLE = ms.geometry.bearingBetween(line[0], line[1]);    
+        const CENTER = ms.geometry.pointBetween(line[0], line[1], 0.5);
+        const ANNOTATION = {
+            geometry: { type: "Point", coordinates: CENTER },
+            properties: { text: 'MFP', align: 'center', angle: ANGLE - 90 }
+        };
 
-    annotations.push(ms.geometry.addAnnotation(annotationTopCoordinates, annotationTop));
+        ANNOTATIONS.push(ANNOTATION);
 
-    var middlePoint = ms.geometry.pointBetween(points[0], points[1], 0.25);
+        const LINE = [line[0], ms.geometry.pointBetween(line[0], line[1], 0.47)];
+        const P1 = ms.geometry.pointBetween(LINE[0], LINE[1], 0.5);
+        const P2 = ms.geometry.toDistanceBearing(P1, 100, 180);
 
-    annotations.push(ms.geometry.addAnnotation(ms.geometry.toDistanceBearing(middlePoint, -30, -45), annotationUnder));
+        ANNOTATIONS.push(ms.geometry.addAnnotation(P2, DTG, { align: 'center', angle: ANGLE - 90  }));
 
+        SEGMENTS.push(LINE);
+        SEGMENTS.push([ms.geometry.pointBetween(line[0], line[1], 0.53), line[1]]);
+    });
+    geometry.coordinates = SEGMENTS;
 
-    return { geometry: geometry, annotations: annotations };
+    return { geometry: geometry, annotations: ANNOTATIONS };
 };

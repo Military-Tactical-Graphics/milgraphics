@@ -4,7 +4,7 @@
             "type": "Feature",
             "properties": {
                 "sidc": "S-F-LANE------X",
-                "name": "KNIGHT",
+                "uniqueDesignation": "KNIGHT",
                 "distance": 500,
                 "altitudeDepth": "500 FT AGL",
                 "altitudeDepth1": "300 FT AGL",

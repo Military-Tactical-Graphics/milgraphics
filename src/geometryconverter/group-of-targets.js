@@ -10,7 +10,8 @@ export default function(feature) {
 
     for (var a = 0; a < points[0].length; a++) {
         if (points[0][a][1] == maxLongitudes) {
-            annotations.push(ms.geometry.addAnnotation(points[0][a], annotationText));
+            const P = ms.geometry.toDistanceBearing(points[0][a], 80, 0);
+            annotations.push(ms.geometry.addAnnotation(P, annotationText, { align: 'center' }));
         }
     }
     return {
