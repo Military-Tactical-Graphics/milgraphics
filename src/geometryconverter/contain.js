@@ -19,7 +19,7 @@ export default function (feature) {
     for (var direction = intialBearing; direction <= intialBearing + 85; direction += 5) {
         let vert1 = ms.geometry.toDistanceBearing(center, radius, direction);
         semiCircleLeft.push(vert1);
-        let vert2 = ms.geometry.toDistanceBearing(center, radius, 180 - direction);
+        let vert2 = ms.geometry.toDistanceBearing(center, radius, 2 * intialBearing - 180 - direction);
         semiCircleRight.push(vert2);
     }
 
@@ -27,7 +27,7 @@ export default function (feature) {
         const vert1 = ms.geometry.toDistanceBearing(center, radius, direction);
         spokes.push([vert1,
             ms.geometry.pointBetween(vert1, center, 0.33)]);
-        const vert2 = ms.geometry.toDistanceBearing(center, radius, 180 - direction);
+        const vert2 = ms.geometry.toDistanceBearing(center, radius, 2 * intialBearing - 180 - direction);
         spokes.push([vert2,
             ms.geometry.pointBetween(vert2, center, 0.33)]);
     }
@@ -44,8 +44,7 @@ export default function (feature) {
     geometry.coordinates.push(semiCircleLeft, semiCircleRight, ...spokes);
 
     annotations.push(ms.geometry.addAnnotation(
-        ms.geometry.toDistanceBearing(center, radius, intialBearing + 90), "C", { align: 'center' }));
-
+        ms.geometry.toDistanceBearing(center, radius, intialBearing + 90), "C", { align: 'center', angle: (intialBearing % 180) }));
 
     // Draw the arrow head
     let scale = ms.geometry.distanceBetween(points[2], center),
@@ -66,7 +65,6 @@ export default function (feature) {
         ms.geometry.pointBetween(points[2], center, 0.53),
         center
     ]);
-
 
     const angle = ms.geometry.bearingBetween(center, points[2]) - 90;
 

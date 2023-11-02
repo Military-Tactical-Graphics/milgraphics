@@ -32,8 +32,6 @@ function createZone(feature, text, newLineUniq = false, insideLabel = false) {
 
   annotations.push(annotation1);
 
-
-
   if (TEXT && !insideLabel) {
       let annotation2 = {
         geometry: { type: "Point" },
@@ -45,7 +43,6 @@ function createZone(feature, text, newLineUniq = false, insideLabel = false) {
       annotations.push(annotation2);
   }
 
-  console.log(annotations);    
   return { geometry: polygon.geometry, annotations };
 };
 

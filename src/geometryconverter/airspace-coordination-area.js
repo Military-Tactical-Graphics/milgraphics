@@ -7,20 +7,20 @@ function airspaceCoordinationArea(feature) {
     properties: { text: "ACA" }
   };
 
-    const labels = {
-      [feature.properties.uniqueDesignation]: '',
-      'MIN ALT:': feature.properties.altitudeDepth,
-      'MAX ALT:': feature.properties.altitudeDepth1,
-      'Grids': feature.properties.additionalInformation,
-      'EFF:': `${feature.properties.dtg}-`,
-      '    ': feature.properties.dtg1
+  const labels = {
+    [feature.properties.uniqueDesignation]: '',
+    'MIN ALT:': feature.properties.altitudeDepth,
+    'MAX ALT:': feature.properties.altitudeDepth1,
+    'Grids': feature.properties.additionalInformation,
+    'EFF:': `${feature.properties.dtg}-`,
+    '    ': feature.properties.dtg1
   };
 
   Object.keys(labels).forEach((label) => {
-      if (labels[label] !== undefined) {
-          const TXT = `\n ${label}`;
-          annotations.properties.text += `${TXT} ${labels[label]}`;
-      }
+    if (labels[label] !== undefined) {
+      const TXT = `\n ${label}`;
+      annotations.properties.text += `${TXT} ${labels[label]}`;
+    }
   })
 
 
@@ -28,7 +28,8 @@ function airspaceCoordinationArea(feature) {
 
   return {
     geometry: polygon.geometry,
-    annotations: [annotations]};
+    annotations: [annotations]
+  };
 };
 
 export default airspaceCoordinationArea;
