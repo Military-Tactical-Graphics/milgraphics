@@ -34,7 +34,7 @@ export default function (feature) {
         const CENTER = ms.geometry.pointBetween(line[0], line[1], 0.5);
         const ANNOTATION = {
             geometry: { type: "Point", coordinates: CENTER },
-            properties: { text: TEXT, align: 'center', angle: ANGLE + 90 }
+            properties: { text: TEXT, align: 'center', angle: (ANGLE % 180) - 90 }
         };
 
         ANNOTATIONS.push(ANNOTATION);
@@ -76,7 +76,7 @@ export default function (feature) {
             const ANGLE = ms.geometry.bearingBetween(segment[0], segment[1]);
             const ANNOTATION = {
                 geometry: { type: "Point", coordinates: ms.geometry.pointBetween(segment[0], segment[1], 0.5) },
-                properties: { text: feature.properties.hostile, align: 'center', angle: ANGLE + 90 }
+                properties: { text: feature.properties.hostile, align: 'center', angle: (ANGLE % 180) - 90 }
             };
             ANNOTATIONS.push(ANNOTATION);
             FINAL_LINES.push(

@@ -19,7 +19,7 @@
       "type": "Feature",
       "properties": {
         "sidc": "G-F-ACPR------X",
-        "distance": 500
+        "distance": 2000
       },
       "geometry": {
         "type": "LineString",

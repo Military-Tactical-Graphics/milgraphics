@@ -14,19 +14,18 @@ function block(feature) {
   const line1 = [points[2], p1];
   const line2 = [p2, midpoint];
   
-
   const geometry = { type: "MultiLineString", coordinates: [geometry1, line1, line2] };
 
   const annotations = {
     geometry: {
       type: "Point",
       coordinates: ms.geometry.pointBetween(
-        midpoint,
         points[2],
+        midpoint,
         0.5
       )
     },
-    properties: { text: "B", angle: angle + 90, align: 'center'  }
+    properties: { text: "B", angle: (angle % 180) - 90, align: 'center'  }
   };
   return { geometry: geometry, annotations: [annotations] };
 }

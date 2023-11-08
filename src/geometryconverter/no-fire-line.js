@@ -7,8 +7,8 @@ export default function(feature) {
     var annotations = [];
     var annotationText = " NFL\n";
 
-    if (feature.properties.name) {
-        annotationText += `(PL ${feature.properties.name})`; 
+    if (feature.properties.uniqueDesignation) {
+        annotationText += `(PL ${feature.properties.uniqueDesignation})`; 
     }
 
     geometry.coordinates = [points];
@@ -19,12 +19,12 @@ export default function(feature) {
     annotations.push(ms.geometry.addAnnotation(
         ms.geometry.toDistanceBearing(points[0], 50, startBearing),
         annotationText,
-        { angle: startBearing - 90, align: 'right' }
+        { angle: (startBearing % 180) - 90, align: startBearing > 180 ? 'right' : 'left' }
     ));
     annotations.push(ms.geometry.addAnnotation(
         ms.geometry.toDistanceBearing(lastTwo[1], 50, endBearing),
         annotationText,
-        { angle: endBearing - 90, align: 'left' }
+        { angle: (endBearing % 180) - 90, align: endBearing > 180 ? 'right' : 'left' }
     ));
 
     return { geometry: geometry, annotations: annotations };

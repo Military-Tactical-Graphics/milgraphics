@@ -5,7 +5,7 @@
     "type": "Feature",
     "properties": {
       "sidc": "G-G-GLP-------X",
-      "name": "NAME"
+      "uniqueDesignation": "NAME"
     },
     "geometry": {
       "type": "LineString",

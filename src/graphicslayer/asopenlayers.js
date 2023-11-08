@@ -80,8 +80,10 @@ function asOpenLayers(crs) {
 
         if (feature.graphic.isConverted() && (olFeature.getGeometry().getType() == "LineString" ||
             olFeature.getGeometry().getType() == "MultiLineString")) {
-            if (feature.graphic.annotations) {
-                styles = styles.concat(createAnnotationsStyle(feature.graphic.annotations, crs, COLOR));
+            if (feature.graphic.annotations && feature.properties?.infoFields !== false) {
+                styles = styles.concat(createAnnotationsStyle(
+                    feature.graphic.annotations, { crs, color: COLOR, infoSize: feature.properties?.infoSize }
+                ));
             }
             olFeature.setStyle(styles);
         }
@@ -103,15 +105,17 @@ function asOpenLayers(crs) {
                 );
             }
 
-            if (feature.graphic.annotations) {
+            if (feature.graphic.annotations && feature.properties?.infoFields !== false) {
                 if (!feature.graphic.annotations[0].geometry.coordinates) {
                     styles[0].setText(getText(
                         feature.graphic.annotations[0].properties.text,
                         COLOR,
-                        feature.graphic.annotations[0].properties
+                        { ...feature.graphic.annotations[0].properties, infoSize: feature.properties?.infoSize }
                     ));
                 }
-                styles = styles.concat(createAnnotationsStyle(feature.graphic.annotations, crs, COLOR));
+                styles = styles.concat(createAnnotationsStyle(
+                    feature.graphic.annotations, { crs, color: COLOR, infoSize: feature.properties?.infoSize }
+                ));
             }
             olFeature.setStyle(styles);
         }
@@ -120,7 +124,7 @@ function asOpenLayers(crs) {
     return features;
 }
 
-function createAnnotationsStyle(annotations, crs, color) {
+function createAnnotationsStyle(annotations, { crs, color, infoSize }) {
     var add_styles = [];
     for (var a = 0; a < annotations.length; a++) {
         if (annotations[a].geometry.coordinates) {
@@ -128,12 +132,18 @@ function createAnnotationsStyle(annotations, crs, color) {
                 dataProjection: 'EPSG:4326',
                 featureProjection: crs
             }).getGeometry();
-            add_styles.push(
-                new style.Style({
-                    text: getText(annotations[a].properties.text, color, annotations[a].properties),
-                    geometry: labelgeom
-                })
-            );
+            if (annotations[a].properties?.infoFields !== false) {
+                add_styles.push(
+                    new style.Style({
+                        text: getText(
+                            annotations[a].properties.text,
+                            color, { ...annotations[a].properties, infoSize }
+                        ),
+                        geometry: labelgeom
+                    })
+                );
+            }
+            
         }
     }
     return add_styles;
@@ -141,18 +151,22 @@ function createAnnotationsStyle(annotations, crs, color) {
 
 function getText(text, color, options) {
     let angle = 0;
+    let infoSize = 16;
     let align = 'left';
     if (options?.angle) {
-        angle = options.angle > 180 ? options.angle - 180 : options.angle;
+        angle = options.angle;
     }
     if (options?.align) {
-        align = options.align
+        align = options.align;
+    }
+    if (options?.infoSize) {
+        infoSize = options.infoSize;
     }
     return new style.Text({
         fill: new style.Fill({
             color: color
         }),
-        font: "bold 16px monospace",
+        font: `bold ${infoSize}px monospace`,
         textAlign: align,
         // stroke: new style.Stroke({
         //     color: "rgb(239, 239, 239)", // off-white

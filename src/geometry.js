@@ -10,6 +10,7 @@ import rectangle from "./geometry/rectangle.js";
 import pointBetweenAbsolute from "./geometry/pointbetweenabsolute.js";
 import { getLeftPoint } from './geometry/leftAnnotationPoint.js'
 import createZone from './geometry/createZone.js';
+import { labeledLine } from './geometry/labeledLine.js'
 
 export const geometry = {
     bearingBetween,
@@ -26,5 +27,6 @@ export const geometry = {
     testGeometry: require("./geometry/testGeometry.js"),
     addAnnotation: require("./geometry/annotations.js"),
     getLeftPoint,
-    createZone
+    createZone,
+    labeledLine
 };

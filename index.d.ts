@@ -79,6 +79,7 @@ export namespace geometry {
     export function testGeometry(point1: PointType, point2: PointType, fractionalDistance: number): PointType;
     export function addAnnotation(point: PointType, text: string, options: { angle: number; align: string }): Feature<Geometry>;
     export function getLeftPoint(coordinates: [PointType[]]): PointType;
+    export function labeledLine(feature: Feature<Geometry>, text: string): GeometryObject;
 }
 
 export type geometryConverter = typeof geometryConverterObject;

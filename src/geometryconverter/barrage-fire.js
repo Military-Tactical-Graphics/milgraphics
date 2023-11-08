@@ -7,7 +7,7 @@ export default function (feature) {
     coordinates: []
   };
   var points = feature.geometry.coordinates;
-  var bearing = ms.geometry.bearingBetween(points[0], points[1]);
+  var bearing = ms.geometry.bearingBetween(points[0], points[1]) % 180;
   var size = 500;
   var centerPoint;
   // if odd number of vertices, put on central vertex
@@ -20,8 +20,8 @@ export default function (feature) {
       0.5
     );
   }
-  var annotTopPos = ms.geometry.toDistanceBearing(centerPoint, size * 0.2, bearing - 90); //annotation above the line
-  var annotUndPos = ms.geometry.toDistanceBearing(centerPoint, size * 0.2, bearing + 90); //annotation below the line
+  var annotTopPos = ms.geometry.toDistanceBearing(centerPoint, size * 0.25, bearing - 90); //annotation above the line
+  var annotUndPos = ms.geometry.toDistanceBearing(centerPoint, size * 0.25, bearing + 90); //annotation below the line
 
   var geom = [];
 
@@ -36,21 +36,21 @@ export default function (feature) {
 
 
   geom = [
-    ms.geometry.toDistanceBearing(points[0], size * 0.1, bearing + 90), // Right end
-    ms.geometry.toDistanceBearing(points[0], size * 0.1, bearing - 90) // Left end
+    ms.geometry.toDistanceBearing(points[0], size * 0.2, bearing + 90), // Right end
+    ms.geometry.toDistanceBearing(points[0], size * 0.2, bearing - 90) // Left end
 
   ];
   geometry.coordinates.push(geom);
   geom = [
-    ms.geometry.toDistanceBearing(points.slice(-1)[0], size * 0.1, bearing + 90), // Right end
-    ms.geometry.toDistanceBearing(points.slice(-1)[0], size * 0.1, bearing - 90) // Left end
+    ms.geometry.toDistanceBearing(points.slice(-1)[0], size * 0.2, bearing + 90), // Right end
+    ms.geometry.toDistanceBearing(points.slice(-1)[0], size * 0.2, bearing - 90) // Left end
   ];
   geometry.coordinates.push(geom);
 
   const OPTION = { angle: bearing - 90, align: 'center' };
 
-  if (feature.properties.name) {
-    annotations.push(ms.geometry.addAnnotation(annotTopPos, feature.properties.name, OPTION));
+  if (feature.properties.uniqueDesignation) {
+    annotations.push(ms.geometry.addAnnotation(annotTopPos, feature.properties.uniqueDesignation, OPTION));
   }
   if (feature.properties.weaponSystemType) {
     annotations.push(ms.geometry.addAnnotation(annotUndPos, feature.properties.weaponSystemType, OPTION));

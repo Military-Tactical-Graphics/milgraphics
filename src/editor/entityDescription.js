@@ -2,6 +2,7 @@ import entityImages from './entityImages.js';
 
   // TODO ujednotit názvosloví
 
+  // AN  Attitude
   // AM  Width/Distance
   // B   Echelon
   // FP  Firing Position
@@ -156,22 +157,24 @@ const entityDescription = {
     geometry: {
       type: "Polygon"
     },
-    properties: { // TODO přidat anotace W,W1 na správné místo!
+    properties: {
       sidc: "G-F-AZII------X",
-      uniqueDesignation: "Q35"
+      uniqueDesignation: "Q35",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92"
     },
     description: {
       base64: entityImages["ARTILLERY TARGET INTELLIGENCE ZONE"]
     }
   },
-  ["BARRAGE FIRE"]: { // TODO popisky jsou přes sebe, odebrat z obrazku spodní čtverec
+  ["BARRAGE FIRE"]: {
     geometry: {
       type: "LineString",
       points: 2
     },
     properties: {
       sidc: "B-R-A-FIRE----X",
-      name: "AC",
+      uniqueDesignation: "AC",
       weaponSystemType: "1BTY",
     },
     description: {
@@ -195,8 +198,12 @@ const entityDescription = {
       type: "LineString",
       points: 3
     },
-    properties: {   // TODO přidat anotace N, T, T1, B
-      sidc: "G-G-GLB-------X"
+    properties: {
+      sidc: "G-G-GLB-------X",
+      uniqueDesignation: "T",
+      uniqueDesignation1: "T1",
+      echelon: "B",
+      hostile: "N"
     },
     description: {
       base64: entityImages["BOUNDARIES"]
@@ -230,9 +237,11 @@ const entityDescription = {
     geometry: {
       type: "Polygon",
     },
-    properties: {  // TODO anotace W,W1
+    properties: {
       sidc: "G-F-AZXI------X",
-      uniqueDesignation: "Q35"
+      uniqueDesignation: "Q35",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92"
     },
     description: {
       base64: entityImages["CALL FOR FIRE ZONE"]
@@ -250,33 +259,35 @@ const entityDescription = {
       base64: entityImages["CANALIZE"]
     }
   },
-  ["CENSOR ZONE"]: {  // TODO anotace W,W1
+  ["CENSOR ZONE"]: {
     geometry: {
       type: "Polygon"
     },
     properties: {
       sidc: "G-F-AZCI------X",
-      uniqueDesignation: "Q35"
+      uniqueDesignation: "Q35",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92"
     },
     description: {
       base64: entityImages["CENSOR ZONE"]
     }
   },
-  ["CIRCULAR TARGET"]: { // TODO - popisky uvnitř jen v zoomu, kde se vejdou do geometrie, jinak ne
+  ["CIRCULAR TARGET"]: {
     geometry: {
       type: "Point",
     },
     properties: {
       sidc: "G-F-AC--------X",
-      name: "JA1101",
+      uniqueDesignation: "JA1101",
       distance: 5000,
     },
     description: {
       base64: entityImages["CIRCULAR TARGET"]
     }
   },
-  ["CLEAR"]: { // TODO Pokud je 3. bod na opačné straně než podle dokumentace, zobrazí
-    geometry: {                  // se na opačné straně
+  ["CLEAR"]: {
+    geometry: {
       type: "LineString",
       points: 3
     },
@@ -287,8 +298,8 @@ const entityDescription = {
       base64: entityImages["CLEAR"]
     }
   },
-  ["CONTAIN"]: { // TODO pokud odpovídá obrázek geometrii, nebo je prevrácen, šipka se zobrazuje správně,
-    geometry: {  // pokud je ale otočen o 90°, tak se šipka kreslí přes půlkruh, viz example
+  ["CONTAIN"]: {
+    geometry: {
       type: "LineString",
       points: 3
     },
@@ -299,14 +310,16 @@ const entityDescription = {
       base64: entityImages["CONTAIN"]
     }
   },
-  ["COORDINATED FIRE LINE"]: { // TODO anotace W,W1
+  ["COORDINATED FIRE LINE"]: {
     geometry: {
       type: "LineString"
     },
-    properties: { // TODO Upravit anotace
+    properties: {
       sidc: "G-F-LCC-------X",
-      name: "4RDB",
-      uniqueDesignation: "CZE"
+      uniqueDesignation: "4RDB",
+      uniqueDesignation1: "CZE",
+      dtg: "10095900ZJAN92",
+      dtg1: "11095900ZJAN92"
     },
     description: {
       base64: entityImages["COORDINATED FIRE LINE"]
@@ -323,7 +336,7 @@ const entityDescription = {
       base64: entityImages["COUNTERATTACK"]
     }
   },
-  ["CRITICAL FRIENDLY ZONE"]: [   // TODO přidat anotace W, W1
+  ["CRITICAL FRIENDLY ZONE"]: [
     {
       geometry: {
         type: "LineString",
@@ -332,7 +345,9 @@ const entityDescription = {
       properties: {
         sidc: "G-F-AZFR------X",
         distance: 5000,
-        uniqueDesignation: "Q36"
+        uniqueDesignation: "Q36",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92"
       },
       description: {
         base64: entityImages["CRITICAL FRIENDLY ZONE - LINESTRING"]
@@ -344,14 +359,16 @@ const entityDescription = {
       },
       properties: {
         sidc: "G-F-AZFI------X",
-        uniqueDesignation: "Q35"
+        uniqueDesignation: "Q35",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92"
       },
       description: {
         base64: entityImages["CRITICAL FRIENDLY ZONE - POLYGON"]
       }
     }
   ],
-  ["DEAD SPACE AREA"]: [   // TODO přidat anotace dtg, dtg1 na správné místo
+  ["DEAD SPACE AREA"]: [
     {
       geometry: {
         type: "Point"
@@ -411,7 +428,7 @@ const entityDescription = {
       base64: entityImages["DELAY"]
     }
   },
-  ["FIRE SUPPORT AREA"]: [   // TODO přidat anotace dtg, dtg1 na správné místo
+  ["FIRE SUPPORT AREA"]: [
     {
       geometry: {
         type: "Point"
@@ -464,8 +481,8 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-F-LCF-------X",
-      name: "FSCL",
-      uniqueDesignation: "ALPHA",
+      uniqueDesignation: "FSCL",
+      uniqueDesignation1: "ALPHA",
       dtg: "202100Z",
       dtg1: "270800Z SEP",
     },
@@ -485,15 +502,16 @@ const entityDescription = {
       base64: entityImages["FIX"]
     }
   },
-  ["FLOT"]: { // TODO sestřelí prohlížeč při změne bearing
+  ["FLOT"]: {
     geometry: {
       type: "LineString",
       points: 2
     },
-    properties: {   // TODO přidat anotace N, smazat FLOT ze stredu, pridat na kraje
+    properties: {
       sidc: "G-G-GLF-------X",
       bearingWidth: 450,
-      bearingSpacing: 20
+      bearingSpacing: 20,
+      hostile: "ENY"
     },
     description: {
       base64: entityImages["FLOT"]
@@ -545,19 +563,19 @@ const entityDescription = {
     }
   }
   ],
-  ["GROUP OF TARGETS"]: { // TODO anotace uprostřed nejvrchnější části
+  ["GROUP OF TARGETS"]: {
     geometry: {
       type: "Polygon",
     },
     properties: {
       sidc: "G-F-ATG-------X",
-      name: "FORD",
+      uniqueDesignation: "FORD",
     },
     description: {
       base64: entityImages["GROUP OF TARGETS"]
     }
   },
-  ["ISOLATE"]: { // TODO pouze 7 hrotů
+  ["ISOLATE"]: {
     geometry: {
       type: "LineString",
       points: 2
@@ -569,16 +587,17 @@ const entityDescription = {
       base64: entityImages["ISOLATE"]
     }
   },
-  ["LINE OF CONTACT"]: { // TODO sestřelí prohlížeč při změne bearing
+  ["LINE OF CONTACT"]: {
     geometry: {
       type: "LineString",
       points: 2
     },
-    properties: {  // TODO přidat anotace N, smazat Line of Contact
+    properties: {
       sidc: "G-G-GLC-------X",
       bearingWidth: 400,
       bearingSpacing: 10,
-      spaceBetween: 10
+      spaceBetween: 10,
+      hostile: "ENY"
     },
     description: {
       base64: entityImages["LINE OF CONTACT"]
@@ -590,7 +609,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-G-ALL-------X",
-      name: "KNIGHT",
+      uniqueDesignation: "KNIGHT",
       distance: 500,
       altitudeDepth: "500 FT AGL",
       altitudeDepth1: "300 FT AGL",
@@ -635,7 +654,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "M-B-R-FIRE----X",
-      name: "VLK",
+      uniqueDesignation: "VLK",
       distance: 500
     },
     description: {
@@ -719,7 +738,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-F-LCN-------X",
-      name: "4RDB"
+      uniqueDesignation: "4RDB"
     },
     description: {
       base64: entityImages["NO FIRE LINE"]
@@ -743,7 +762,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-G-GLP-------X",
-      name: "NAME"
+      uniqueDesignation: "NAME"
     },
     description: {
       base64: entityImages["PHASE LINE"]
@@ -786,15 +805,16 @@ const entityDescription = {
     }
   }
   ],
-  ["RECTANGULAR TARGET"]: { // TODO - popisky uvnitř jen v zoomu, kde se vejdou do geometrie, jinak ne
+  ["RECTANGULAR TARGET"]: {
     geometry: {
-      type: "LineString",     // TODO dle dokumentace je to POINT s AM, AM1 a AN, tzn sirka, delka, attitude
-      points: 2
+      type: "Point",
     },
     properties: {
       sidc: "G-F-AT--------X",
-      name: "AB0176",
+      uniqueDesignation: "AB0176",
       distance: 500,
+      distance1: 400,
+      attitude: 40
     },
     description: {
       base64: entityImages["RECTANGULAR TARGET"]
@@ -840,7 +860,7 @@ const entityDescription = {
       sidc: "G-F-ACRR------X",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      name: "X CORPS",
+      uniqueDesignation: "X CORPS",
       distance: 5000,
     },
     description: {
@@ -855,7 +875,7 @@ const entityDescription = {
       sidc: "G-F-ACRI------X",
       dtg: "10095900ZJAN92",
       dtg1: "11095900ZJAN92",
-      name: "X CORPS",
+      uniqueDesignation: "X CORPS",
     },
     description: {
       base64: entityImages["RESTRICTIVE FIRE AREA - POLYGON"]
@@ -868,8 +888,8 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-F-LCR-------X",
-      name: "XCORPS",
-      uniqueDesignation: "DELTA",
+      uniqueDesignation: "XCORPS",
+      uniqueDesignation1: "DELTA",
       dtg: "202100Z",
       dtg1: "270800Z SEP",
     },
@@ -883,7 +903,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "S-F-LANE------X",
-      name: "KNIGHT",
+      uniqueDesignation: "KNIGHT",
       distance: 500,
       altitudeDepth: "500 FT AGL",
       altitudeDepth1: "300 FT AGL",
@@ -946,7 +966,7 @@ const entityDescription = {
     },
     properties: {
       sidc: "G-G-AAF-------X",
-      name: "(UNIT ID)",
+      uniqueDesignation: "(UNIT ID)",
       altitudeDepth: "2000 FT AGL",
       altitudeDepth1: "3000 FT AGL",
       dtg: "180500Z",
@@ -967,7 +987,7 @@ const entityDescription = {
       base64: entityImages["SUPPORTING ATTACK"]
     }
   },
-  ["TARGET BUILD-UP AREA"]: [ // TODO přidat anotace W, W1
+  ["TARGET BUILD-UP AREA"]: [
     {
       properties: {
         sidc: "G-F-ACBC------X",
@@ -1014,7 +1034,7 @@ const entityDescription = {
       }
     }
   ],
-  ["TARGET VALUE AREA"]: [  // TODO přidat anotace W, W1
+  ["TARGET VALUE AREA"]: [
     {
       properties: {
         sidc: "G-F-ACVC------X",
@@ -1098,14 +1118,14 @@ const entityDescription = {
       base64: entityImages["WEAPONS FREE ZONE"]
     }
   },
-  ["ZONE OF RESPONSIBILITY"]: [ // TODO anotace W,W1 na správné místo!
+  ["ZONE OF RESPONSIBILITY"]: [
     {
       properties: {
         sidc: "G-F-ACZC------X",
         distance: 5000,
         dtg: "10095900ZJAN92",
         dtg1: "11095900ZJAN92",
-        name: "Q37"
+        uniqueDesignation: "Q37"
       },
       geometry: {
         type: "Point"
@@ -1120,7 +1140,7 @@ const entityDescription = {
         distance: 5000,
         dtg: "10095900ZJAN92",
         dtg1: "11095900ZJAN92",
-        name: "Q36"
+        uniqueDesignation: "Q36"
       },
       geometry: {
         type: "LineString",
@@ -1133,7 +1153,7 @@ const entityDescription = {
     {
       properties: {
         sidc: "G-F-ACZI------X",
-        name: "Q35"
+        uniqueDesignation: "Q35"
       },
       geometry: {
         type: "Polygon"

@@ -23,7 +23,7 @@ export default function (feature) {
         const CENTER = ms.geometry.pointBetween(line[0], line[1], 0.5);
         const ANNOTATION = {
             geometry: { type: "Point", coordinates: CENTER },
-            properties: { text: 'MFP', align: 'center', angle: ANGLE - 90 }
+            properties: { text: 'MFP', align: 'center', angle: ANGLE % 180 - 90 }
         };
 
         ANNOTATIONS.push(ANNOTATION);
@@ -32,7 +32,7 @@ export default function (feature) {
         const P1 = ms.geometry.pointBetween(LINE[0], LINE[1], 0.5);
         const P2 = ms.geometry.toDistanceBearing(P1, 100, 180);
 
-        ANNOTATIONS.push(ms.geometry.addAnnotation(P2, DTG, { align: 'center', angle: ANGLE - 90  }));
+        ANNOTATIONS.push(ms.geometry.addAnnotation(P2, DTG, { align: 'center', angle: ANGLE % 180 - 90  }));
 
         SEGMENTS.push(LINE);
         SEGMENTS.push([ms.geometry.pointBetween(line[0], line[1], 0.53), line[1]]);

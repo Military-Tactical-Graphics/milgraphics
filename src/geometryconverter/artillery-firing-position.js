@@ -1,4 +1,5 @@
 import ms from '../../index';
+import { textRotation } from '../geometry/functions';
 
 function artilleryFiringPosition(feature) {
     var annotations = [];
@@ -11,10 +12,10 @@ function artilleryFiringPosition(feature) {
     var scale = ms.geometry.distanceBetween(points[0], points[1]);
 
     var geom = [
-        ms.geometry.toDistanceBearing(points[0], scale * 0.1, bearing + 90),
+        ms.geometry.toDistanceBearing(points[0], scale * 0.2, bearing + 90),
         points[0],
         points[1],
-        ms.geometry.toDistanceBearing(points[1], scale * 0.1, bearing + 90),
+        ms.geometry.toDistanceBearing(points[1], scale * 0.2, bearing + 90),
     ];
     geometry.coordinates.push(geom);
 
@@ -22,8 +23,9 @@ function artilleryFiringPosition(feature) {
         var centerPoint = ms.geometry.pointBetween(geom[2], geom[3], 0.5);
         let angle = ms.geometry.bearingBetween(geom[2], geom[3]);
         var annotationPoint = ms.geometry.toDistanceBearing(centerPoint, -scale * 0.02, angle + 90);
-
-        annotations.push(ms.geometry.addAnnotation(annotationPoint, feature.properties.firingPosition, { angle: -180 + angle }));
+        annotations.push(ms.geometry.addAnnotation(
+            annotationPoint, feature.properties.firingPosition,
+            { angle: textRotation(angle) }));
     }
 
     return {

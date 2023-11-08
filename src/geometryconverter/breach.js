@@ -1,4 +1,5 @@
 import ms from '../../index';
+import { textRotation } from '../geometry/functions';
 
 export default function(feature) {
     const points = feature.geometry.coordinates;
@@ -30,10 +31,9 @@ export default function(feature) {
         ms.geometry.toDistanceBearing(points[1], scale * 0.05, bearing + 45),
         ms.geometry.toDistanceBearing(points[1], scale * 0.05, bearing + 45 + 180)
     ]);
-    
     const annotations = [{
         geometry: { type: "Point", coordinates: ms.geometry.pointBetween(P1, P2, 0.5) },
-        properties: { text: "B", angle: bearing - 180, align: 'center' }
+        properties: { text: "B", angle: textRotation(bearing), align: 'center' }
     }];
 
     return { geometry: geometry, annotations: annotations };

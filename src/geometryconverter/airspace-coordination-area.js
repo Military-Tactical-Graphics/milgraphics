@@ -8,16 +8,16 @@ function airspaceCoordinationArea(feature) {
   };
 
   const labels = {
-    [feature.properties.uniqueDesignation]: '',
+    [feature.properties.uniqueDesignation]: ' ',
     'MIN ALT:': feature.properties.altitudeDepth,
     'MAX ALT:': feature.properties.altitudeDepth1,
     'Grids': feature.properties.additionalInformation,
-    'EFF:': `${feature.properties.dtg}-`,
+    'EFF:': `${feature.properties.dtg && `${feature.properties.dtg}-`}`,
     '    ': feature.properties.dtg1
   };
 
   Object.keys(labels).forEach((label) => {
-    if (labels[label] !== undefined) {
+    if (labels[label] && labels[label] !== '') {
       const TXT = `\n ${label}`;
       annotations.properties.text += `${TXT} ${labels[label]}`;
     }

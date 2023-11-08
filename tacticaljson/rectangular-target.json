@@ -5,20 +5,16 @@
     "properties": {
       "sidc": "G-F-AT--------X",
       "distance": 500,
-      "name": "AB0176"
+      "distance1": 500,
+      "attitude": 45,
+      "uniqueDesignation": "AB0176"
     },
     "geometry": {
-      "type": "LineString",
+      "type": "Point",
       "coordinates": [
-        [
-          0.6,
-          47.3
-        ],
-        [
           0.61,
           47.3
         ]
-      ]
     }
   }]
 }

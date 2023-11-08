@@ -61,8 +61,8 @@ export default function (feature) {
     geometry.coordinates.push(geom, geomBot);
   });
   
-  if (feature.properties.name) {
-    annotations.push(ms.geometry.addAnnotation(annotTopPos, feature.properties.name, { align: 'center', angle }));
+  if (feature.properties.uniqueDesignation) {
+    annotations.push(ms.geometry.addAnnotation(annotTopPos, feature.properties.uniqueDesignation, { align: 'center', angle }));
   }
 
   return {

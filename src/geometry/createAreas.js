@@ -1,4 +1,5 @@
 import ms from '../../index';
+import { getLatLong } from './functions';
 
 export function createAreas(feature, text) {
   var annotations = [];
@@ -50,11 +51,10 @@ export function createAreas(feature, text) {
         ms.geometry.pointBetween(LINE[0], LINE[1], 0.55),
         LINE[1]
       ]);
-
       annotations.push(
         ms.geometry.addAnnotation(
           ms.geometry.pointBetween(rectangle[i], rectangle[i + 1], 0.5),
-          annotationText, { align: 'center', angle: ANGLE > 0 ? ANGLE - 90 : ANGLE }
+          annotationText, { align: 'center', angle: ANGLE > 180 ? ANGLE - 90 : ANGLE < 0 ? ANGLE + 90 : ANGLE }
         ));
     }
     shape = { geometry };
@@ -166,8 +166,7 @@ export function createAreas(feature, text) {
     FINAL.push(GEOMETRY[0][0]);
     GEOMETRY.push(FINAL);
 
-    geometry.coordinates = GEOMETRY;
-    shape = { geometry };
+    shape = { geometry: { ...geometry, coordinates: GEOMETRY } };
   }
 
   return {
@@ -175,15 +174,3 @@ export function createAreas(feature, text) {
     annotations: annotations
   };
 }
-
-function getLatLong(array) {
-  var latitudes = [];
-  var longitudes = [];
-
-  for (var i = 0; i < array[0].length; i++) {
-    latitudes.push(array[0][i][0]);
-    longitudes.push(array[0][i][1]);
-  }
-
-  return { latitudes, longitudes };
-};

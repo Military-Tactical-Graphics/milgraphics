@@ -36,14 +36,14 @@ export default function(feature) {
         ms.geometry.pointBetween(
             lastTwo[0],
             lastTwo[1],
-            0.47)
+            0.46)
     ];
 
     const geometry2 = [
         ms.geometry.pointBetween(
             lastTwo[0],
             lastTwo[1],
-            0.53),
+            0.54),
         lastTwo[1]
         ];
 
@@ -54,7 +54,7 @@ export default function(feature) {
     
     const annotations = {
         geometry: { type: "Point", coordinates: middlePoint },
-        properties: { text: "F", align: 'center', angle: bearing - 90 }
+        properties: { text: "F", align: 'center', angle: (bearing % 180) - 90 }
     };
     geometry.coordinates = [geometry1, geometry2, geometry3];
     return { geometry: geometry, annotations: [annotations] };

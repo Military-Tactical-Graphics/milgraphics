@@ -8,7 +8,7 @@ export default function (feature) {
   };
 
     const labels = {
-      [feature.properties.uniqueDesignation]: '',
+      [feature.properties.uniqueDesignation]: ' ',
       'MIN ALT:': feature.properties.altitudeDepth,
       'MAX ALT:': feature.properties.altitudeDepth1,
       'TIME FROM:': `${feature.properties.dtg}`,
@@ -16,7 +16,7 @@ export default function (feature) {
   };
 
   Object.keys(labels).forEach((label) => {
-      if (labels[label] !== undefined) {
+      if (labels[label] && labels[label] !== '') {
           const TXT = `\n${label}`;
           annotations.properties.text += `${TXT} ${labels[label]}`;
       }

@@ -97,8 +97,10 @@ export default function(feature) {
             direction + 90
         )
     );
-
-    annotations.push(ms.geometry.addAnnotation(ms.geometry.pointBetween(points[0], points[1], 0.5), "CATK", { align: 'center' }));
+    const angle = ms.geometry.bearingBetween(points[0], points[1]) % 180 - 90;
+    annotations.push(
+        ms.geometry.addAnnotation(ms.geometry.pointBetween(
+            points[0], points[1], 0.5), "CATK", { align: 'center', angle }));
     geometry.coordinates = convertToDashed(geometry1, 1 / 64);
 
     return { geometry: geometry, annotations: annotations, props: { dashes: true } };

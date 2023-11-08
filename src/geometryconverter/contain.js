@@ -66,10 +66,10 @@ export default function (feature) {
         center
     ]);
 
-    const angle = ms.geometry.bearingBetween(center, points[2]) - 90;
+    const angle = ms.geometry.bearingBetween(center, points[2]);
 
     annotations.push(ms.geometry.addAnnotation(
-        ms.geometry.pointBetween(points[2], center, 0.5), "ENY", { align: 'center', angle }
+        ms.geometry.pointBetween(points[2], center, 0.5), "ENY", { align: 'center', angle : (angle % 180) - 90 }
     ));
 
     return { geometry: geometry, annotations: annotations };

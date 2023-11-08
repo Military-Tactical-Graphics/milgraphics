@@ -1,4 +1,5 @@
 import ms from '../../index';
+import { textRotation } from '../geometry/functions';
 
 export default function(feature) {
     const points = feature.geometry.coordinates;
@@ -33,7 +34,7 @@ export default function(feature) {
 
     const annotations = [{
         geometry: { type: "Point", coordinates: ms.geometry.pointBetween(P1, P2, 0.5) },
-        properties: { text: "C", angle: bearing - 180, align: 'center' }
+        properties: { text: "C", angle: textRotation(bearing), align: 'center' }
     }];
 
     return { geometry: geometry, annotations: annotations };

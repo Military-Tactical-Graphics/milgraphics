@@ -36,11 +36,11 @@ function flot(feature, relative = false) {
         TEXT = `${feature.properties.hostile}\n${TEXT}`
     }    
     annotations.push(
-        ms.geometry.addAnnotation(P1, TEXT, { align: 'center', angle: initialBearing - 90 }
+        ms.geometry.addAnnotation(P1, TEXT, { align: 'center', angle: (initialBearing % 180) - 90 }
         )
     );
     annotations.push(
-        ms.geometry.addAnnotation(P2, TEXT, { align: 'center', angle: endBearing - 90 }
+        ms.geometry.addAnnotation(P2, TEXT, { align: 'center', angle: (endBearing % 180) - 90 }
         )
     );
 

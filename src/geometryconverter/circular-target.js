@@ -3,7 +3,7 @@ import ms from '../../index';
 function circularTarget(feature) {
   const annotations = {
     geometry: { type: "Point" },
-    properties: { text: feature.properties.name, align: 'center' }
+    properties: { text: `${feature.properties?.uniqueDesignation || ''}`, align: 'center' }
   };
 
   const circle = ms.geometry.circle(feature);

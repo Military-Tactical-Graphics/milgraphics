@@ -5,7 +5,7 @@
         "properties": {
             "sidc": "M-B-R-FIRE----X",
             "distance": 900,
-            "name": "VLK"
+            "uniqueDesignation": "VLK"
         },
         "geometry": {
             "type": "LineString",

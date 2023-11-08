@@ -4,7 +4,7 @@
         "type": "Feature",
         "properties": {
             "sidc": "G-F-LCN-------X",
-            "name": "4RDB"
+            "uniqueDesignation": "4RDB"
         },
         "geometry": {
             "type": "LineString",

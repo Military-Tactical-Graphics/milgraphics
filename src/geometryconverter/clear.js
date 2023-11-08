@@ -31,7 +31,7 @@ export default function(feature) {
                 0.5
             )
         },
-        properties: { text: "C", align: 'center', angle: angle - 90 }
+        properties: { text: "C", align: 'center', angle: (angle % 180) - 90 }
     }];
 
     geometry.coordinates.push([ // arrow
