@@ -35,9 +35,9 @@ export default function(feature) {
     geometry1.push(points[2]);
 
     var geometry2 = [
-        ms.geometry.toDistanceBearing(points[0], size * 0.2, bearing + 25),
+        ms.geometry.toDistanceBearing(points[0], size * 0.3, bearing + 45),
         points[0],
-        ms.geometry.toDistanceBearing(points[0], size * 0.2, bearing - 45)
+        ms.geometry.toDistanceBearing(points[0], size * 0.3, bearing - 45)
     ];
 
     geometry.coordinates = [...geometry.coordinates, geometry1, geometry2];
