@@ -72,11 +72,11 @@ export default function (feature) {
     const angle2 = ms.geometry.bearingBetween(LAST[0][0], LAST[0][1]);
 
     annotations.push(ms.geometry.addAnnotation(
-        geometry.coordinates[0][0], `${text} `, { align: "right", angle: angle1 - 90 }
+        geometry.coordinates[0][0], `${text} `, { align: angle1 > 180 ?  'left' : 'right', angle: (angle1 % 180) - 90 }
     ));
 
     annotations.push(ms.geometry.addAnnotation(
-        LAST[0][1], ` ${text}`, { align: "left", angle: angle2 - 90 }
+        LAST[0][1], ` ${text}`, { align: angle2 > 180 ? 'right' : 'left', angle: (angle2 % 180) - 90 }
     ));
 
     return { geometry: geometry, annotations: annotations, props: { dashes: true } };

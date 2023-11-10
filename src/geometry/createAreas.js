@@ -38,10 +38,10 @@ export function createAreas(feature, text) {
     };
     const RECT = ms.geometry.circleCorridorPolygon(feature);
     var rectangle = [...RECT.geometry.coordinates[0], RECT.geometry.coordinates[0][0]];
-
+    const ANGLE = ms.geometry.bearingBetween(points[0], points[1]) % 180 - 90;
+    
     for (let i = 0; i < rectangle.length - 1; ++i) {
       const LINE = [rectangle[i], rectangle[i + 1]];
-      const ANGLE = ms.geometry.bearingBetween(LINE[0], LINE[1]) % 180 - 90;
 
       geometry.coordinates.push([
         LINE[0],
@@ -54,7 +54,7 @@ export function createAreas(feature, text) {
       annotations.push(
         ms.geometry.addAnnotation(
           ms.geometry.pointBetween(rectangle[i], rectangle[i + 1], 0.5),
-          annotationText, { align: 'center', angle: ANGLE > 180 ? ANGLE - 90 : ANGLE < 0 ? ANGLE + 90 : ANGLE }
+          annotationText, { align: 'center', angle: ANGLE}
         ));
     }
     shape = { geometry };
