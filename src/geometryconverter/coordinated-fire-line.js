@@ -23,8 +23,8 @@ export default function (feature) {
     if (points.length % 2 !== 0) {
         annotations[0].geometry.coordinates = ms.geometry.toDistanceBearing(
             points[parseInt(points.length / 2)], 50, 0);
-        if (feature.properties.dtg || feature.properties.dtg) {
-            const text = `${feature.properties.dtg}${feature.properties.dtg ? '-' : ''}${feature.properties.dtg}`;
+        if (feature.properties.dtg || feature.properties.dtg1) {
+            const text = `${feature.properties.dtg}${feature.properties.dtg1 ? '-' : ''}${feature.properties.dtg1}`;
             annotations.push({
                 geometry: {
                     type: "Point", coordinates: ms.geometry.toDistanceBearing(
@@ -48,8 +48,8 @@ export default function (feature) {
         annotations[0].geometry.coordinates = ms.geometry.toDistanceBearing(
             POINT, 50, ANGLE - 90);
 
-        if (feature.properties.dtg || feature.properties.dtg) {
-            const text = `${feature.properties.dtg}${feature.properties.dtg ? '-' : ''}${feature.properties.dtg}`;
+        if (feature.properties.dtg || feature.properties.dtg1) {
+            const text = `${feature.properties.dtg}${feature.properties.dtg1 ? '-' : ''}${feature.properties.dtg1}`;
             annotations.push({
                 geometry: {
                     type: "Point", coordinates: ms.geometry.toDistanceBearing(
