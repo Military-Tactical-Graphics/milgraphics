@@ -4,7 +4,7 @@ import { textRotation } from '../geometry/functions';
 export default function(feature) {
     const points = feature.geometry.coordinates;
     const geometry = { type: "MultiLineString", coordinates: [] };
-    const scale = ms.geometry.distanceBetween(points[0], points[1]);
+    const scale = ms.geometry.distanceBetween(points[0], points[1]) * 0.1;
     const length = ms.geometry.crossTrackDistance(points[0], points[1], points[2]);
     const bearing = ms.geometry.bearingBetween(points[0], points[1]);
 
@@ -14,22 +14,22 @@ export default function(feature) {
     geometry.coordinates.push([
         points[0],
         P1,
-        ms.geometry.pointBetween(P1, P2, 0.48)
+        ms.geometry.pointBetween(P1, P2, 0.47)
     ]);
     geometry.coordinates.push([
-        ms.geometry.pointBetween(P1, P2, 0.52),
+        ms.geometry.pointBetween(P1, P2, 0.53),
         P2,
         points[1]
     ]);
 
     geometry.coordinates.push([
-        ms.geometry.toDistanceBearing(points[0], scale * 0.05, bearing - 45),
-        ms.geometry.toDistanceBearing(points[0], scale * 0.05, bearing - 45 + 180)
+        ms.geometry.toDistanceBearing(points[0], scale, bearing - 45),
+        ms.geometry.toDistanceBearing(points[0], scale, bearing - 45 + 180)
     ]);
 
     geometry.coordinates.push([
-        ms.geometry.toDistanceBearing(points[1], scale * 0.05, bearing + 45),
-        ms.geometry.toDistanceBearing(points[1], scale * 0.05, bearing + 45 + 180)
+        ms.geometry.toDistanceBearing(points[1], scale, bearing + 45),
+        ms.geometry.toDistanceBearing(points[1], scale, bearing + 45 + 180)
     ]);
     const annotations = [{
         geometry: { type: "Point", coordinates: ms.geometry.pointBetween(P1, P2, 0.5) },

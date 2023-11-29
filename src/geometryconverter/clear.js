@@ -3,7 +3,7 @@ import ms from '../../index';
 export default function(feature) {
     const points = feature.geometry.coordinates;
     const geometry = { type: "MultiLineString", coordinates: [] };
-    const scale = ms.geometry.distanceBetween(points[0], points[1]);
+    const scale = ms.geometry.distanceBetween(points[0], points[1]) * 0.15;
 
     geometry.coordinates.push([points[0], points[1]]);
 
@@ -35,18 +35,18 @@ export default function(feature) {
     }];
 
     geometry.coordinates.push([ // arrow
-        ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60),
+        ms.geometry.toDistanceBearing(pMid, scale, bearing + 60),
         pMid,
-        ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60 + 60)
+        ms.geometry.toDistanceBearing(pMid, scale, bearing + 60 + 60)
     ]);
 
     pMid = ms.geometry.pointBetween(points[0], points[1], 0.2);
     geometry.coordinates.push([pMid, ms.geometry.toDistanceBearing(pMid, length, bearing + 90)]);
 
     geometry.coordinates.push([ // arrow
-        ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60),
+        ms.geometry.toDistanceBearing(pMid, scale, bearing + 60),
         pMid,
-        ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60 + 60)
+        ms.geometry.toDistanceBearing(pMid, scale, bearing + 60 + 60)
     ]);
 
 
@@ -55,9 +55,9 @@ export default function(feature) {
 
 
     geometry.coordinates.push([ // arrow
-        ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60),
+        ms.geometry.toDistanceBearing(pMid, scale, bearing + 60),
         pMid,
-        ms.geometry.toDistanceBearing(pMid, scale * 0.15, bearing + 60 + 60)
+        ms.geometry.toDistanceBearing(pMid, scale, bearing + 60 + 60)
     ]);
 
 

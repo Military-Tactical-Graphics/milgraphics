@@ -8,7 +8,7 @@ export default function (feature) {
   };
   const points = feature.geometry.coordinates;
   const bearing = ms.geometry.bearingBetween(points[0], points[1]);
-  const size = 500;
+  const scale = ms.geometry.distanceBetween(points[0], points[1]) * 0.15;
   const distance = feature.properties.distance; //distance between lines
   let annotTopPos;
   let angle = 0;
@@ -48,8 +48,8 @@ export default function (feature) {
   }
 
   [points[0], points.slice(-1)[0]].forEach((curPoint) => {
-    const PT = ms.geometry.toDistanceBearing(curPoint, size, bearing + 90);
-    const PD = ms.geometry.toDistanceBearing(curPoint, size, bearing - 90);
+    const PT = ms.geometry.toDistanceBearing(curPoint, scale, bearing + 90);
+    const PD = ms.geometry.toDistanceBearing(curPoint, scale, bearing - 90);
     geom = [
       ms.geometry.toDistanceBearing(PT, distance, bearing - 90),
       ms.geometry.toDistanceBearing(PD, distance, bearing - 90)

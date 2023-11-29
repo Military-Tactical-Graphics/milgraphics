@@ -3,6 +3,20 @@ import Geometry from "ol/geom/Geometry";
 import { geometryConverterObject } from "./src/geometryconverter";
 import getproperties from "./src/graphic/getproperties";
 
+interface IEditor {
+  geometry: {
+    type: string;
+  };
+  properties: object;
+  description: {
+    base64: string;
+  };
+}
+
+export const editor: {
+  [x: string]: IEditor & IEditor[];
+}
+
 type GeometryType = {
     LineString: string;
     MultiLineString: string;
@@ -60,7 +74,7 @@ export namespace format {
 
 type GeometryObject = {
   geometry: Geometry;
-  annotation?: Geometry;  
+  annotation?: Geometry;
 }
 
 type PointType = [number, number];

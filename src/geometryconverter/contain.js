@@ -47,22 +47,22 @@ export default function (feature) {
         ms.geometry.toDistanceBearing(center, radius, intialBearing + 90), "C", { align: 'center', angle: (intialBearing % 180) }));
 
     // Draw the arrow head
-    let scale = ms.geometry.distanceBetween(points[2], center),
+    let scale = ms.geometry.distanceBetween(points[2], center) * 0.15,
         bearing = ms.geometry.bearingBetween(points[0], points[1]),
         arrowHead = [
-            ms.geometry.toDistanceBearing(center, scale * 0.15, bearing + 60),
+            ms.geometry.toDistanceBearing(center, scale, bearing + 60),
             center,
-            ms.geometry.toDistanceBearing(center, scale * 0.15, bearing + 60 + 60)
+            ms.geometry.toDistanceBearing(center, scale, bearing + 60 + 60)
         ];
     geometry.coordinates.push(arrowHead);
 
     // Draw the arrow body
     geometry.coordinates.push([
         points[2],
-        ms.geometry.pointBetween(points[2], center, 0.47)
+        ms.geometry.pointBetween(points[2], center, 0.45)
     ]);
     geometry.coordinates.push([
-        ms.geometry.pointBetween(points[2], center, 0.53),
+        ms.geometry.pointBetween(points[2], center, 0.55),
         center
     ]);
 

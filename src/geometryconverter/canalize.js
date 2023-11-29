@@ -23,13 +23,13 @@ export default function(feature) {
     ]);
 
     geometry.coordinates.push([
-        ms.geometry.toDistanceBearing(points[0], scale * 0.05, bearing + 45),
-        ms.geometry.toDistanceBearing(points[0], scale * 0.05, bearing + 45 + 180)
+        ms.geometry.toDistanceBearing(points[0], scale * 0.1, bearing + 45),
+        ms.geometry.toDistanceBearing(points[0], scale * 0.1, bearing + 45 + 180)
     ]);
 
     geometry.coordinates.push([
-        ms.geometry.toDistanceBearing(points[1], scale * 0.05, bearing - 45),
-        ms.geometry.toDistanceBearing(points[1], scale * 0.05, bearing - 45 + 180)
+        ms.geometry.toDistanceBearing(points[1], scale * 0.1, bearing - 45),
+        ms.geometry.toDistanceBearing(points[1], scale * 0.1, bearing - 45 + 180)
     ]);
 
     const annotations = [{

@@ -4,7 +4,7 @@ import { textRotation } from '../geometry/functions';
 export default function (feature) {
     const points = feature.geometry.coordinates;
     const geometry = { type: "MultiLineString", coordinates: [] };
-    const scale = ms.geometry.distanceBetween(points[0], points[1]);
+    const scale = ms.geometry.distanceBetween(points[0], points[1]) * 0.2;
     const length = ms.geometry.crossTrackDistance(points[0], points[1], points[2]);
     const bearing = ms.geometry.bearingBetween(points[0], points[1]);
     
@@ -25,9 +25,9 @@ export default function (feature) {
     // arrows
     [points[0], points[1]].forEach(arrowPoint => {
         geometry.coordinates.push([
-            ms.geometry.toDistanceBearing(arrowPoint, scale * 0.2, bearing + 90 - 30),
+            ms.geometry.toDistanceBearing(arrowPoint, scale, bearing + 90 - 30),
             arrowPoint,
-            ms.geometry.toDistanceBearing(arrowPoint, scale * 0.2, bearing + 90 + 30),
+            ms.geometry.toDistanceBearing(arrowPoint, scale, bearing + 90 + 30),
         ]);
 
     });

@@ -8,7 +8,7 @@ export default function (feature) {
   };
   var points = feature.geometry.coordinates;
   var bearing = ms.geometry.bearingBetween(points[0], points[1]) % 180;
-  var size = 500;
+  const scale = ms.geometry.distanceBetween(points[0], points[1]) * 0.2;
   var centerPoint;
   // if odd number of vertices, put on central vertex
   if (points.length % 2 !== 0) {
@@ -20,8 +20,8 @@ export default function (feature) {
       0.5
     );
   }
-  var annotTopPos = ms.geometry.toDistanceBearing(centerPoint, size * 0.25, bearing - 90); //annotation above the line
-  var annotUndPos = ms.geometry.toDistanceBearing(centerPoint, size * 0.25, bearing + 90); //annotation below the line
+  var annotTopPos = ms.geometry.toDistanceBearing(centerPoint, scale, bearing - 90); //annotation above the line
+  var annotUndPos = ms.geometry.toDistanceBearing(centerPoint, scale, bearing + 90); //annotation below the line
 
   var geom = [];
 
@@ -36,14 +36,14 @@ export default function (feature) {
 
 
   geom = [
-    ms.geometry.toDistanceBearing(points[0], size * 0.2, bearing + 90), // Right end
-    ms.geometry.toDistanceBearing(points[0], size * 0.2, bearing - 90) // Left end
+    ms.geometry.toDistanceBearing(points[0], scale, bearing + 90), // Right end
+    ms.geometry.toDistanceBearing(points[0], scale, bearing - 90) // Left end
 
   ];
   geometry.coordinates.push(geom);
   geom = [
-    ms.geometry.toDistanceBearing(points.slice(-1)[0], size * 0.2, bearing + 90), // Right end
-    ms.geometry.toDistanceBearing(points.slice(-1)[0], size * 0.2, bearing - 90) // Left end
+    ms.geometry.toDistanceBearing(points.slice(-1)[0], scale, bearing + 90), // Right end
+    ms.geometry.toDistanceBearing(points.slice(-1)[0], scale, bearing - 90) // Left end
   ];
   geometry.coordinates.push(geom);
 

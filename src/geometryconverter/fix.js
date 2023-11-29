@@ -2,9 +2,9 @@ import ms from '../../index';
 
 export default function(feature) {
     const points = feature.geometry.coordinates;
-    const length = ms.geometry.distanceBetween(points[0], points[1]);
+    const scale = ms.geometry.distanceBetween(points[0], points[1]);
     const bearing = ms.geometry.bearingBetween(points[0], points[1]);
-    const width = length * 0.10;
+    
 
     const geometry = { type: "MultiLineString", coordinates: [] };
     let geometry1 = [points[0], ms.geometry.pointBetween(points[0], points[1], 0.2)];
@@ -15,7 +15,7 @@ export default function(feature) {
         geometry1.push(
             ms.geometry.toDistanceBearing(
                 ms.geometry.pointBetween(points[0], points[1], i),
-                width,
+                scale * 0.1,
                 bearing + opposite
             )
         );
@@ -23,9 +23,9 @@ export default function(feature) {
     geometry1.push(ms.geometry.pointBetween(points[0], points[1], 0.8), points[1]);
 
     const geometry3 = [
-        ms.geometry.toDistanceBearing(points[0], width * 1.5, bearing + 45),
+        ms.geometry.toDistanceBearing(points[0], scale * 0.15, bearing + 45),
         points[0],
-        ms.geometry.toDistanceBearing(points[0], width * 1.5, bearing - 45)
+        ms.geometry.toDistanceBearing(points[0], scale * 0.15, bearing - 45)
     ];
 
     const lastTwo = geometry1.slice(-2);

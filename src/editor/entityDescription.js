@@ -1153,7 +1153,9 @@ const entityDescription = {
     {
       properties: {
         sidc: "G-F-ACZI------X",
-        uniqueDesignation: "Q35"
+        uniqueDesignation: "Q35",
+        dtg: "10095900ZJAN92",
+        dtg1: "11095900ZJAN92"
       },
       geometry: {
         type: "Polygon"

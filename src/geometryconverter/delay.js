@@ -3,7 +3,7 @@ import ms from '../../index';
 export default function(feature) {
     var directionFactor = -1;
     var points = feature.geometry.coordinates;
-    var size = 500;
+    const scale = ms.geometry.distanceBetween(points[0], points[1]) * 0.2;
     var width = ms.geometry.distanceBetween(points[1], points[2]);
     var bearing = ms.geometry.bearingBetween(points[0], points[1]);
 
@@ -35,9 +35,9 @@ export default function(feature) {
     geometry1.push(points[2]);
 
     var geometry2 = [
-        ms.geometry.toDistanceBearing(points[0], size * 0.3, bearing + 45),
+        ms.geometry.toDistanceBearing(points[0], scale, bearing + 45),
         points[0],
-        ms.geometry.toDistanceBearing(points[0], size * 0.3, bearing - 45)
+        ms.geometry.toDistanceBearing(points[0], scale, bearing - 45)
     ];
 
     geometry.coordinates = [...geometry.coordinates, geometry1, geometry2];
