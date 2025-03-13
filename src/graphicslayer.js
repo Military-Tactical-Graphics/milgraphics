@@ -1,6 +1,7 @@
 import ms from '../index';
 import asOpenLayers from "./graphicslayer/asopenlayers.js";
 import asCesium from "./graphicslayer/ascesium.js";
+import asGeoJSON from "./graphicslayer/asgeojson.js"
 function GraphicsLayer(data) {
   this.data = data;
   for (var i = 0; i < this.data.features.length; i++) {
@@ -23,5 +24,7 @@ function GraphicsLayer(data) {
 GraphicsLayer.prototype.asCesium = asCesium;
 
 GraphicsLayer.prototype.asOpenLayers = asOpenLayers;
+
+GraphicsLayer.prototype.asGeoJSON = asGeoJSON;
 
 export default GraphicsLayer;

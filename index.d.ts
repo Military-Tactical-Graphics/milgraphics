@@ -56,6 +56,7 @@ export class GraphicsLayer {
     )
     asOpenLayers(): Feature<Geometry>[];
     asCesium(): Cesium.EntityCollection;
+    asGeoJSON(): FeatureColection;
 }
 
 export class Graphic {

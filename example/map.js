@@ -35,6 +35,7 @@ export default class Map extends React.Component {
   }
 
   updateVector(props) {
+    console.log(new ms.GraphicsLayer(new ms.format.GeoJSON(props.data)).asGeoJSON());
     var openLayersFeaturesWithStyle = new ms.GraphicsLayer(new ms.format.GeoJSON(props.data)).asOpenLayers();
     vectorSource.clear();
     vectorSource.addFeatures(openLayersFeaturesWithStyle);
