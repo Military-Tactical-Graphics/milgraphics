@@ -1,7 +1,8 @@
 /* ***************************************************************************************
 Creating the base of milgraphics by importing milsymbol
 *************************************************************************************** */
-import milsymbol from 'milsymbol';
+var milsymbol = require('milsymbol');
+
 import Graphic from './src/graphic';
 import GraphicsLayer from './src/graphicslayer';
 import { geometryConverter } from './src/geometryconverter';
