@@ -48,7 +48,7 @@ function asOpenLayers(crs) {
         let MS_COLOR = ms.getColorMode('Medium');
 
         const COLOR_BY_AFFILIATION_TYPES = {
-            '-': '#000000',
+            '-': 'rgb(0, 0, 0)',
             P: MS_COLOR.Unknown,
             U: MS_COLOR.Unknown,
             A: MS_COLOR.Friend,

@@ -3,7 +3,7 @@ var ms = require('milsymbol');
 let MS_COLOR = ms.getColorMode('Medium');
 
 const COLOR_BY_AFFILIATION_TYPES = {
-    '-': '#000000',
+    '-': 'rgb(0, 0, 0)',
     P: MS_COLOR.Unknown,
     U: MS_COLOR.Unknown,
     A: MS_COLOR.Friend,
@@ -21,6 +21,12 @@ const COLOR_BY_AFFILIATION_TYPES = {
     O: MS_COLOR.Unknown
 };
 
+const rgb2hex = (color) => `#${color
+    .slice(4,-1)
+    .split(',')
+    .map(c => `0${Number(c).toString(16)}`.slice(-2))
+    .join('')}`
+    .toUpperCase();
 
 function asGeoJSON(crs) {
     crs = crs || "EPSG:3857";
@@ -33,9 +39,9 @@ function asGeoJSON(crs) {
             geometry: feature.geometry,
             properties: {
                 ...feature.properties,
-                color: COLOR
+                color: rgb2hex(COLOR)
             }
-        });
+        });   
 
         (feature.graphic.annotations || []).forEach((annotation) => {
             features.push({
@@ -43,7 +49,7 @@ function asGeoJSON(crs) {
                 ...annotation,
                 properties: {
                     ...annotation.properties,
-                    color: COLOR
+                    color: rgb2hex(COLOR)
                 }
             });
         });
