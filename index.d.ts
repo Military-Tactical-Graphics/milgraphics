@@ -2,12 +2,14 @@ import { Feature } from "ol";
 import Geometry from "ol/geom/Geometry";
 import { geometryConverterObject } from "./src/geometryconverter";
 import getproperties from "./src/graphic/getproperties";
+// include types from milsymbol
+export * from 'milsymbol';
 
 interface IEditor {
   geometry: {
     type: string;
   };
-  properties: object;
+  properties: GeometryOptions;
   description: {
     base64: string;
   };
@@ -15,13 +17,6 @@ interface IEditor {
 
 export const editor: {
   [x: string]: IEditor & IEditor[];
-}
-
-type GeometryType = {
-    LineString: string;
-    MultiLineString: string;
-    Polygon: string;
-    Point: string;
 }
 
 type GeometryOptions = {
