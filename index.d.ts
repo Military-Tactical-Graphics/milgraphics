@@ -3,7 +3,11 @@ import Geometry from "ol/geom/Geometry";
 import { geometryConverterObject } from "./src/geometryconverter";
 import getproperties from "./src/graphic/getproperties";
 // include types from milsymbol
-export * from 'milsymbol';
+export { 
+  ColorMode, SymbolOptions, SymbolMetadata, SymbolColors, Symbol, ColorMode,
+  BBox, getColorMode, setColorMode, getHqStaffLength, setHqStaffLength,
+  getDashArrays, setDashArrays, getVersion, setStandard
+} from 'milsymbol';
 
 interface IEditor {
   geometry: {

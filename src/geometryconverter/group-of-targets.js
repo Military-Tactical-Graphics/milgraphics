@@ -1,4 +1,5 @@
 import ms from '../../index';
+import { flat } from '../geometry/createAreas';
 import { getLatLong } from '../geometry/functions';
 
 export default function (feature) {
@@ -89,7 +90,7 @@ export default function (feature) {
     let FINAL = [];
     [...INDEX, ...UNUSED].sort().forEach((index) => {
         if (INDEX.includes(index)) {
-            GEO.push(...LINES[index].flat());
+          GEO.push(...flat(LINES[index]));
         }
         if (UNUSED.includes(index)) {
             GEO.push(points[0][index]);

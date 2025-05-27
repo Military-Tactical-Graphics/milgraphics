@@ -1,6 +1,10 @@
 import ms from '../../index';
 import { getLatLong } from './functions';
 
+export function flat(arr) {
+  return [].concat.apply([], arr);
+};
+
 export function createAreas(feature, text) {
   var annotations = [];
   var points = feature.geometry.coordinates;
@@ -149,7 +153,7 @@ export function createAreas(feature, text) {
     let FINAL = [];
     [...INDEX, ...UNUSED].sort().forEach((index) => {
       if (INDEX.includes(index)) {
-        GEO.push(...LINES[index].flat());
+        GEO.push(...flat(LINES[index]));
       }
       if (UNUSED.includes(index)) {
         GEO.push(points[0][index]);
