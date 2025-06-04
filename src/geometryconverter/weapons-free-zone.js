@@ -1,8 +1,8 @@
 import ms from '../../index';
+import { geometry } from '../geometry';
 
 //DRAWS WFZ
 export default function (feature) {
-  var geometry;
   var annotations = {
     geometry: {
       type: "Point"
@@ -25,8 +25,7 @@ export default function (feature) {
       annotations.properties.text += "\nTIME TO:" + feature.properties.dtg1;
 
     var polygon = ms.geometry.circleCorridorPolygon(feature);
-
-    geometry = polygon.geometry;
+    annotations.geometry.coordinates = geometry.centerPolygon(polygon);
   }
 
   return {

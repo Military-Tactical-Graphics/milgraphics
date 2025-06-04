@@ -1,4 +1,5 @@
 import ms from '../../index';
+import { geometry } from '../geometry';
 
 function circularTarget(feature) {
   const annotations = {
@@ -7,6 +8,7 @@ function circularTarget(feature) {
   };
 
   const circle = ms.geometry.circle(feature);
+  annotations.geometry.coordinates = geometry.centerPolygon(circle);
 
   return { geometry: circle.geometry, annotations: [annotations] };
 };

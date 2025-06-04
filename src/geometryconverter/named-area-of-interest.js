@@ -1,8 +1,8 @@
 import ms from '../../index';
+import { geometry } from '../geometry';
 
 // Draws a NAI
 export default function(feature) {
-  var geometry;
   var annotations = {
     geometry: { type: "Point" },
     properties: { text: "NAI", align: 'center' }
@@ -11,7 +11,7 @@ export default function(feature) {
     annotations.properties.text += `\n${feature.properties.uniqueDesignation}`;
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
-  geometry = polygon.geometry;
+  annotations.geometry.coordinates = geometry.centerPolygon(polygon);
 
   return { geometry: polygon.geometry, annotations: [annotations] };
 };

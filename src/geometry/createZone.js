@@ -1,4 +1,5 @@
 import ms from '../../index';
+import { geometry } from '../geometry';
 
 function createZone(feature, text, newLineUniq = false, insideLabel = false) {
   let annotations = [];
@@ -8,7 +9,7 @@ function createZone(feature, text, newLineUniq = false, insideLabel = false) {
   };
 
   let polygon = ms.geometry.circleCorridorPolygon(feature);
-
+  annotation1.geometry.coordinates = geometry.centerPolygon(polygon);
   if (feature.properties.uniqueDesignation) {
     if (newLineUniq) {
       annotation1.properties.text += `\n${feature.properties.uniqueDesignation}`

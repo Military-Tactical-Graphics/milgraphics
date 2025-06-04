@@ -1,4 +1,5 @@
 import ms from '../../index';
+import { geometry } from '../geometry';
 
 // Draws a NAI
 function targetedAreaOfInterest(feature) {
@@ -11,7 +12,7 @@ function targetedAreaOfInterest(feature) {
       "\n" + feature.properties.uniqueDesignation;
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
-
+  annotations.geometry.coordinates = geometry.centerPolygon(polygon);
   return { geometry: polygon.geometry, annotations: [annotations] };
 };
 

@@ -11,6 +11,7 @@ import pointBetweenAbsolute from "./geometry/pointbetweenabsolute.js";
 import { getLeftPoint } from './geometry/leftAnnotationPoint.js'
 import createZone from './geometry/createZone.js';
 import { labeledLine } from './geometry/labeledLine.js'
+import { centerPolygon } from './geometry/centerPolygon.js';
 
 export const geometry = {
     bearingBetween,
@@ -28,5 +29,6 @@ export const geometry = {
     addAnnotation: require("./geometry/annotations.js"),
     getLeftPoint,
     createZone,
-    labeledLine
+    labeledLine,
+    centerPolygon
 };

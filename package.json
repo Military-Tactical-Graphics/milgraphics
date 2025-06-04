@@ -1,6 +1,6 @@
 {
   "name": "milgraphics",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "MilGraphics is a library for drawing military graphics",
   "main": "dist/milgraphics.js",
   "directories": {

@@ -1,5 +1,5 @@
 import ms from '../../index';
-
+import { geometry } from '../geometry';
 // Draws a NAI
 function airspaceCoordinationArea(feature) {
   var annotations = {
@@ -25,7 +25,8 @@ function airspaceCoordinationArea(feature) {
 
 
   var polygon = ms.geometry.circleCorridorPolygon(feature);
-
+  annotations.geometry.coordinates = geometry.centerPolygon(polygon);
+  
   return {
     geometry: polygon.geometry,
     annotations: [annotations]
