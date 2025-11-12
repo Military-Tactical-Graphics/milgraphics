@@ -72,6 +72,12 @@ export function createAreas(feature, text) {
       coordinates: []
     };
 
+    const last_point = points[0].slice(-1)[0];
+    const first_point = points[0].slice(0, 1)[0];
+    if (last_point[0] === first_point[0] && last_point[1] === first_point[1]) {
+      points = [points[0].slice(0, -1)]
+    }
+
     var maxLatitudes = Math.max.apply(null, getLatLong(points).latitudes);
     var maxLongitudes = Math.max.apply(null, getLatLong(points).longitudes);
     var minLatitudes = Math.min.apply(null, getLatLong(points).latitudes);
