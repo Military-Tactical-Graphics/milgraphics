@@ -43,16 +43,19 @@ function asGeoJSON(crs) {
             }
         });   
 
-        (feature.graphic.annotations || []).forEach((annotation) => {
-            features.push({
-                type: "Feature",
-                ...annotation,
-                properties: {
-                    ...annotation.properties,
-                    color: rgb2hex(COLOR)
-                }
+        if (feature.properties?.infoFields) {
+            (feature.graphic.annotations || []).forEach((annotation) => {
+                features.push({
+                    type: "Feature",
+                    ...annotation,
+                    properties: {
+                        ...annotation.properties,
+                        textSize: feature.properties.infoSize,
+                        color: rgb2hex(COLOR)
+                    }
+                });
             });
-        });
+        }
     });
 
     return {

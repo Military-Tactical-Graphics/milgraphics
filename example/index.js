@@ -30,6 +30,9 @@ const OpenLayersMap = ({ data }) => {
 const APP = () => {
   const [selected, onSelect] = useState('air-corridor');
   const [affiliation, onAffiliation] = useState('-');
+  const [size, setSize] = useState(20);
+  const [fields, setFields] = useState(false);
+
   const NAME = `${selected.split(/\-|_/).join(" ")}`.toUpperCase().replace("BUILD UP", "BUILD-UP");
   return (
     <>
@@ -47,6 +50,12 @@ const APP = () => {
           )}
         </select>
       </div>
+      <div style={{ position: 'fixed', zIndex: 100, right: 0, top: 52, backgroundColor: 'white' }}>
+        <input type="range" value={size} style={{ fontSize: 20 }} onChange={(e) => setSize(e.target.value)} />
+      </div>
+      <div style={{ position: 'fixed', zIndex: 100, right: 0, top: 52, backgroundColor: 'white' }}>
+        <input type="checkbox" checked={fields} style={{ fontSize: 20 }} onChange={(e) => setFields(!fields)} />
+      </div>
       {selected && editor[NAME] && <div style={{ position: 'fixed', zIndex: 100, left: 40 }}>
         {editor[NAME].geometry ?
           <img src={editor[NAME].description.base64} /> :
@@ -55,12 +64,12 @@ const APP = () => {
               <img key={`${NAME}_${geom.geometry.type}`} src={geom.description.base64} />)}          
           </>}
       </div>}
-      <OpenLayersMap data={updateFiles(files[selected], editor[NAME], affiliation)} />
+      <OpenLayersMap data={updateFiles(files[selected], editor[NAME], affiliation, size, fields)} />
     </>   
   );
 };
 
-const updateFiles = (file, editor, affiliation) => {
+const updateFiles = (file, editor, affiliation, infoSize, infoFields) => {
   const VALID_SIDC = Array.isArray(editor) ?
     editor.map(e => e.properties.sidc.slice(2)) : [editor?.properties?.sidc.slice(2)];
 
@@ -76,7 +85,9 @@ const updateFiles = (file, editor, affiliation) => {
             ...feature,
             properties: {
               ...feature.properties,
-              sidc: SIDC
+              sidc: SIDC,
+              infoSize,
+              infoFields
             }
           })
         }

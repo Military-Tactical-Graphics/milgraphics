@@ -1,6 +1,6 @@
 {
   "name": "milgraphics",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "MilGraphics is a library for drawing military graphics",
   "main": "dist/milgraphics.js",
   "directories": {
@@ -24,22 +24,22 @@
   },
   "homepage": "https://github.com/spatialillusions/milgraphics",
   "devDependencies": {
-    "@babel/cli": "^7.27.2",
-    "@babel/core": "^7.27.3",
-    "@babel/eslint-parser": "^7.27.1",
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/eslint-parser": "^7.29.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
-    "@babel/plugin-transform-destructuring": "^7.27.3",
-    "@babel/preset-env": "^7.27.2",
-    "@babel/preset-react": "^7.27.1",
-    "babel-loader": "^10.0.0",
-    "eslint": "^9.27.0",
-    "html-webpack-plugin": "^5.6.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@babel/plugin-transform-destructuring": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "babel-loader": "^10.1.1",
+    "eslint": "^9.39.4",
+    "html-webpack-plugin": "^5.6.7",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "source-map-loader": "^5.0.0",
-    "webpack": "^5.99.9",
+    "webpack": "^5.108.0",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.1"
+    "webpack-dev-server": "^5.2.5"
   },
   "peerDependencies": {
     "@types/react": "^18.0.0 || ^19.0.0",
@@ -49,8 +49,8 @@
   "dependencies": {
     "file-loader": "^6.2.0",
     "geodesy": "^2.4.0",
-    "ol": "^10.5.0",
+    "ol": "^10.9.0",
     "requirejs": "^2.3.7",
-    "milsymbol": "3.0.2"
+    "milsymbol": "3.0.4"
   }
 }
